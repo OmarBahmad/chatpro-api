@@ -38,8 +38,6 @@ function App() {
         onChange={(e) => setMessage(e.target.value)}
       />
       <button onClick={postA}>Enviar Mensagem</button>
-      <Render>
-      </Render>
     </Container>
   );
 }
