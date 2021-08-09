@@ -1,62 +1,36 @@
-import React, { useState } from "react";
-import { sendMessage } from "./Actions/Message";
-import { getContacts } from "./Actions/Contacts";
-import { Container } from "./styles";
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+import Message from "./Pages/Message";
+import Contacts from "./Pages/Contacts";
+import Home from "./Pages/Home";
+import Chat from "./Pages/Chat";
+
 //import { ExcelToJson } from "./Components/ReadFileXML/ReadFile";
 
 function App() {
-  const [message, setMessage] = useState("");
-  const [number, setNumber] = useState("");
-
-  async function postA() {
-    const obj = {
-      number: number,
-      message: message,
-    };
-    try {
-      await sendMessage(obj);
-      alert("Mensagem enviada com sucesso.");
-    } catch (err) {
-      console.log("erro");
-    }
-    setMessage("");
-    setNumber("");
-  }
-
-  async function postB() {
-    try {
-      const resp = await getContacts();
-      console.log(resp);
-    } catch (err) {
-      console.log("erro");
-    }
-    setMessage("");
-    setNumber("");
-  }
-
   return (
-    <Container>
-      <input
-        placeholder="Numero"
-        className="input-msg"
-        value={number}
-        onChange={(e) => setNumber(e.target.value)}
-      />
-      <input
-        placeholder="Mensagem"
-        className="input-msg"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      />
-      <button onClick={postA}>Enviar Mensagem</button>
-      <button onClick={postB}>Retornar lista de Chats</button>
-
-      {/*<div>
-        <ExcelToJson />
+    <BrowserRouter>
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/message" component={Message} />
+          <Route exact path="/contacts" component={Contacts} />
+          <Route exact path="/chat" component={Chat} />
+        </Switch>
       </div>
-      */}
-    </Container>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+/*
+ <Container>
+      {/*<div>
+        <ExcelToJson />
+      </div>
+      }
+    </Container>
+
+*/
