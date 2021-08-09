@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { sendMessage } from "./Actions/Message";
+import { getContacts } from "./Actions/Contacts";
 import { Container } from "./styles";
 //import { ExcelToJson } from "./Components/ReadFileXML/ReadFile";
 
@@ -11,11 +12,21 @@ function App() {
     const obj = {
       number: number,
       message: message,
-    };   
-
+    };
     try {
       await sendMessage(obj);
-      alert("Post Adicionado com sucesso.");
+      alert("Mensagem enviada com sucesso.");
+    } catch (err) {
+      console.log("erro");
+    }
+    setMessage("");
+    setNumber("");
+  }
+
+  async function postB() {
+    try {
+      const resp = await getContacts();
+      console.log(resp);
     } catch (err) {
       console.log("erro");
     }
@@ -38,6 +49,8 @@ function App() {
         onChange={(e) => setMessage(e.target.value)}
       />
       <button onClick={postA}>Enviar Mensagem</button>
+      <button onClick={postB}>Retornar lista de Chats</button>
+
       {/*<div>
         <ExcelToJson />
       </div>
