@@ -11,7 +11,7 @@ function App() {
     const obj = {
       number: number,
       message: message,
-    };
+    };   
 
     try {
       await sendMessage(obj);
