@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as XLSX from "xlsx";
 
-class ExcelToJson extends React.Component {
+export class ExcelToJson extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
