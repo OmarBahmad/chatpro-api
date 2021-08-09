@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { createPost } from "./Components/SendMensage/SendMensage";
+import { sendMessage } from "./Actions/Message";
 import { Container } from "./styles";
-import {ExcelToJson} from "./Components/ReadFileXML/ReadFile"
+//import { ExcelToJson } from "./Components/ReadFileXML/ReadFile";
 
 function App() {
   const [message, setMessage] = useState("");
@@ -10,11 +10,11 @@ function App() {
   async function postA() {
     const obj = {
       number: number,
-      message:message
-    }
+      message: message,
+    };
 
     try {
-      await createPost(obj);
+      await sendMessage(obj);
       alert("Post Adicionado com sucesso.");
     } catch (err) {
       console.log("erro");
@@ -38,7 +38,10 @@ function App() {
         onChange={(e) => setMessage(e.target.value)}
       />
       <button onClick={postA}>Enviar Mensagem</button>
-      <ExcelToJson />
+      {/*<div>
+        <ExcelToJson />
+      </div>
+      */}
     </Container>
   );
 }

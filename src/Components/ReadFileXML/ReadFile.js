@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import * as XLSX from "xlsx";
 
 export class ExcelToJson extends React.Component {
@@ -26,7 +26,6 @@ export class ExcelToJson extends React.Component {
 
   readFile() {
     var f = this.state.file;
-    var name = f.name;
     const reader = new FileReader();
     reader.onload = (evt) => {
       // evt = on_file_select event
