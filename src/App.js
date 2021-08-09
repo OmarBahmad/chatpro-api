@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createPost } from "./Components/SendMensage/SendMensage";
 import { Container } from "./styles";
-import {ExcelToJson} from "./Components/SendMensage/ReadFileXML/ReadFile"
+import {ExcelToJson} from "./Components/ReadFileXML/ReadFile"
 
 function App() {
   const [message, setMessage] = useState("");
@@ -38,6 +38,7 @@ function App() {
         onChange={(e) => setMessage(e.target.value)}
       />
       <button onClick={postA}>Enviar Mensagem</button>
+      <ExcelToJson />
     </Container>
   );
 }
