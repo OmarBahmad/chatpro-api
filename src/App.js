@@ -5,6 +5,7 @@ import Message from "./Pages/Message";
 import Contacts from "./Pages/Contacts";
 import Home from "./Pages/Home";
 import Chat from "./Pages/Chat";
+import Group from "./Pages/Groups";
 
 //import { ExcelToJson } from "./Components/ReadFileXML/ReadFile";
 
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/message" component={Message} />
           <Route exact path="/contacts" component={Contacts} />
           <Route exact path="/chat" component={Chat} />
+          <Route exact path="/group" component={Group} />
         </Switch>
       </div>
     </BrowserRouter>
