@@ -11,8 +11,8 @@ export default function SendLocation() {
   async function sendLocal() {
     const obj = {
       address,
-      lat,
-      lng,
+      lat: Number(lat),
+      lng: Number(lng),
       name,
       number,
     };
@@ -49,7 +49,7 @@ export default function SendLocation() {
         onChange={(e) => setLng(e.target.value)}
       />
       <input
-        placeholder="Nome"
+        placeholder="Nome do local"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
@@ -62,3 +62,7 @@ export default function SendLocation() {
     </div>
   );
 }
+
+/*
+
+*/
