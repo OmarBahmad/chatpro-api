@@ -21,6 +21,7 @@ export default function QRCode() {
   return (
     <div>
       <h2>Gerar novo QRCode</h2>
+      <p>Gera um QR Code em caso de não conseguir pelo painel</p>
       <input
         placeholder="Gerar novo QR Code"
         className="input-msg"
