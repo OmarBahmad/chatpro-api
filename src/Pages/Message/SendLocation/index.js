@@ -3,8 +3,8 @@ import { sendLocation } from "../../../Actions/Message";
 
 export default function SendLocation() {
   const [address, setAddress] = useState("");
-  const [lat, setLat] = useState("");
-  const [lng, setLng] = useState("");
+  const [lat, setLat] = useState(0);
+  const [lng, setLng] = useState(0);
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
 
@@ -14,7 +14,7 @@ export default function SendLocation() {
       lat,
       lng,
       name,
-      number
+      number,
     };
     try {
       await sendLocation(obj);
@@ -23,8 +23,8 @@ export default function SendLocation() {
       console.log("erro");
     }
     setAddress("");
-    setLat("");
-    setLng("");
+    setLat(0);
+    setLng(0);
     setName("");
     setNumber("");
   }
@@ -33,16 +33,18 @@ export default function SendLocation() {
       <h2>Enviar Localização</h2>
       <input
         placeholder="Endereço"
-        value={setAddress}
+        value={address}
         onChange={(e) => setAddress(e.target.value)}
       />
       <input
         placeholder="Latitude"
+        type="number"
         value={lat}
         onChange={(e) => setLat(e.target.value)}
       />
       <input
         placeholder="Longitude"
+        type="number"
         value={lng}
         onChange={(e) => setLng(e.target.value)}
       />

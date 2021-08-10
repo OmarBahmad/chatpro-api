@@ -6,7 +6,7 @@ export default function SendMessageTemplate() {
   const [contact_number, setContactNumber] = useState("");
   const [number, setNumber] = useState("");
 
-  async function sendCTT() {
+  async function sendMessageTpt() {
     const obj = {
       contact_name,
       contact_number,
@@ -19,28 +19,22 @@ export default function SendMessageTemplate() {
       console.log("erro");
     }
     setContactNumber("");
-    setContactName("");
     setNumber("");
   }
   return (
     <div>
       <h2>Enviar Template de Mensagem</h2>
       <input
-        placeholder="Nome do Contato"
+        placeholder="Template da mensagem"
         value={contact_name}
         onChange={(e) => setContactName(e.target.value)}
-      />
-      <input
-        placeholder="Numero desse contato"
-        value={contact_number}
-        onChange={(e) => setContactNumber(e.target.value)}
       />
       <input
         placeholder="Número"
         value={number}
         onChange={(e) => setNumber(e.target.value)}
       />
-      <button onClick={sendCTT}>Enviar Contato</button>
+      <button onClick={sendMessageTpt}>Enviar Mensagem</button>
     </div>
   );
 }

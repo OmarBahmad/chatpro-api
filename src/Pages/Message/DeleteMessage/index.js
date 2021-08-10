@@ -6,26 +6,25 @@ export default function DeleteMessage() {
   const [messageID, setMessageID] = useState("");
 
   async function deleteMsg() {
-    const nova = chatJid.includes("@s.whatsapp.net");
-
     const obj = {
-      chatJid: chatJid,
-      messageID: messageID,
+      chatJid: "55"+chatJid.concat("@s.whatsapp.net"),
+      messageID,
     };
     try {
       await deleteMessage(obj);
-      alert("Mensagem enviada com sucesso.");
+      alert("Mensagem Apagada com sucesso.");
     } catch (err) {
       console.log("erro");
     }
     setChatJid("");
     setMessageID("");
   }
+
   return (
     <div>
       <h2>Excluir Mensagem</h2>
       <input
-        placeholder="Numero do telefone"
+        placeholder="Numero do telefone sem o '9'"
         className="input-msg"
         value={chatJid}
         onChange={(e) => setChatJid(e.target.value)}
@@ -40,3 +39,8 @@ export default function DeleteMessage() {
     </div>
   );
 }
+
+/*
+      chatJid: "556282530552@s.whatsapp.net", //sem o 9
+      messageID: "2B632CC4CCECA2E3FBA3",
+*/
