@@ -12,8 +12,8 @@ export default function SearchContacts() {
   }
   return (
     <div>
-      <h2>Retornar lista de Chat</h2>
-      <button onClick={postB}>Retornar lista de Chats</button>
+      <h2>Retornar lista de Contatos</h2>
+      <button onClick={postB}>Retornar lista de Contatos</button>
     </div>
   );
 }

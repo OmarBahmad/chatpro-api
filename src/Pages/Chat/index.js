@@ -1,5 +1,10 @@
 import React from "react";
+import GetChat from "./GetChat";
 
 export default function Chat() {
-  return <div>Chat</div>;
+  return (
+    <div>
+      <GetChat />
+    </div>
+  );
 }
