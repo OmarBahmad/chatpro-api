@@ -19,6 +19,8 @@ export default function RefreshWebhook() {
   return (
     <div>
       <h2>Atualizar Webhook</h2>
+      <p>Atualiza o servidor Webhook</p>
+      <br/>
       <input 
         placeholder="URL"
         className="input-msg"
