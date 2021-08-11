@@ -35,18 +35,25 @@ export default function LeaveGroup() {
 
   return (
     <div>
-      <br/>
+      <br />
       <h2>Pesquisar Grupos</h2>
       <button onClick={postB}> Pesquisar grupos </button>
-      <br/>
+      <br />
+      {group?.map((index) => (
+        <>
+          <p>
+            Nome do Grupo: {index.Name} <span> Id: {index.Jid}</span>{" "}
+          </p>
+        </>
+      ))}
       <h2>Sair de um grupo</h2>
-      <input placeholder="JID do Grupo" 
-      className="input-msg"
-      value={jid}
-      onChange ={(e)=> setJid(e.target.value)}
+      <input
+        placeholder="JID do Grupo"
+        className="input-msg"
+        value={jid}
+        onChange={(e) => setJid(e.target.value)}
       />
       <button onClick={leaveG}> Sair do Grupo </button>
     </div>
-
   );
 }

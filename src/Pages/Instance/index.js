@@ -1,4 +1,6 @@
 import React from "react";
+import { Sidebar } from "../../Components/Sidebar";
+import { Container } from "../../Components/Container";
 import RefreshWebhook from "./RefreshWebhook";
 import Status from "./Status";
 import UpdateProfile from "./UpdateProfile";
@@ -8,13 +10,16 @@ import RemoveSession from "./RemoveSession";
 
 export default function Instance() {
   return (
-    <div>
-      <QRCode />
-      <Reload />
-      <RemoveSession />
-      <Status />
-      <UpdateProfile />
-      <RefreshWebhook />
-    </div>
+    <>
+      <Sidebar />
+      <Container>
+        <QRCode />
+        <Reload />
+        <RemoveSession />
+        <Status />
+        <UpdateProfile />
+        <RefreshWebhook />
+      </Container>
+    </>
   );
 }

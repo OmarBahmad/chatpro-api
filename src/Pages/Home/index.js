@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import { Sidebar } from "../../Components/Sidebar";
+import { Container } from "../../Components/Container";
 
 export default function Home() {
   return (
-    <div>
-      Inicio
-    </div>
-  )
+    <>
+      <Sidebar />
+      <Container>
+        <div>Inicio</div>
+      </Container>
+    </>
+  );
 }
