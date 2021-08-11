@@ -1,20 +1,45 @@
-import React, {useCallback} from 'react'
-import {useDropzone} from 'react-dropzone'
+import React from "react";
+import * as XLSX from "xlsx";
 
-export default function ImportExcell() {
-  const onDrop = useCallback(acceptedFiles => {
-    console.log(acceptedFiles)
-  }, [])
-  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+export default function ImportExcell({ setItems }) {
+  const readExcel = (file) => {
+    const promise = new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsArrayBuffer(file);
+
+      fileReader.onload = (e) => {
+        const bufferArray = e.target.result;
+
+        const wb = XLSX.read(bufferArray, { type: "buffer" });
+
+        const wsname = wb.SheetNames[0];
+
+        const ws = wb.Sheets[wsname];
+
+        const data = XLSX.utils.sheet_to_json(ws);
+
+        resolve(data);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+
+    promise.then((d) => {
+      setItems(d);
+    });
+  };
 
   return (
-    <div {...getRootProps()}>
-      <input {...getInputProps()} />
-      {
-        isDragActive ?
-          <p>Drop the files here ...</p> :
-          <p>Drag 'n' drop some files here, or click to select files</p>
-      }
-    </div>
-  )
+    <>
+      <input
+        type="file"
+        onChange={(e) => {
+          const file = e.target.files[0];
+          readExcel(file);
+        }}
+      />
+    </>
+  );
 }
