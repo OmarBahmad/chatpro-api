@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { sendMessage } from "../../../Actions/Message";
 import ImportExcell from "../../../Components/ImportExcell";
 
@@ -6,25 +6,33 @@ export default function SendMessage() {
   const [message, setMessage] = useState("");
   const [number, setNumber] = useState("");
   const [items, setItems] = useState([]);
+  const [count, setCount] = useState(0);
 
   const arrayExcell = [
     { number: "62982530552", message: "Teste Vitor" },
     { number: "62985577747", message: "Teste Andre" },
     { number: "62996422859", message: "Teste Omar" },
+    { number: "62996422859", message: "Teste Caio" },
   ];
 
+  useEffect(() => {
+    setTimeout(() => {
+      sendM();
+    }, 8000);
+  }, [count]);
+  
+
   async function sendM() {
-    items.forEach((element) => {
-      const obj = {
-        number: element.numero.toString(),
-        message: element.mensagem,
-      };
-      try {
-        sendMessage(obj);
-      } catch (err) {
-        console.log("erro");
-      }
-    });
+    const obj = {
+      number: arrayExcell[count].number,
+      message: arrayExcell[count].message,
+    };
+    try {
+      sendMessage(obj);
+    } catch (err) {
+      console.log("erro");
+    }
+    setCount(count + 1);
   }
 
   return (
@@ -42,7 +50,7 @@ export default function SendMessage() {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
-      <button onClick={sendM}>Enviar Mensagem</button>
+      <button onClick={() => setCount(count + 1)}>Enviar Mensagem</button>
 
       <ImportExcell setItems={setItems} />
       {items?.map((index) => (
@@ -52,7 +60,6 @@ export default function SendMessage() {
           </p>
         </div>
       ))}
-      {console.log(items)}
     </div>
   );
 }
