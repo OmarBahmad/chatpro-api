@@ -8,17 +8,16 @@ export default function SendMessage() {
   const [items, setItems] = useState([]);
 
   const arrayExcell = [
-    { number: "62985777747", message: "Teste 01" },
-    { number: "62985777747", message: "Teste 02" },
-    { number: "62985777747", message: "Teste 03" },
-    { number: "62985777747", message: "Teste 04" },
+    { number: "62982530552", message: "Teste Vitor" },
+    { number: "62985577747", message: "Teste Andre" },
+    { number: "62996422859", message: "Teste Omar" },
   ];
 
   async function sendM() {
-    arrayExcell.forEach((element) => {
+    items.forEach((element) => {
       const obj = {
-        number: element.number,
-        message: element.message,
+        number: element.numero.toString(),
+        message: element.mensagem,
       };
       try {
         sendMessage(obj);
@@ -47,8 +46,13 @@ export default function SendMessage() {
 
       <ImportExcell setItems={setItems} />
       {items?.map((index) => (
-        <p>{index.Nome}</p>
+        <div key={index.numero}>
+          <p>
+            Número: {index.numero} - Mensagem: {index.mensagem}
+          </p>
+        </div>
       ))}
+      {console.log(items)}
     </div>
   );
 }
