@@ -1,60 +1,57 @@
 import { ReactComponent as GithubSvg } from "../../Assets/svg/github_icon.svg";
 
-
 import { NavLink } from "react-router-dom";
 
 import * as S from "./styles";
 
 export const Sidebar = () => {
-
   return (
     <S.Wrapper>
       <S.MenuWrapper>
         <S.ItensWrapper>
           <NavLink to="/" end>
             <S.Item>
-            <GithubSvg />
+              <GithubSvg />
               <span>Home</span>
             </S.Item>
           </NavLink>
           <NavLink to="/message">
             <S.Item>
-            <GithubSvg />
+              <GithubSvg />
               <span>Mensagens</span>
             </S.Item>
           </NavLink>
           <NavLink to="/chat">
             <S.Item>
-            <GithubSvg />
+              <GithubSvg />
               <span>Chat</span>
             </S.Item>
           </NavLink>
           <NavLink to="/contacts">
             <S.Item>
-            <GithubSvg />
+              <GithubSvg />
               <span>Contatos</span>
             </S.Item>
           </NavLink>
           <NavLink to="/group">
             <S.Item>
-            <GithubSvg />
+              <GithubSvg />
               <span>Grupos</span>
             </S.Item>
           </NavLink>
           <NavLink to="/status">
             <S.Item>
-            <GithubSvg />
+              <GithubSvg />
               <span>Status</span>
             </S.Item>
           </NavLink>
           <NavLink to="/instance">
             <S.Item>
-            <GithubSvg />
+              <GithubSvg />
               <span>Instância</span>
             </S.Item>
           </NavLink>
         </S.ItensWrapper>
-
       </S.MenuWrapper>
     </S.Wrapper>
   );

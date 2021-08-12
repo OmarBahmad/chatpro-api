@@ -9,30 +9,34 @@ export default function SendMessage() {
   const [count, setCount] = useState(0);
 
   const arrayExcell = [
-    { number: "62982530552", message: "Teste Vitor" },
-    { number: "62985577747", message: "Teste Andre" },
-    { number: "62996422859", message: "Teste Omar" },
-    { number: "62996422859", message: "Teste Caio" },
+    { number: "62981818608", message: "Teste Vitor" },
+    { number: "62981818608", message: "Teste Andre" },
+    { number: "62981818608", message: "Teste Omar" },
+    { number: "62981818608", message: "Teste Caio" },
   ];
-
-  useEffect(() => {
-    setTimeout(() => {
-      sendM();
-    }, 8000);
-  }, [count]);
 
   async function sendM() {
     const obj = {
-      number: arrayExcell[count].number,
-      message: arrayExcell[count].message,
+      number,
+      message,
     };
     try {
       sendMessage(obj);
     } catch (err) {
       console.log("erro");
     }
-    setCount(count + 1);
+    setCount(prev => prev + 1);
   }
+
+  useEffect(() => {
+    if (!count) return;
+
+    const handler = setInterval(() => {
+      sendM();
+    }, 8000);
+    return () => clearInterval(handler);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count]);
 
   return (
     <div>
@@ -41,18 +45,20 @@ export default function SendMessage() {
         placeholder="Numero do telefone"
         className="input-msg"
         value={number}
-        onChange={(e) => setNumber(e.target.value)}
+        onChange={e => setNumber(e.target.value)}
       />
       <input
         placeholder="Mensagem"
         className="input-msg"
         value={message}
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={e => setMessage(e.target.value)}
       />
-      <button onClick={() => setCount(count + 1)}>Enviar Mensagem</button>
+      <button onClick={() => setCount(prev => prev + 1)}>
+        Enviar Mensagem
+      </button>
 
       <ImportExcell setItems={setItems} />
-      {items?.map((index) => (
+      {items?.map(index => (
         <div key={index.numero}>
           <p>
             Número: {index.numero} - Mensagem: {index.mensagem}
