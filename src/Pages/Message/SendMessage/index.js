@@ -20,7 +20,6 @@ export default function SendMessage() {
       sendM();
     }, 8000);
   }, [count]);
-  
 
   async function sendM() {
     const obj = {
