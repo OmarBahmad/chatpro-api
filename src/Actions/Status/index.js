@@ -10,7 +10,7 @@ export const sendImageStatus = async (params) => {
       {
         headers: {
           "Content-Type": "application/json",
-          authorization: "bdfj464v5dnfzunss6bb58ui7fmbk5",
+          authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu",
         },
       }
     );
@@ -31,7 +31,7 @@ export const sendTextStatus = async (params) => {
       {
         headers: {
           "Content-Type": "application/json",
-          authorization: "bdfj464v5dnfzunss6bb58ui7fmbk5",
+          authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu",
         },
       }
     );
