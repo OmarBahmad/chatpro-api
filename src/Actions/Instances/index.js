@@ -5,7 +5,7 @@ export const getQRCode = async () => {
   let summary = [];
   try {
     const { data } = await api.get("/api/v1/generate_qrcode", {
-      headers: { authorization: "bdfj464v5dnfzunss6bb58ui7fmbk5" },
+      headers: { authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu" },
     });
     summary = data;
   } catch (error) {
@@ -19,7 +19,7 @@ export const getReloadInstance = async () => {
   let summary = [];
   try {
     const { data } = await api.get("/api/v1/reload", {
-      headers: { authorization: "bdfj464v5dnfzunss6bb58ui7fmbk5" },
+      headers: { authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu" },
     });
     summary = data;
   } catch (error) {
@@ -33,7 +33,7 @@ export const DisconnectWhatsapp = async () => {
   let summary = [];
   try {
     const { data } = await api.get("/api/v1/remove_session", {
-      headers: { authorization: "bdfj464v5dnfzunss6bb58ui7fmbk5" },
+      headers: { authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu" },
     });
     summary = data;
   } catch (error) {
@@ -47,7 +47,7 @@ export const getStatusCellphone = async () => {
   let summary = [];
   try {
     const { data } = await api.get("/api/v1/status", {
-      headers: { authorization: "bdfj464v5dnfzunss6bb58ui7fmbk5" },
+      headers: { authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu" },
     });
     summary = data;
   } catch (error) {
@@ -66,7 +66,7 @@ export const updatePhoto = async (params) => {
       {
         headers: {
           "Content-Type": "application/json",
-          authorization: "bdfj464v5dnfzunss6bb58ui7fmbk5",
+          authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu",
         },
       }
     );
@@ -84,7 +84,7 @@ export const updateWebhook = async (params) => {
     const { data } = await api.post("/api/v1/webhook", JSON.stringify(params), {
       headers: {
         "Content-Type": "application/json",
-        authorization: "bdfj464v5dnfzunss6bb58ui7fmbk5",
+        authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu",
       },
     });
     summary = data;

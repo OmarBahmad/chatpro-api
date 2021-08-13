@@ -5,7 +5,7 @@ export const getContacts = async () => {
   let summary = [];
   try {
     const { data } = await api.get("/api/v1/contacts", {
-      headers: { authorization: "bdfj464v5dnfzunss6bb58ui7fmbk5" },
+      headers: { authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu" },
     });
     summary = data;
   } catch (error) {
@@ -24,7 +24,7 @@ export const getProfile = async (params) => {
       {
         headers: {
           "Content-Type": "application/json",
-          authorization: "bdfj464v5dnfzunss6bb58ui7fmbk5",
+          authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu",
         },
       }
     );

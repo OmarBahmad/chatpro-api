@@ -5,7 +5,7 @@ export const getChat = async () => {
   let summary = [];
   try {
     const { data } = await api.get("/api/v1/chats", {
-      headers: { authorization: "bdfj464v5dnfzunss6bb58ui7fmbk5" },
+      headers: { authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu" },
     });
     summary = data;
   } catch (error) {
