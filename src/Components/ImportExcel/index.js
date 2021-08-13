@@ -1,7 +1,7 @@
 import React from "react";
 import * as XLSX from "xlsx";
 
-export default function ImportExcell({ setItems }) {
+export default function ImportExcel({ setItems }) {
   const readExcel = (file) => {
     const promise = new Promise((resolve, reject) => {
       const fileReader = new FileReader();

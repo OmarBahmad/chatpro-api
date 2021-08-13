@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { sendFile } from "../../../Actions/Message";
-import ImportExcell from "../../../Components/ImportExcell";
+import ImportExcel from "../../../Components/ImportExcel";
 
 export default function SendFile() {
   const [caption, setCaption] = useState("");
@@ -56,7 +56,7 @@ export default function SendFile() {
         onChange={(e) => setNumber(e.target.value)}
       />
       <input type="file" value={url} onChange={(e) => setURL(e.target.value)} />
-      <ImportExcell setItems={setItems} />
+      <ImportExcel setItems={setItems} />
       <button onClick={() => setCount((prev) => prev + 1)}>
         Enviar Arquivo
       </button>

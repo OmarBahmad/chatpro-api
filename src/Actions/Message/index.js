@@ -1,5 +1,7 @@
 import api from "../../Api/api";
 
+const keyAuthorization = "00pt9ch94njesn0prrrcyo3i5wcwuu"
+
 // Enviar mensagem de texto de texto
 export const sendMessage = async (params) => {
   let summary = [];
@@ -10,7 +12,7 @@ export const sendMessage = async (params) => {
       {
         headers: {
           "Content-Type": "application/json",
-          authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu",
+          authorization: keyAuthorization,
         },
         timeout: 2500,
       }
@@ -32,7 +34,7 @@ export const deleteMessage = async (params) => {
       {
         headers: {
           "Content-Type": "application/json",
-          authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu",
+          authorization: keyAuthorization,
         },
       }
     );
@@ -53,7 +55,7 @@ export const sendLocation = async (params) => {
       {
         headers: {
           "Content-Type": "application/json",
-          authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu",
+          authorization: keyAuthorization,
         },
       }
     );
@@ -74,7 +76,7 @@ export const sendFile = async (params) => {
       {
         headers: {
           "Content-Type": "application/json",
-          authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu",
+          authorization: keyAuthorization,
         },
         timeout: 4000,
       }
@@ -96,7 +98,7 @@ export const sendMessageTemplate = async (params) => {
       {
         headers: {
           "Content-Type": "application/json",
-          authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu",
+          authorization: keyAuthorization,
         },
       }
     );
@@ -117,7 +119,7 @@ export const sendContact = async (params) => {
       {
         headers: {
           "Content-Type": "application/json",
-          authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu",
+          authorization: keyAuthorization,
         },
       }
     );
