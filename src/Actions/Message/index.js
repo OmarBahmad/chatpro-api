@@ -10,13 +10,14 @@ export const sendMessage = async (params) => {
       {
         headers: {
           "Content-Type": "application/json",
-          authorization: "bdfj464v5dnfzunss6bb58ui7fmbk5",
+          authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu",
         },
+        timeout: 2500, 
       }
     );
     summary = data;
   } catch (error) {
-    alert("Erro ao enviar mensagem.");
+    // alert("Erro ao enviar mensagem.");
   }
   return summary;
 };
@@ -31,7 +32,7 @@ export const deleteMessage = async (params) => {
       {
         headers: {
           "Content-Type": "application/json",
-          authorization: "bdfj464v5dnfzunss6bb58ui7fmbk5",
+          authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu",
         },
       }
     );
@@ -52,7 +53,7 @@ export const sendLocation = async (params) => {
       {
         headers: {
           "Content-Type": "application/json",
-          authorization: "bdfj464v5dnfzunss6bb58ui7fmbk5",
+          authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu",
         },
       }
     );
