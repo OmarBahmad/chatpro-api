@@ -12,7 +12,7 @@ export default function SendMessage() {
   async function sendM() {
     const obj = {
       number: items[count].numero.toString(),
-      message: items[count].mensagem,
+      message: items[count].mensagem.toString(),
     };
     try {
       const resp = await sendMessage(obj);

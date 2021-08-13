@@ -12,7 +12,7 @@ export const sendMessage = async (params) => {
           "Content-Type": "application/json",
           authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu",
         },
-        timeout: 2500, 
+        timeout: 2500,
       }
     );
     summary = data;
@@ -76,6 +76,7 @@ export const sendFile = async (params) => {
           "Content-Type": "application/json",
           authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu",
         },
+        timeout: 4000,
       }
     );
     summary = data;
