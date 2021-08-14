@@ -1,11 +1,11 @@
-import api from "../../Api/api";
+import { api, keyAuthorization } from "../../Api/api";
 
 // Retorna a lista de contatos do celular
 export const getContacts = async () => {
   let summary = [];
   try {
     const { data } = await api.get("/api/v1/contacts", {
-      headers: { authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu" },
+      headers: { authorization: keyAuthorization },
     });
     summary = data;
   } catch (error) {
@@ -24,7 +24,7 @@ export const getProfile = async (params) => {
       {
         headers: {
           "Content-Type": "application/json",
-          authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu",
+          authorization: keyAuthorization,
         },
       }
     );

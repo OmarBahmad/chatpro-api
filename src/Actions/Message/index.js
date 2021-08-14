@@ -1,6 +1,4 @@
-import api from "../../Api/api";
-
-const keyAuthorization = "00pt9ch94njesn0prrrcyo3i5wcwuu"
+import { api, keyAuthorization } from "../../Api/api";
 
 // Enviar mensagem de texto de texto
 export const sendMessage = async (params) => {
@@ -78,7 +76,7 @@ export const sendFile = async (params) => {
           "Content-Type": "application/json",
           authorization: keyAuthorization,
         },
-        timeout: 4000,
+        timeout: 8000,
       }
     );
     summary = data;

@@ -1,0 +1,99 @@
+import React, { useState, useEffect } from "react";
+import ReactExport from "react-export-excel";
+
+import { sendFile } from "../../../../Actions/Message";
+import ImportExcel from "../../../../Components/ImportExcel";
+
+const ExcelFile = ReactExport.ExcelFile;
+const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
+const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
+
+export default function SendFile() {
+  const [caption, setCaption] = useState("");
+  const [number, setNumber] = useState("");
+  const [url, setURL] = useState("");
+  const [count, setCount] = useState(-1);
+  const [items, setItems] = useState([]);
+  const [respJson, setRespJson] = useState([]);
+  const [checkMessage, setCheckMessage] = useState([]);
+
+  async function sendUrlFile() {
+    const obj = {
+      caption: items[count].nome.toString(),
+      number: items[count].numero.toString(),
+      url: items[count].url.toString(),
+    };
+    try {
+      const resp = await sendFile(obj);
+      if (resp.status === true) {
+        setCheckMessage((oldArray) => [...oldArray, { sendTrue: true }]);
+        setRespJson((index) => [
+          ...index,
+          {
+            id: resp.messageInfo.Id.toString(),
+            number: resp.messageInfo.RemoteJid,
+          },
+        ]);
+      } else {
+        setCheckMessage((oldArray) => [...oldArray, { sendTrue: false }]);
+      }
+    } catch (err) {
+      console.log("erro");
+    }
+    setCaption("");
+    setNumber("");
+    setURL("");
+    setCount((prev) => prev + 1);
+  }
+
+  useEffect(() => {
+    if (count < 0 || count === items.length) return;
+
+    const handler = setInterval(() => {
+      sendUrlFile();
+    }, 8000);
+    return () => clearInterval(handler);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count]);
+
+  return (
+    <>
+      <p>file</p>
+      <ImportExcel setItems={setItems} />
+      <button onClick={() => setCount((prev) => prev + 1)}>
+        Disparar Mensagens
+      </button>
+    </>
+    // <div>
+    //   <h2>Enviar Arquivo</h2>
+    //   <input
+    //     placeholder="Nome do Arquivo"
+    //     value={caption}
+    //     onChange={(e) => setCaption(e.target.value)}
+    //   />
+    //   <input
+    //     placeholder="Número"
+    //     value={number}
+    //     onChange={(e) => setNumber(e.target.value)}
+    //   />
+    //   <input type="file" value={url} onChange={(e) => setURL(e.target.value)} />
+    //   <ImportExcel setItems={setItems} />
+    //   <button onClick={() => setCount((prev) => prev + 1)}>
+    //     Enviar Arquivo
+    //   </button>
+    //   {console.log(items)}
+
+    //   {checkMessage?.map((index) => (
+    //     <div key={index.sendTrue}>
+    //       <p>Mensagem Enviada: {index.sendTrue === true ? "Sim" : "Não"}</p>
+    //     </div>
+    //   ))}
+    // </div>
+  );
+}
+
+/*
+      caption: "Tcc Vitor",
+      number: "62982536654",
+      url: "http://repositorio.unicamp.br/bitstream/REPOSIP/254842/1/Oliveira_MiguelMeirellesde_M.pdf",
+*/

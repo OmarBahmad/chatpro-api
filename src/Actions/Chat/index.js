@@ -1,11 +1,11 @@
-import api from "../../Api/api";
+import { api, keyAuthorization } from "../../Api/api";
 
 // Retorna a lista de chats
 export const getChat = async () => {
   let summary = [];
   try {
     const { data } = await api.get("/api/v1/chats", {
-      headers: { authorization: "00pt9ch94njesn0prrrcyo3i5wcwuu" },
+      headers: { authorization: keyAuthorization },
     });
     summary = data;
   } catch (error) {
