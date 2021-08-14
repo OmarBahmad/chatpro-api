@@ -8,19 +8,26 @@ const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 
-export default function SendFile() {
-  const [caption, setCaption] = useState("");
-  const [number, setNumber] = useState("");
-  const [url, setURL] = useState("");
+export function SendMultipleFiles({
+  items,
+  setItems,
+  setCheckMessage,
+  respJson,
+  setRespJson,
+}) {
   const [count, setCount] = useState(-1);
-  const [items, setItems] = useState([]);
-  const [respJson, setRespJson] = useState([]);
-  const [checkMessage, setCheckMessage] = useState([]);
+  // const [caption, setCaption] = useState("");
+  // const [number, setNumber] = useState("");
+  // const [url, setURL] = useState("");
+  // const [count, setCount] = useState(-1);
+  // const [items, setItems] = useState([]);
+  // const [respJson, setRespJson] = useState([]);
+  // const [checkMessage, setCheckMessage] = useState([]);
 
   async function sendUrlFile() {
     const obj = {
-      caption: items[count].nome.toString(),
-      number: items[count].numero.toString(),
+      caption: items[count].caption.toString(),
+      number: items[count].number.toString(),
       url: items[count].url.toString(),
     };
     try {
@@ -30,8 +37,8 @@ export default function SendFile() {
         setRespJson((index) => [
           ...index,
           {
-            id: resp.messageInfo.Id.toString(),
-            number: resp.messageInfo.RemoteJid,
+            id: resp.requestMenssage.id.toString(),
+            number: resp.requestMenssage.number,
           },
         ]);
       } else {
@@ -40,9 +47,6 @@ export default function SendFile() {
     } catch (err) {
       console.log("erro");
     }
-    setCaption("");
-    setNumber("");
-    setURL("");
     setCount((prev) => prev + 1);
   }
 
@@ -63,6 +67,13 @@ export default function SendFile() {
       <button onClick={() => setCount((prev) => prev + 1)}>
         Disparar Mensagens
       </button>
+
+      <ExcelFile>
+        <ExcelSheet data={respJson} name="Nova">
+          <ExcelColumn label="id" value="id" />
+          <ExcelColumn label="number" value="number" />
+        </ExcelSheet>
+      </ExcelFile>
     </>
     // <div>
     //   <h2>Enviar Arquivo</h2>
