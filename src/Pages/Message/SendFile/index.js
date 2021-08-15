@@ -9,7 +9,7 @@ export default function SendFile() {
 
   return (
     <div>
-      <h2>Enviar Arquivo</h2>
+      <h2>Enviar Arquivo por Excel</h2>
       <SendMultipleFiles
         items={items}
         setItems={setItems}
