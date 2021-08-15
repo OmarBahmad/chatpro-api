@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { sendFile } from "../../../Actions/Message";
 import ImportExcel from "../../../Components/ImportExcel";
 
-export default function SendFile() {
+export default function SendUniqueFile() {
   const [caption, setCaption] = useState("");
   const [number, setNumber] = useState("");
   const [url, setURL] = useState("");

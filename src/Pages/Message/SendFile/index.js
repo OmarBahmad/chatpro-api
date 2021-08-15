@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { SendMultipleFiles } from "./SendMultipleFiles";
+import { SendUniqueFile } from "./SendUniqueFile";
 
 export default function SendFile() {
   const [items, setItems] = useState([]);
@@ -17,6 +18,7 @@ export default function SendFile() {
         respJson={respJson}
         setRespJson={setRespJson}
       />
+      <SendUniqueFile />
     </div>
   );
 }
