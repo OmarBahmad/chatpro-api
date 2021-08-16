@@ -13,7 +13,7 @@ export default function SendContact() {
       number,
     };
     try {
-      await sendContact(obj);
+      const resp = await sendContact(obj);
       alert("Contato enviado com sucesso.");
     } catch (err) {
       console.log("erro");
