@@ -5,7 +5,8 @@ import SendMultipleMessages from "./SendMultipleMessages";
 export default function SendMessage() {
   const [items, setItems] = useState([]);
   const [checkMessage, setCheckMessage] = useState([]);
-  const [respJson, setRespJson] = useState([]);
+  const [respTrue, setRespTrue] = useState([]);
+  const [respFalse, setRespFalse] = useState([]);
 
   return (
     <div>
@@ -16,11 +17,11 @@ export default function SendMessage() {
         setItems={setItems}
         setCheckMessage={setCheckMessage}
         checkMessage={checkMessage}
-        respJson={respJson}
-        setRespJson={setRespJson}
+        respTrue={respTrue}
+        setRespTrue={setRespTrue}
+        respFalse={respFalse}
+        setRespFalse={setRespFalse}
       />
-      {console.log(items)}
-      {console.log(respJson)}
     </div>
   );
 }

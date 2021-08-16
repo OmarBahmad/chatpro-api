@@ -12,8 +12,10 @@ export default function SendMultipleMessages({
   items,
   setItems,
   setCheckMessage,
-  respJson,
-  setRespJson,
+  respTrue,
+  setRespTrue,
+  respFalse,
+  setRespFalse,
 }) {
   const [count, setCount] = useState(-1);
 
@@ -26,15 +28,24 @@ export default function SendMultipleMessages({
       const resp = await sendMessage(obj);
       if (resp.status) {
         setCheckMessage((oldArray) => [...oldArray, { sendTrue: true }]);
-        setRespJson((index) => [
+        setRespTrue((index) => [
           ...index,
           {
+            number: items[count].number.toString(),
+            message: items[count].message.toString(),
             id: resp.messageInfo.Id.toString(),
-            number: resp.messageInfo.RemoteJid,
+            numberJid: resp.messageInfo.RemoteJid,
           },
         ]);
       } else {
         setCheckMessage((oldArray) => [...oldArray, { sendTrue: false }]);
+        setRespFalse((index) => [
+          ...index,
+          {
+            number: items[count].number.toString(),
+            message: items[count].message.toString(),
+          },
+        ]);
       }
     } catch (err) {
       console.log("erro");
@@ -59,10 +70,24 @@ export default function SendMultipleMessages({
         Disparar Mensagens
       </button>
 
-      <ExcelFile>
-        <ExcelSheet data={respJson} name="Nova">
-          <ExcelColumn label="number" value="number" />
+      <ExcelFile
+        element={<button>Download Disparos com sucesso</button>}
+        filename="Diparos bem sucedidos"
+      >
+        <ExcelSheet data={respTrue} name="Nova">
+          <ExcelColumn label="numberJid" value="numberJid" />
           <ExcelColumn label="id" value="id" />
+          <ExcelColumn label="number" value="number" />
+          <ExcelColumn label="message" value="message" />
+        </ExcelSheet>
+      </ExcelFile>
+      <ExcelFile
+        element={<button>Download Disparos não enviados</button>}
+        filename="Diparos mal sucedidos"
+      >
+        <ExcelSheet data={respFalse} name="Nova">
+          <ExcelColumn label="number" value="number" />
+          <ExcelColumn label="message" value="message" />
         </ExcelSheet>
       </ExcelFile>
     </>
