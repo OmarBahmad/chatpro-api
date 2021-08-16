@@ -2,9 +2,11 @@
 import React, { useState } from "react";
 import { getProfile } from "../../../Actions/Contacts";
 
+
 export default function GetUniqueContact() {
   const [number, setNumber] = useState("");
   const [data,setData] = useState([])
+
 
   async function sendCTT() {
     const obj = {
@@ -29,7 +31,6 @@ export default function GetUniqueContact() {
         onChange={(e) => setNumber(e.target.value)}
       />
       <button onClick={sendCTT}>Obter Contato</button>
-
       <div>
         <h3>Contato</h3>
         <div>
