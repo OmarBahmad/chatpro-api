@@ -9,7 +9,9 @@ export default function ExportExcelMessageFailed({ respFalse }) {
   return (
     <div>
       <ExcelFile
-        element={<button>Download Disparos não enviados</button>}
+        element={
+          <button>Download da planilha de disparos mal sucedidos</button>
+        }
         filename="Diparos mal sucedidos"
       >
         <ExcelSheet data={respFalse} name="Failed">

@@ -29,6 +29,7 @@ export default function ImportExcel({ setItems }) {
     promise.then((d) => {
       setItems(d);
     });
+    
   };
 
   return (

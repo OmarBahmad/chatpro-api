@@ -9,7 +9,7 @@ export default function ExportExcelMessageSucess({ respTrue }) {
   return (
     <div>
       <ExcelFile
-        element={<button>Download Disparos com sucesso</button>}
+        element={<button>Download da planilha de disparos com sucesso</button>}
         filename="Diparos bem sucedidos"
       >
         <ExcelSheet data={respTrue} name="Sucess">

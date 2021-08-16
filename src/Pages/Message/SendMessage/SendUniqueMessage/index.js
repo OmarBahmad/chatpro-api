@@ -20,6 +20,7 @@ export default function SendUniqueMessage() {
 
   return (
     <div>
+      <h3>Enviar uma mensagem</h3>
       <input
         placeholder="Numero do telefone"
         className="input-msg"

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-hot-toast";
 import { sendMessage } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
-import ExportExcelMessageSucess from "../../../../Components/ExportExcelMessageSucess";
-import ExportExcelMessageFailed from "../../../../Components/ExportExcelMessageFailed";
+import ExportExcelMessageSucess from "../../../../Components/ExportExcel/Message/ExportExcelMessageSucess";
+import ExportExcelMessageFailed from "../../../../Components/ExportExcel/Message/ExportExcelMessageFailed";
 
 export default function SendMultipleMessages({
   items,
@@ -14,12 +15,14 @@ export default function SendMultipleMessages({
   setRespFalse,
 }) {
   const [count, setCount] = useState(-1);
+  const [amountMessage, setAmountMessage] = useState(0);
 
   async function triggerMessages() {
     const obj = {
       number: items[count].number.toString(),
       message: items[count].message.toString(),
     };
+
     try {
       const resp = await sendMessage(obj);
       if (resp.status) {
@@ -33,6 +36,7 @@ export default function SendMultipleMessages({
             numberJid: resp.messageInfo.RemoteJid,
           },
         ]);
+        toast.success("Mensagem Enviada com sucesso!");
       } else {
         setCheckMessage((oldArray) => [...oldArray, { sendTrue: false }]);
         setRespFalse((index) => [
@@ -42,11 +46,13 @@ export default function SendMultipleMessages({
             message: items[count].message.toString(),
           },
         ]);
+        toast.error("Mensagem não enviada");
       }
     } catch (err) {
       console.log("erro");
     }
     setCount((prev) => prev + 1);
+    setAmountMessage((index) => index - 1);
   }
 
   useEffect(() => {
@@ -54,20 +60,42 @@ export default function SendMultipleMessages({
 
     const handler = setInterval(() => {
       triggerMessages();
-    }, 4000);
+    }, getRandomArbitrary());
     return () => clearInterval(handler);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
+  useEffect(() => {
+    setAmountMessage(items.length);
+  }, [items]);
+
+  function getRandomArbitrary() {
+    return (Math.random() * (3500 - 2600) + 2600).toFixed();
+  }
+
+  useEffect(() => {
+    if (amountMessage === 0 && items.length !== 0)
+      toast.success("Todas mensagens enviadas");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [amountMessage]);
+
   return (
-    <>
-      <ImportExcel setItems={setItems} />
-      <button onClick={() => setCount((prev) => prev + 1)}>
+    <div>
+      <h3>Disparar Mensagens</h3>
+      <ImportExcel setItems={setItems} setAmountMessage={setAmountMessage} />
+      <button
+        onClick={() => setCount((prev) => prev + 1)}
+        disabled={amountMessage === 0}
+      >
         Disparar Mensagens
       </button>
-
+      {amountMessage !== 0 && (
+        <div>
+          <div>Quantidade de Mensagem para serem enviadas: {amountMessage}</div>
+        </div>
+      )}
       <ExportExcelMessageSucess respTrue={respTrue} />
       <ExportExcelMessageFailed respFalse={respFalse} />
-    </>
+    </div>
   );
 }
