@@ -16,6 +16,7 @@ export default function SendMultipleMessages({
 }) {
   const [count, setCount] = useState(-1);
   const [amountMessage, setAmountMessage] = useState(0);
+  const [showExcel, setShowExcel] = useState(false);
 
   async function triggerMessages() {
     const obj = {
@@ -74,8 +75,12 @@ export default function SendMultipleMessages({
   }
 
   useEffect(() => {
-    if (amountMessage === 0 && items.length !== 0)
-      toast.success("Todas mensagens enviadas");
+    if (amountMessage === 0 && items.length !== 0) {
+      toast("Disparos Finalizados!!");
+      setShowExcel(true);
+      setCount(-1);
+      setAmountMessage(0);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amountMessage]);
 
@@ -94,8 +99,13 @@ export default function SendMultipleMessages({
           <div>Quantidade de Mensagem para serem enviadas: {amountMessage}</div>
         </div>
       )}
-      <ExportExcelMessageSucess respTrue={respTrue} />
-      <ExportExcelMessageFailed respFalse={respFalse} />
+
+      {showExcel && (
+        <>
+          <ExportExcelMessageSucess respTrue={respTrue} />
+          <ExportExcelMessageFailed respFalse={respFalse} />
+        </>
+      )}
     </div>
   );
 }
