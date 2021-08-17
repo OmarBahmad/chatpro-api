@@ -45,12 +45,7 @@ export const Sidebar = () => {
               <span>Status</span>
             </S.Item>
           </NavLink>
-          <NavLink to="/instance">
-            <S.Item>
-              <GithubSvg />
-              <span>Instância</span>
-            </S.Item>
-          </NavLink>
+
         </S.ItensWrapper>
       </S.MenuWrapper>
     </S.Wrapper>
@@ -81,4 +76,11 @@ export const Sidebar = () => {
             <span>Sair</span>
           </S.Item>
         </NavLink>
+
+                  <NavLink to="/instance">
+            <S.Item>
+              <GithubSvg />
+              <span>Instância</span>
+            </S.Item>
+          </NavLink>
 */
