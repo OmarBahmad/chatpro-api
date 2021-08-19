@@ -5,18 +5,28 @@ const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 
-export default function ExportExcelMessageSucess({ respTrue }) {
+export default function ExportExcelMessageSucess({
+  respTrue,
+  collum1,
+  collum2,
+  collum3,
+  collum4,
+  collum5,
+  collum6,
+}) {
   return (
     <div>
       <ExcelFile
         element={<button>Download da planilha de disparos com sucesso</button>}
         filename="Diparos bem sucedidos"
       >
-        <ExcelSheet data={respTrue} name="Sucess">
-          <ExcelColumn label="numberJid" value="numberJid" />
-          <ExcelColumn label="id" value="id" />
-          <ExcelColumn label="number" value="number" />
-          <ExcelColumn label="message" value="message" />
+        <ExcelSheet data={respTrue} name="Diparos bem sucedidos">
+          {collum1 !== null && <ExcelColumn label={collum1} value={collum1} />}
+          {collum2 !== null && <ExcelColumn label={collum2} value={collum2} />}
+          {collum3 !== null && <ExcelColumn label={collum3} value={collum3} />}
+          {collum4 !== null && <ExcelColumn label={collum4} value={collum4} />}
+          {collum5 !== null && <ExcelColumn label={collum5} value={collum5} />}
+          {collum6 !== null && <ExcelColumn label={collum6} value={collum6} />}
         </ExcelSheet>
       </ExcelFile>
     </div>

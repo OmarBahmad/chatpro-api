@@ -1,54 +1,47 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
-import { sendMessage } from "../../../../Actions/Message";
+import { deleteMessage } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageSucess from "../../../../Components/ExportExcel/Message/ExportExcelMessageSucess";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/Message/ExportExcelMessageFailed";
 
-export default function SendMultipleMessages({
-  items,
-  setItems,
-  setCheckMessage,
-  checkMessage,
-  respTrue,
-  setRespTrue,
-  respFalse,
-  setRespFalse,
-}) {
-  const [count, setCount] = useState(-1);
+export default function DeleteMultiple() {
   const [amountMessage, setAmountMessage] = useState(0);
+  const [count, setCount] = useState(-1);
   const [showExcel, setShowExcel] = useState(false);
+  const [items, setItems] = useState([]);
+  const [respTrue, setRespTrue] = useState([]);
+  const [respFalse, setRespFalse] = useState([]);
+  const [checkMessage, setCheckMessage] = useState([]);
 
-  async function triggerMessages() {
+  async function deleteMsg() {
     const obj = {
-      number: items[count].number.toString(),
-      message: items[count].message.toString(),
+      chatJid: items[count].numberJid.toString(),
+      messageID: items[count].id.toString(),
     };
-
     try {
-      const resp = await sendMessage(obj);
+      const resp = await deleteMessage(obj);
       if (resp.status) {
         setCheckMessage((oldArray) => [...oldArray, { sendTrue: true }]);
         setRespTrue((index) => [
           ...index,
           {
-            number: items[count].number.toString(),
-            message: items[count].message.toString(),
-            id: resp.messageInfo.Id.toString(),
-            numberJid: resp.messageInfo.RemoteJid,
+            number: "teste",
           },
         ]);
-        toast.success("Mensagem Enviada com sucesso!");
+        toast.success("Mensagem Excluída com sucesso!");
       } else {
         setCheckMessage((oldArray) => [...oldArray, { sendTrue: false }]);
         setRespFalse((index) => [
           ...index,
           {
+            chatJid: items[count].numberJid.toString(),
+            messageID: items[count].id.toString(),
             number: items[count].number.toString(),
             message: items[count].message.toString(),
           },
         ]);
-        toast.error("Mensagem não enviada");
+        toast.error("Mensagem não excluida");
       }
     } catch (err) {
       console.log("erro");
@@ -60,9 +53,9 @@ export default function SendMultipleMessages({
   useEffect(() => {
     if (count < 0 || count === items.length) return;
 
-    if (items[count].number !== undefined || items[count].message !== undefined) {
+    if (items[count].numberJid !== undefined || items[count].id !== undefined) {
       const handler = setInterval(() => {
-        triggerMessages();
+        deleteMsg();
       }, getRandomArbitrary());
       return () => clearInterval(handler);
     } else {
@@ -77,10 +70,6 @@ export default function SendMultipleMessages({
     setAmountMessage(items.length);
   }, [items]);
 
-  function getRandomArbitrary() {
-    return (Math.random() * (3500 - 2600) + 2600).toFixed();
-  }
-
   useEffect(() => {
     if (amountMessage === 0 && items.length !== 0) {
       toast("Disparos Finalizados!!");
@@ -91,16 +80,22 @@ export default function SendMultipleMessages({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amountMessage]);
 
+  function getRandomArbitrary() {
+    return (Math.random() * (3500 - 2600) + 2600).toFixed();
+  }
+
   return (
     <div>
-      <h3>Disparar Mensagens</h3>
+      <h3>Excluir Multiplas Mensagens</h3>
       <ImportExcel setItems={setItems} setAmountMessage={setAmountMessage} />
+      {console.log(items)}
       <button
         onClick={() => setCount((prev) => prev + 1)}
         disabled={amountMessage === 0}
       >
         Disparar Mensagens
       </button>
+
       {amountMessage !== 0 && (
         <div>
           <div>Quantidade de Mensagem para serem enviadas: {amountMessage}</div>
@@ -109,17 +104,13 @@ export default function SendMultipleMessages({
 
       {showExcel && (
         <>
-          <ExportExcelMessageSucess
-            respTrue={respTrue}
-            collum1="number"
-            collum2="message"
-            collum3="id"
-            collum4="numberJid"
-          />
+          <ExportExcelMessageSucess respTrue={respTrue} />
           <ExportExcelMessageFailed
             respFalse={respFalse}
-            collum1="number"
-            collum2="message"
+            collum1="chatJid"
+            collum2="messageID"
+            collum3="number"
+            collum4="message"
           />
         </>
       )}

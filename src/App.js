@@ -9,7 +9,7 @@ import Home from "./Pages/Home";
 import Chat from "./Pages/Chat";
 import Group from "./Pages/Groups";
 import Status from "./Pages/Status";
-import Instance from "./Pages/Instance";
+// import Instance from "./Pages/Instance";
 
 //import { ExcelToJson } from "./Components/ReadFileXML/ReadFile";
 

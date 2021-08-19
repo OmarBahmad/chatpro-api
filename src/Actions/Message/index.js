@@ -16,9 +16,7 @@ export const sendMessage = async (params) => {
       }
     );
     summary = data;
-  } catch (error) {
-    // alert("Erro ao enviar mensagem.");
-  }
+  } catch (error) {}
   return summary;
 };
 
@@ -37,9 +35,7 @@ export const deleteMessage = async (params) => {
       }
     );
     summary = data;
-  } catch (error) {
-    alert("Erro ao apagar mensagem");
-  }
+  } catch (error) {}
   return summary;
 };
 
