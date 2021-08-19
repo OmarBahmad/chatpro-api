@@ -77,7 +77,7 @@ export const sendFile = async (params) => {
     );
     summary = data;
   } catch (error) {
-    alert("Erro ao enviar arquivo.");
+    console.log("erro");
   }
   return summary;
 };

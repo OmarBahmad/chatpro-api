@@ -1,46 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { toast } from "react-hot-toast";
 import { sendFile } from "../../../../Actions/Message";
-import ImportExcel from "../../../../Components/ImportExcel";
 
 export function SendUniqueFile() {
   const [caption, setCaption] = useState("");
   const [number, setNumber] = useState("");
   const [url, setURL] = useState("");
-  const [count, setCount] = useState(-1);
-  const [items, setItems] = useState([]);
-  const [checkMessage, setCheckMessage] = useState([]);
 
   async function sendUrlFile() {
     const obj = {
-      caption: items[count].nome.toString(),
-      number: items[count].numero.toString(),
-      url: items[count].url.toString(),
+      caption,
+      number,
+      url,
     };
     try {
       const resp = await sendFile(obj);
       if (resp.status === true) {
-        setCheckMessage((oldArray) => [...oldArray, { sendTrue: true }]);
+        toast.success("Arquivo Enviado com Sucesso");
       } else {
-        setCheckMessage((oldArray) => [...oldArray, { sendTrue: false }]);
+        toast.error("Arquivo Não Enviado");
       }
-    } catch (err) {
-      console.log("erro");
-    }
+    } catch (err) {}
     setCaption("");
     setNumber("");
     setURL("");
-    setCount((prev) => prev + 1);
   }
-
-  useEffect(() => {
-    if (count < 0 || count === items.length) return;
-
-    const handler = setInterval(() => {
-      sendUrlFile();
-    }, 4000);
-    return () => clearInterval(handler);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [count]);
 
   return (
     <div>
@@ -55,18 +39,12 @@ export function SendUniqueFile() {
         value={number}
         onChange={(e) => setNumber(e.target.value)}
       />
-      <input type="file" value={url} onChange={(e) => setURL(e.target.value)} />
-      <ImportExcel setItems={setItems} />
-      <button onClick={() => setCount((prev) => prev + 1)}>
-        Enviar Arquivo
-      </button>
-      {console.log(items)}
-
-      {checkMessage?.map((index) => (
-        <div key={index.sendTrue}>
-          <p>Mensagem Enviada: {index.sendTrue === true ? "Sim" : "Não"}</p>
-        </div>
-      ))}
+      <input
+        placeholder="URL do Arquivo"
+        value={url}
+        onChange={(e) => setURL(e.target.value)}
+      />
+      <button onClick={sendUrlFile}>Enviar Arquivo</button>
     </div>
   );
 }
