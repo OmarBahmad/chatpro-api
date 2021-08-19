@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-hot-toast";
 import { deleteMessage } from "../../../../Actions/Message";
 
 export default function DeleteUnique() {
@@ -11,8 +12,12 @@ export default function DeleteUnique() {
       messageID,
     };
     try {
-      await deleteMessage(obj);
-      alert("Mensagem Apagada com sucesso.");
+      const resp = await deleteMessage(obj);
+      if (resp.status === 200) {
+        toast.success("Mensagem Enviada com sucesso!");
+      } else {
+        toast.error("Mensagem Não Apagada!");
+      }
     } catch (err) {
       console.log("erro");
     }

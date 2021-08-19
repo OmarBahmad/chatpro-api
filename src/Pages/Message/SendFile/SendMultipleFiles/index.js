@@ -75,31 +75,7 @@ export function SendMultipleFiles({
         </ExcelSheet>
       </ExcelFile>
     </>
-    // <div>
-    //   <h2>Enviar Arquivo</h2>
-    //   <input
-    //     placeholder="Nome do Arquivo"
-    //     value={caption}
-    //     onChange={(e) => setCaption(e.target.value)}
-    //   />
-    //   <input
-    //     placeholder="Número"
-    //     value={number}
-    //     onChange={(e) => setNumber(e.target.value)}
-    //   />
-    //   <input type="file" value={url} onChange={(e) => setURL(e.target.value)} />
-    //   <ImportExcel setItems={setItems} />
-    //   <button onClick={() => setCount((prev) => prev + 1)}>
-    //     Enviar Arquivo
-    //   </button>
-    //   {console.log(items)}
-
-    //   {checkMessage?.map((index) => (
-    //     <div key={index.sendTrue}>
-    //       <p>Mensagem Enviada: {index.sendTrue === true ? "Sim" : "Não"}</p>
-    //     </div>
-    //   ))}
-    // </div>
+  
   );
 }
 

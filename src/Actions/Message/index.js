@@ -32,6 +32,7 @@ export const deleteMessage = async (params) => {
           "Content-Type": "application/json",
           authorization: keyAuthorization,
         },
+        timeout: 4000,
       }
     );
     summary = data;

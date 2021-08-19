@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { deleteMessage } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
-import ExportExcelMessageSucess from "../../../../Components/ExportExcel/Message/ExportExcelMessageSucess";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/Message/ExportExcelMessageFailed";
 
 export default function DeleteMultiple() {
@@ -10,7 +9,6 @@ export default function DeleteMultiple() {
   const [count, setCount] = useState(-1);
   const [showExcel, setShowExcel] = useState(false);
   const [items, setItems] = useState([]);
-  const [respTrue, setRespTrue] = useState([]);
   const [respFalse, setRespFalse] = useState([]);
   const [checkMessage, setCheckMessage] = useState([]);
 
@@ -23,12 +21,6 @@ export default function DeleteMultiple() {
       const resp = await deleteMessage(obj);
       if (resp.status) {
         setCheckMessage((oldArray) => [...oldArray, { sendTrue: true }]);
-        setRespTrue((index) => [
-          ...index,
-          {
-            number: "teste",
-          },
-        ]);
         toast.success("Mensagem Excluída com sucesso!");
       } else {
         setCheckMessage((oldArray) => [...oldArray, { sendTrue: false }]);
@@ -81,7 +73,7 @@ export default function DeleteMultiple() {
   }, [amountMessage]);
 
   function getRandomArbitrary() {
-    return (Math.random() * (3500 - 2600) + 2600).toFixed();
+    return (Math.random() * (5000 - 4100) + 4100).toFixed();
   }
 
   return (
@@ -102,9 +94,8 @@ export default function DeleteMultiple() {
         </div>
       )}
 
-      {showExcel && (
+      {respFalse.length > 0 && (
         <>
-          <ExportExcelMessageSucess respTrue={respTrue} />
           <ExportExcelMessageFailed
             respFalse={respFalse}
             collum1="chatJid"

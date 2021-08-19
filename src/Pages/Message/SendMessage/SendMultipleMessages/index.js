@@ -60,7 +60,10 @@ export default function SendMultipleMessages({
   useEffect(() => {
     if (count < 0 || count === items.length) return;
 
-    if (items[count].number !== undefined || items[count].message !== undefined) {
+    if (
+      items[count].number !== undefined ||
+      items[count].message !== undefined
+    ) {
       const handler = setInterval(() => {
         triggerMessages();
       }, getRandomArbitrary());
@@ -107,7 +110,7 @@ export default function SendMultipleMessages({
         </div>
       )}
 
-      {showExcel && (
+      {respTrue.length > 0 && (
         <>
           <ExportExcelMessageSucess
             respTrue={respTrue}
@@ -116,6 +119,10 @@ export default function SendMultipleMessages({
             collum3="id"
             collum4="numberJid"
           />
+        </>
+      )}
+      {respFalse.length > 0 && (
+        <>
           <ExportExcelMessageFailed
             respFalse={respFalse}
             collum1="number"
