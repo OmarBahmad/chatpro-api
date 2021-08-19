@@ -17,8 +17,7 @@ export default function SendMultipleMessages({
 }) {
   const [count, setCount] = useState(-1);
   const [amountMessage, setAmountMessage] = useState(0);
-  const [showExcel, setShowExcel] = useState(false);
-
+  
   async function triggerMessages() {
     const obj = {
       number: items[count].number.toString(),
@@ -61,7 +60,7 @@ export default function SendMultipleMessages({
     if (count < 0 || count === items.length) return;
 
     if (
-      items[count].number !== undefined ||
+      items[count].number !== undefined &&
       items[count].message !== undefined
     ) {
       const handler = setInterval(() => {
@@ -86,8 +85,7 @@ export default function SendMultipleMessages({
 
   useEffect(() => {
     if (amountMessage === 0 && items.length !== 0) {
-      toast("Disparos Finalizados!!");
-      setShowExcel(true);
+      toast("Disparos de Mensagens Finalizados!!");
       setCount(-1);
       setAmountMessage(0);
     }

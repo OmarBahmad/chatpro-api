@@ -73,7 +73,7 @@ export const sendFile = async (params) => {
           "Content-Type": "application/json",
           authorization: keyAuthorization,
         },
-        timeout: 8000,
+        timeout: 6000,
       }
     );
     summary = data;
