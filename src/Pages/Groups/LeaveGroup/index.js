@@ -35,7 +35,6 @@ export default function LeaveGroup() {
 
   return (
     <div>
-      <br />
       <h2>Pesquisar Grupos</h2>
       <button onClick={postB}> Pesquisar grupos </button>
       <br />

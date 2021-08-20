@@ -15,9 +15,7 @@ export const createGroup = async (params) => {
       }
     );
     summary = data;
-  } catch (error) {
-    alert("Erro ao criar um novo grupo");
-  }
+  } catch (error) {}
   return summary;
 };
 
