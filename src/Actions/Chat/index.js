@@ -9,7 +9,7 @@ export const getChat = async () => {
     });
     summary = data;
   } catch (error) {
-    alert("Erro ao buscar a lista de chats");
+    console.log(error);
   }
   return summary;
 };

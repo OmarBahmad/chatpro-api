@@ -100,7 +100,7 @@ export function SendMultipleFiles() {
         onClick={() => setCount((prev) => prev + 1)}
         disabled={amountMessage === 0}
       >
-        Disparar Mensagens
+        Enviar Arquivos
       </button>
 
       {amountMessage !== 0 && (
@@ -133,9 +133,6 @@ export function SendMultipleFiles() {
           />
         </>
       )}
-      {console.log(checkMessage)}
-      {console.log(respTrue)}
-      {console.log(respFalse)}
     </>
   );
 }

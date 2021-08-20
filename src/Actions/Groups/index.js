@@ -15,7 +15,9 @@ export const createGroup = async (params) => {
       }
     );
     summary = data;
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
   return summary;
 };
 
@@ -35,7 +37,7 @@ export const leaveGroup = async (params) => {
     );
     summary = data;
   } catch (error) {
-    alert("Erro ao sair do grupo");
+    console.log(error);
   }
   return summary;
 };

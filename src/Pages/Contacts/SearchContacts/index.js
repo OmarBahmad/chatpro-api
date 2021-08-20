@@ -9,7 +9,7 @@ export default function SearchContacts() {
   async function postB() {
     try {
       const resp = await getContacts();
-      if (resp) {
+      if (resp.code === 200) {
         setData(resp);
         toast.success("Lista de contatos retornados com sucesso!");
       } else {

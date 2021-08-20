@@ -85,7 +85,7 @@ export default function DeleteMultiple() {
         onClick={() => setCount((prev) => prev + 1)}
         disabled={amountMessage === 0}
       >
-        Disparar Mensagens
+        Excluir Mensagens
       </button>
 
       {amountMessage !== 0 && (

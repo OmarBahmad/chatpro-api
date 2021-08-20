@@ -16,7 +16,7 @@ export const sendImageStatus = async (params) => {
     );
     summary = data;
   } catch (error) {
-    alert("Erro ao enviar a imagem para o stories (status)");
+    console.log(error);
   }
   return summary;
 };
@@ -37,7 +37,7 @@ export const sendTextStatus = async (params) => {
     );
     summary = data;
   } catch (error) {
-    alert("Erro ao enviar o texto para o stories (status)");
+    console.log(error);
   }
   return summary;
 };

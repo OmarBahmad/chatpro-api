@@ -16,7 +16,9 @@ export const sendMessage = async (params) => {
       }
     );
     summary = data;
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
   return summary;
 };
 
@@ -36,7 +38,9 @@ export const deleteMessage = async (params) => {
       }
     );
     summary = data;
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
   return summary;
 };
 
@@ -56,7 +60,7 @@ export const sendLocation = async (params) => {
     );
     summary = data;
   } catch (error) {
-    alert("Erro ao enviar localização.");
+    console.log(error);
   }
   return summary;
 };
@@ -78,7 +82,7 @@ export const sendFile = async (params) => {
     );
     summary = data;
   } catch (error) {
-    console.log("erro");
+    console.log(error);
   }
   return summary;
 };
@@ -99,7 +103,7 @@ export const sendMessageTemplate = async (params) => {
     );
     summary = data;
   } catch (error) {
-    alert("Erro ao enviar mensagem.");
+    console.log(error);
   }
   return summary;
 };
@@ -120,7 +124,7 @@ export const sendContact = async (params) => {
     );
     summary = data;
   } catch (error) {
-    alert("Erro ao enviar contato.");
+    console.log(error);
   }
   return summary;
 };

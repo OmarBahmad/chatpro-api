@@ -9,7 +9,7 @@ export const getQRCode = async () => {
     });
     summary = data;
   } catch (error) {
-    alert("Erro ao gerar um novo QR Code");
+    console.log(error);
   }
   return summary;
 };
@@ -23,7 +23,7 @@ export const getReloadInstance = async () => {
     });
     summary = data;
   } catch (error) {
-    alert("Erro ao Reconectar a Instância");
+    console.log(error);
   }
   return summary;
 };
@@ -37,7 +37,7 @@ export const DisconnectWhatsapp = async () => {
     });
     summary = data;
   } catch (error) {
-    alert("Erro ao Desconectar do WhatsApp");
+    console.log(error);
   }
   return summary;
 };
@@ -51,7 +51,7 @@ export const getStatusCellphone = async () => {
     });
     summary = data;
   } catch (error) {
-    alert("Erro ao buscar status do Aparelho");
+    console.log(error);
   }
   return summary;
 };
@@ -72,7 +72,7 @@ export const updatePhoto = async (params) => {
     );
     summary = data;
   } catch (error) {
-    alert("Erro ao atualizar a imagem de perfil");
+    console.log(error);
   }
   return summary;
 };
@@ -89,7 +89,7 @@ export const updateWebhook = async (params) => {
     });
     summary = data;
   } catch (error) {
-    alert("Erro ao atualizar o webhook");
+    console.log(error);
   }
   return summary;
 };

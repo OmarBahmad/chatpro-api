@@ -14,9 +14,15 @@ export default function GetUniqueContact() {
     };
     try {
       const resp = await getProfile(obj);
-      toast.success("Contato obtido com sucesso.");
-      setData(resp);
-      setRespTrue(true);
+
+      if (resp.code === 200) {
+        setData(resp);
+        toast.success("Contato obtido com sucesso.");
+        setData(resp);
+        setRespTrue(true);
+      } else {
+        toast.error("Não foi possível efetuar a busca!");
+      }
     } catch (err) {
       console.log("erro");
     }

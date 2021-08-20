@@ -9,7 +9,7 @@ export const getContacts = async () => {
     });
     summary = data;
   } catch (error) {
-    alert("Erro ao buscar a lista de chats");
+    console.log(error);
   }
   return summary;
 };
@@ -30,7 +30,7 @@ export const getProfile = async (params) => {
     );
     summary = data;
   } catch (error) {
-    alert("Erro ao buscar o contato.");
+    console.log(error);
   }
   return summary;
 };
