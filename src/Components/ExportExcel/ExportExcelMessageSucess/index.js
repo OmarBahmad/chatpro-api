@@ -19,7 +19,7 @@ export default function ExportExcelMessageSucess({
   return (
     <div>
       <ExcelFile element={<button>{nameButton}</button>} filename={nameFile}>
-        <ExcelSheet data={respTrue} name="Diparos bem sucedidos">
+        <ExcelSheet data={respTrue} name={nameFile}>
           {collum1 !== null && <ExcelColumn label={collum1} value={collum1} />}
           {collum2 !== null && <ExcelColumn label={collum2} value={collum2} />}
           {collum3 !== null && <ExcelColumn label={collum3} value={collum3} />}

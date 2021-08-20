@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { deleteMessage } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
-import ExportExcelMessageFailed from "../../../../Components/ExportExcel/Message/ExportExcelMessageFailed";
+import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
 
 export default function DeleteMultiple() {
   const [amountMessage, setAmountMessage] = useState(0);

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { sendMessage } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
-import ExportExcelMessageSucess from "../../../../Components/ExportExcel/Message/ExportExcelMessageSucess";
-import ExportExcelMessageFailed from "../../../../Components/ExportExcel/Message/ExportExcelMessageFailed";
+import ExportExcelMessageSucess from "../../../../Components/ExportExcel/ExportExcelMessageSucess";
+import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
 
 export default function SendMultipleMessages({
   items,

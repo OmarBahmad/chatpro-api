@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
+import { toast } from "react-hot-toast";
 import { getProfile } from "../../../Actions/Contacts";
-
 
 export default function GetUniqueContact() {
   const [number, setNumber] = useState("");
-  const [data,setData] = useState([])
-
+  const [data, setData] = useState([]);
+  const [respTrue, setRespTrue] = useState(false);
 
   async function sendCTT() {
     const obj = {
@@ -14,9 +14,9 @@ export default function GetUniqueContact() {
     };
     try {
       const resp = await getProfile(obj);
-      alert("Contato obtido com sucesso.");
-      console.log(resp);
-      setData(resp)
+      toast.success("Contato obtido com sucesso.");
+      setData(resp);
+      setRespTrue(true);
     } catch (err) {
       console.log("erro");
     }
@@ -31,14 +31,19 @@ export default function GetUniqueContact() {
         onChange={(e) => setNumber(e.target.value)}
       />
       <button onClick={sendCTT}>Obter Contato</button>
-      <div>
-        <h3>Contato</h3>
+      {respTrue && (
         <div>
-          <p>{data.name}</p>
-          <p>{data.jid}</p>
-          <img src={data.eurl} />
+          <p>
+            <strong>Nome: </strong>
+            {data.name}
+          </p>
+          <p>
+            <strong>Número: </strong>
+            {data.jid}
+          </p>
+          <img src={data.eurl} height="300px" />
         </div>
-      </div>
+      )}
     </div>
   );
 }

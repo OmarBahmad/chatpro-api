@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 
 import { getChat } from "../../../Actions/Chat";
-import ExportExcelMessageSucess from "../../../Components/ExportExcel/Message/ExportExcelMessageSucess";
-import ExportExcelMessageFailed from "../../../Components/ExportExcel/Message/ExportExcelMessageSucess";
+import ExportExcelMessageSucess from "../../../Components/ExportExcel/ExportExcelMessageSucess";
 
 export default function GetChat() {
   const [chatUnique, SetChatUnique] = useState([]);
   const [chatGroup, setChatGroup] = useState([]);
   const [listaTransmissao, setListaTransmisao] = useState([]);
-  const [quantChat, setQuantChat] = useState(0);
 
   async function postB() {
     try {
@@ -43,10 +41,6 @@ export default function GetChat() {
     <div>
       <h2>Retornar lista de Chat</h2>
       <button onClick={postB}>Retornar lista de Chats</button>
-
-      {console.log("Conversar Unicas: ", chatUnique)}
-      {console.log("Grupos: ", chatGroup)}
-      {console.log("Lista de Transmissão: ", listaTransmissao)}
 
       {chatUnique.length > 0 && (
         <>
