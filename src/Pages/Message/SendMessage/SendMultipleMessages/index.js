@@ -116,6 +116,7 @@ export default function SendMultipleMessages({
             collum2="message"
             collum3="id"
             collum4="numberJid"
+            nameButton="Download da planilha de disparos bem sucedidos"
           />
         </>
       )}
@@ -125,6 +126,7 @@ export default function SendMultipleMessages({
             respFalse={respFalse}
             collum1="number"
             collum2="message"
+            nameButton="Download da planilha de disparos mal sucedidos"
           />
         </>
       )}

@@ -13,15 +13,12 @@ export default function ExportExcelMessageFailed({
   collum4,
   collum5,
   collum6,
+  nameButton,
+  nameFile,
 }) {
   return (
     <div>
-      <ExcelFile
-        element={
-          <button>Download da planilha de disparos mal sucedidos</button>
-        }
-        filename="Diparos mal sucedidos"
-      >
+      <ExcelFile element={<button>{nameButton}</button>} filename={nameFile}>
         <ExcelSheet data={respFalse} name="Disparos mal sucedidos">
           {collum1 !== null && <ExcelColumn label={collum1} value={collum1} />}
           {collum2 !== null && <ExcelColumn label={collum2} value={collum2} />}

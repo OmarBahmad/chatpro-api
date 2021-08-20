@@ -118,6 +118,7 @@ export function SendMultipleFiles() {
             collum3="url"
             collum4="id"
             collum5="numberJid"
+            nameButton="Download da planilha de disparos bem sucedidos"
           />
         </>
       )}
@@ -128,6 +129,7 @@ export function SendMultipleFiles() {
             collum1="number"
             collum2="caption"
             collum3="url"
+            nameButton="Download da planilha de disparos mal sucedidos"
           />
         </>
       )}

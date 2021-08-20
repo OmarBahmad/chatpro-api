@@ -9,8 +9,8 @@ export default function Contacts() {
     <>
       <Sidebar />
       <Container>
-        <SearchContacts />
         <GetUniqueContact />
+        <SearchContacts />
       </Container>
     </>
   );
