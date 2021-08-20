@@ -15,7 +15,7 @@ export default function GetUniqueContact() {
     try {
       const resp = await getProfile(obj);
 
-      if (resp.code === 200) {
+      if (resp) {
         setData(resp);
         toast.success("Contato obtido com sucesso.");
         setData(resp);

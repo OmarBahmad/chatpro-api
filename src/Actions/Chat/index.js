@@ -6,6 +6,7 @@ export const getChat = async () => {
   try {
     const { data } = await api.get("/api/v1/chats", {
       headers: { authorization: keyAuthorization },
+      timeout: 5000,
     });
     summary = data;
   } catch (error) {

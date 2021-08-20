@@ -120,6 +120,7 @@ export default function SendMultipleMessages({
             collum3="id"
             collum4="numberJid"
             nameButton="Download da planilha de disparos bem sucedidos"
+            nameFile="Disparos bem sucedidos"
           />
         </>
       )}
@@ -130,6 +131,7 @@ export default function SendMultipleMessages({
             collum1="number"
             collum2="message"
             nameButton="Download da planilha de disparos mal sucedidos"
+            nameFile="Disparos mal sucedidos"
           />
         </>
       )}

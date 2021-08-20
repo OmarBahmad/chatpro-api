@@ -15,7 +15,7 @@ export default function CreateGroup() {
     };
     try {
       const resp = await createGroup(obj);
-      if (resp) {
+      if (resp ) {
         toast.success("Grupo criado!");
       } else {
         toast.error("Não foi possível criar o grupo!");

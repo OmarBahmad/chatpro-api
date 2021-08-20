@@ -1,9 +1,11 @@
 import axios from "axios";
 
+const chatID = JSON.parse(localStorage.getItem("@chatID"));
+
 export const api = axios.create({
-  baseURL: "https://v4.chatpro.com.br/chatpro-06w2ulglob",
+  baseURL: `https://v4.chatpro.com.br/${chatID}`,
 });
 
-export const keyAuthorization = "aup3r4sg9rstg1u2y4a8lo0q4y8jpy";
+export const keyAuthorization = JSON.parse(localStorage.getItem("@tokenID"));
 
 export default api;

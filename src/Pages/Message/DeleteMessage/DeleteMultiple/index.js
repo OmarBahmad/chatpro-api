@@ -103,6 +103,7 @@ export default function DeleteMultiple() {
             collum3="number"
             collum4="message"
             nameButton="Download da planilha de disparos mal sucedidos"
+            nameFile="Disparos mal sucedidos"
           />
         </>
       )}

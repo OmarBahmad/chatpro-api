@@ -5,7 +5,7 @@ export const sendMessage = async (params) => {
   let summary = [];
   try {
     const { data } = await api.post(
-      "/api/v1/send_message",
+      `/api/v1/send_message`,
       JSON.stringify(params),
       {
         headers: {

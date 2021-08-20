@@ -13,7 +13,7 @@ export default function DeleteUnique() {
     };
     try {
       const resp = await deleteMessage(obj);
-      if (resp.status === 200) {
+      if (resp) {
         toast.success("Mensagem Enviada com sucesso!");
       } else {
         toast.error("Mensagem Não Apagada!");
