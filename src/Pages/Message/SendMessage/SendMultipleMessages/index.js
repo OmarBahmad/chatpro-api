@@ -4,6 +4,7 @@ import { sendMessage } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageSucess from "../../../../Components/ExportExcel/ExportExcelMessageSucess";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
+import * as S from "./styles";
 
 export default function SendMultipleMessages({
   items,
@@ -19,7 +20,6 @@ export default function SendMultipleMessages({
   const [amountMessage, setAmountMessage] = useState(0);
   const [showExcel, setShowExcel] = useState(false);
 
-  
   async function triggerMessages() {
     const obj = {
       number: items[count].number.toString(),
@@ -96,22 +96,24 @@ export default function SendMultipleMessages({
   }, [amountMessage]);
 
   return (
-    <div>
+    <S.Container>
       <h3>Disparar Mensagens</h3>
-      <ImportExcel setItems={setItems} setAmountMessage={setAmountMessage} />
-      <button
-        onClick={() => setCount((prev) => prev + 1)}
-        disabled={amountMessage === 0}
-      >
-        Disparar Mensagens
-      </button>
-      {amountMessage !== 0 && (
-        <div>
-          <div>Quantidade de Mensagem para serem enviadas: {amountMessage}</div>
-        </div>
-      )}
+      <S.ImportMessage>
+        <ImportExcel setItems={setItems} setAmountMessage={setAmountMessage} />
+        <S.ButtonFile
+          onClick={() => setCount((prev) => prev + 1)}
+          disabled={amountMessage === 0}
+        >
+          Disparar Mensagens
+        </S.ButtonFile>
+        {amountMessage !== 0 && (
+          <S.CardQuant>
+            Quantidade de Mensagens: <strong>{amountMessage}</strong>
+          </S.CardQuant>
+        )}
+      </S.ImportMessage>
 
-      {respTrue.length > 0 && showExcel &&(
+      {respTrue.length > 0 && showExcel && (
         <>
           <ExportExcelMessageSucess
             respTrue={respTrue}
@@ -124,7 +126,7 @@ export default function SendMultipleMessages({
           />
         </>
       )}
-      {respFalse.length > 0 && showExcel &&(
+      {respFalse.length > 0 && showExcel && (
         <>
           <ExportExcelMessageFailed
             respFalse={respFalse}
@@ -136,6 +138,6 @@ export default function SendMultipleMessages({
         </>
       )}
       {console.log(checkMessage)}
-    </div>
+    </S.Container>
   );
 }

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { sendMessage } from "../../../../Actions/Message";
 
+import * as S from "./styles";
+
 export default function SendUniqueMessage() {
   const [message, setMessage] = useState("");
   const [number, setNumber] = useState("");
@@ -24,21 +26,23 @@ export default function SendUniqueMessage() {
   }
 
   return (
-    <div>
-      <h3>Enviar uma mensagem</h3>
-      <input
+    <S.Container>
+      <S.ContainerHeader>
+        <h3>Enviar uma mensagem</h3>
+      </S.ContainerHeader>
+      <S.InputNumber
         placeholder="Numero do telefone"
         className="input-msg"
         value={number}
         onChange={(e) => setNumber(e.target.value)}
       />
-      <input
+      <S.InputMessage
         placeholder="Mensagem"
         className="input-msg"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
-      <button onClick={sendM}>Enviar Mensagem</button>
-    </div>
+      <S.ButtonSend onClick={sendM}  disabled={message === "" || number === ""}>Enviar Mensagem</S.ButtonSend>
+    </S.Container>
   );
 }

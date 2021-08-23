@@ -1,5 +1,7 @@
+/* eslint-disable react/jsx-pascal-case */
 import React from "react";
 import * as XLSX from "xlsx";
+
 
 export default function ImportExcel({ setItems }) {
   const readExcel = (file) => {
@@ -29,7 +31,6 @@ export default function ImportExcel({ setItems }) {
     promise.then((d) => {
       setItems(d);
     });
-    
   };
 
   return (
