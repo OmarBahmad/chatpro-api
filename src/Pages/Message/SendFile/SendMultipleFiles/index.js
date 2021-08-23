@@ -4,6 +4,7 @@ import { sendFile } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageSucess from "../../../../Components/ExportExcel/ExportExcelMessageSucess";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
+import * as S from "./styles";
 
 export function SendMultipleFiles() {
   const [items, setItems] = useState([]);
@@ -93,20 +94,23 @@ export function SendMultipleFiles() {
   }, [amountMessage]);
 
   return (
-    <>
-      <p>file</p>
-      <ImportExcel setItems={setItems} />
-      <button
-        onClick={() => setCount((prev) => prev + 1)}
-        disabled={amountMessage === 0}
-      >
-        Enviar Arquivos
-      </button>
+    <S.Container>
+      <h4>Disparar Arquivos</h4>
+      <S.ImportMessage>
+        <ImportExcel setItems={setItems} />
+        <S.ButtonFile
+          onClick={() => setCount((prev) => prev + 1)}
+          disabled={amountMessage === 0}
+        >
+          Enviar Arquivos
+        </S.ButtonFile>
+      </S.ImportMessage>
 
       {amountMessage !== 0 && (
-        <div>
-          <div>Quantidade de Mensagem para serem enviadas: {amountMessage}</div>
-        </div>
+        <S.CardQuant>
+          Quantidade de Arquivos:
+          <strong>{amountMessage}</strong>
+        </S.CardQuant>
       )}
 
       {respTrue.length > 0 && showExcel && (
@@ -135,7 +139,7 @@ export function SendMultipleFiles() {
           />
         </>
       )}
-    </>
+    </S.Container>
   );
 }
 

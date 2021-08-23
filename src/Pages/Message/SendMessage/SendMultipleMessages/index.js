@@ -97,7 +97,7 @@ export default function SendMultipleMessages({
 
   return (
     <S.Container>
-      <h3>Disparar Mensagens</h3>
+      <h4>Disparo de Mensagens</h4>
       <S.ImportMessage>
         <ImportExcel setItems={setItems} setAmountMessage={setAmountMessage} />
         <S.ButtonFile
@@ -106,12 +106,12 @@ export default function SendMultipleMessages({
         >
           Disparar Mensagens
         </S.ButtonFile>
-        {amountMessage !== 0 && (
-          <S.CardQuant>
-            Quantidade de Mensagens: <strong>{amountMessage}</strong>
-          </S.CardQuant>
-        )}
       </S.ImportMessage>
+      {amountMessage !== 0 && (
+        <S.CardQuant>
+          Quantidade de Mensagens: <strong>{amountMessage}</strong>
+        </S.CardQuant>
+      )}
 
       {respTrue.length > 0 && showExcel && (
         <>

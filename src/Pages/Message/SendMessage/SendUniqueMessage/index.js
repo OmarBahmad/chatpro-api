@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { sendMessage } from "../../../../Actions/Message";
-
 import * as S from "./styles";
 
 export default function SendUniqueMessage() {
@@ -28,7 +27,7 @@ export default function SendUniqueMessage() {
   return (
     <S.Container>
       <S.ContainerHeader>
-        <h3>Enviar uma mensagem</h3>
+        <h4>Enviar uma mensagem</h4>
       </S.ContainerHeader>
       <S.InputNumber
         placeholder="Numero do telefone"
@@ -42,7 +41,9 @@ export default function SendUniqueMessage() {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
-      <S.ButtonSend onClick={sendM}  disabled={message === "" || number === ""}>Enviar Mensagem</S.ButtonSend>
+      <S.ButtonSend onClick={sendM} disabled={message === "" || number === ""}>
+        Enviar Mensagem
+      </S.ButtonSend>
     </S.Container>
   );
 }

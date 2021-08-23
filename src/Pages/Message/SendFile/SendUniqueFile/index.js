@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { sendFile } from "../../../../Actions/Message";
+import * as S from "./styles";
 
 export function SendUniqueFile() {
   const [caption, setCaption] = useState("");
@@ -27,25 +28,33 @@ export function SendUniqueFile() {
   }
 
   return (
-    <div>
-      <h2>Enviar Arquivo</h2>
-      <input
+    <S.Container>
+      <S.ContainerHeader>
+        <h4>Enviar Arquivo</h4>
+      </S.ContainerHeader>
+
+      <S.InputName
         placeholder="Nome do Arquivo"
         value={caption}
         onChange={(e) => setCaption(e.target.value)}
       />
-      <input
+      <S.InputNumber
         placeholder="Número"
         value={number}
         onChange={(e) => setNumber(e.target.value)}
       />
-      <input
+      <S.InputURL
         placeholder="URL do Arquivo"
         value={url}
         onChange={(e) => setURL(e.target.value)}
       />
-      <button onClick={sendUrlFile}>Enviar Arquivo</button>
-    </div>
+      <S.ButtonSend
+        onClick={sendUrlFile}
+        disabled={caption === "" || number === "" || url === ""}
+      >
+        Enviar Arquivo
+      </S.ButtonSend>
+    </S.Container>
   );
 }
 

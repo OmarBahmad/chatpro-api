@@ -3,6 +3,7 @@ import { toast } from "react-hot-toast";
 import { deleteMessage } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
+import * as S from "./styles";
 
 export default function DeleteMultiple() {
   const [amountMessage, setAmountMessage] = useState(0);
@@ -77,21 +78,22 @@ export default function DeleteMultiple() {
   }
 
   return (
-    <div>
+    <S.Container>
       <h3>Excluir Multiplas Mensagens</h3>
-      <ImportExcel setItems={setItems} setAmountMessage={setAmountMessage} />
-      {console.log(items)}
-      <button
-        onClick={() => setCount((prev) => prev + 1)}
-        disabled={amountMessage === 0}
-      >
-        Excluir Mensagens
-      </button>
-
+      <S.ImportMessage>
+        <ImportExcel setItems={setItems} setAmountMessage={setAmountMessage} />
+        <S.ButtonFile
+          onClick={() => setCount((prev) => prev + 1)}
+          disabled={amountMessage === 0}
+        >
+          Excluir Mensagens
+        </S.ButtonFile>
+      </S.ImportMessage>
       {amountMessage !== 0 && (
-        <div>
-          <div>Quantidade de Mensagem para serem enviadas: {amountMessage}</div>
-        </div>
+        <S.CardQuant>
+          Quantidade de Mensagem à serem excluídas:{" "}
+          <strong>{amountMessage}</strong>
+        </S.CardQuant>
       )}
 
       {respFalse.length > 0 && (
@@ -108,6 +110,6 @@ export default function DeleteMultiple() {
         </>
       )}
       {console.log(checkMessage)}
-    </div>
+    </S.Container>
   );
 }
