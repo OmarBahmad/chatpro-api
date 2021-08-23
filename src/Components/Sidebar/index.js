@@ -1,20 +1,18 @@
 import { ReactComponent as GithubSvg } from "../../Assets/svg/github_icon.svg";
 
 import { NavLink } from "react-router-dom";
-
+import Logout from "../Logout";
 import * as S from "./styles";
 
+
+
 export const Sidebar = () => {
+
+
   return (
     <S.Wrapper>
       <S.MenuWrapper>
         <S.ItensWrapper>
-          <NavLink to="/" end>
-            <S.Item>
-              <GithubSvg />
-              <span>Home</span>
-            </S.Item>
-          </NavLink>
           <NavLink to="/message">
             <S.Item>
               <GithubSvg />
@@ -43,6 +41,12 @@ export const Sidebar = () => {
             <S.Item>
               <GithubSvg />
               <span>Status</span>
+            </S.Item>
+          </NavLink>
+          <NavLink to="/" end onClick={Logout} >
+            <S.Item>
+              <GithubSvg />
+              <span>Sair</span>
             </S.Item>
           </NavLink>
 
