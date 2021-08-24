@@ -1,5 +1,5 @@
-import React, { Component, useState } from "react";
-import { NavLink, Navigate, Route, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [chatId, setChatId] = useState("");

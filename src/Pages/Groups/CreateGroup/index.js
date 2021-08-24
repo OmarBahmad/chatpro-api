@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { createGroup } from "../../../Actions/Groups";
+import * as S from "./styles";
 
 export default function CreateGroup() {
   const [name, setName] = useState("");
@@ -15,7 +16,7 @@ export default function CreateGroup() {
     };
     try {
       const resp = await createGroup(obj);
-      if (resp ) {
+      if (resp) {
         toast.success("Grupo criado!");
       } else {
         toast.error("Não foi possível criar o grupo!");
@@ -25,36 +26,136 @@ export default function CreateGroup() {
     }
     setName("");
     setPhones([]);
-    setCount(0)
+    setCount(0);
   }
 
   function pushNumber() {
-    setPhones([...phones, number]);
-    setCount(count + 1);
-    setNumber("");
+    if (
+      number !== "" &&
+      !isNaN(parseFloat(number)) &&
+      isFinite(number) &&
+      number.length >= 10 &&
+      number.length < 12
+    ) {
+      setPhones([...phones, number]);
+      setCount(count + 1);
+      setNumber("");
+    }
+    toast.error("Número Inválido");
   }
 
   return (
-    <div>
-      <h2>Criar Grupo</h2>
-      <input
+    <S.Container>
+      <S.ContainerHeader>
+        <h2>Criar Grupo</h2>
+      </S.ContainerHeader>
+      <S.InputNumber
         placeholder="Nome do grupo a ser criado"
         className="input-msg"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
+      <S.InputMessage
+        placeholder="Numeros a serem adicionados"
+        className="input-msg"
+        value={number}
+        onChange={(e) => setNumber(e.target.value)}
+      />
+
+      <S.ButtonSend onClick={pushNumber}>Adicionar Número</S.ButtonSend>
       <br />
-      <input
+      <br />
+      <S.ButtonCreate
+        onClick={createG}
+        disabled={name === "" || phones.length < 1}
+      >
+        Criar Grupo
+      </S.ButtonCreate>
+
+      {phones.length > 0 && <h3>Números adicionados ({count})</h3>}
+
+      <S.ContainerNumbers>
+        {phones?.map((index) => (
+          <S.UniqueNumbers>{index} -</S.UniqueNumbers>
+        ))}
+      </S.ContainerNumbers>
+    </S.Container>
+  );
+}
+
+/*
+import React, { useState } from "react";
+import { toast } from "react-hot-toast";
+import { createGroup } from "../../../Actions/Groups";
+import * as S from "./styles";
+
+export default function CreateGroup() {
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState("");
+  const [count, setCount] = useState(0);
+  const [phones, setPhones] = useState([]);
+
+  async function createG() {
+    const obj = {
+      phones: phones,
+      name: name,
+    };
+    try {
+      const resp = await createGroup(obj);
+      if (resp) {
+        toast.success("Grupo criado!");
+      } else {
+        toast.error("Não foi possível criar o grupo!");
+      }
+    } catch (err) {
+      console.log("Erro ao criar grupo.");
+    }
+    setName("");
+    setPhones([]);
+    setCount(0);
+  }
+
+  function pushNumber() {
+    if (
+      number !== "" &&
+      !isNaN(parseFloat(number)) &&
+      isFinite(number) &&
+      number.length >= 10
+    ) {
+      setPhones([...phones, number]);
+      setCount(count + 1);
+      setNumber("");
+    }
+    toast.error("Número Inválido");
+  }
+
+  return (
+    <S.Container>
+      <S.ContainerHeader>
+        <h2>Criar Grupo</h2>
+      </S.ContainerHeader>
+      <S.InputNumber
+        placeholder="Nome do grupo a ser criado"
+        className="input-msg"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <S.InputMessage
         placeholder="Numeros a serem criados, separados por virgulas"
         className="input-msg"
         value={number}
         onChange={(e) => setNumber(e.target.value)}
       />
 
-      <button onClick={pushNumber}>Adicionar Número</button>
+      <S.ButtonSend onClick={pushNumber}>Adicionar Número</S.ButtonSend>
       <br />
       <br />
-      <button onClick={createG}>Criar Grupo</button>
+      <S.ButtonCreate
+        onClick={createG}
+        disabled={name === "" || phones.length < 1}
+      >
+        Criar Grupo
+      </S.ButtonCreate>
 
       {phones.length > 0 && (
         <>
@@ -64,11 +165,11 @@ export default function CreateGroup() {
 
       {phones?.map((index) => (
         <div>
-          <p>
-            <span>{index}</span>{" "}
-          </p>
+          <span>{index}</span>
         </div>
       ))}
-    </div>
+    </S.Container>
   );
 }
+
+*/

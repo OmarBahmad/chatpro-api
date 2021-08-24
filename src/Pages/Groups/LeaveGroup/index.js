@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { leaveGroup } from "../../../Actions/Groups";
 import { getChat } from "../../../Actions/Chat";
+import * as S from "./styles";
 
 export default function LeaveGroup() {
   const [jid, setJid] = useState("");
@@ -34,9 +35,9 @@ export default function LeaveGroup() {
   }
 
   return (
-    <div>
+    <S.Container>
       <h2>Pesquisar Grupos</h2>
-      <button onClick={postB}> Pesquisar grupos </button>
+      <S.ButtonCreate onClick={postB}> Pesquisar grupos </S.ButtonCreate>
       <br />
       {group?.map((index) => (
         <>
@@ -45,14 +46,16 @@ export default function LeaveGroup() {
           </p>
         </>
       ))}
-      <h2>Sair de um grupo</h2>
-      <input
-        placeholder="JID do Grupo"
-        className="input-msg"
-        value={jid}
-        onChange={(e) => setJid(e.target.value)}
-      />
-      <button onClick={leaveG}> Sair do Grupo </button>
-    </div>
+      <S.ContainerLeave>
+        <h2>Sair de um grupo</h2>
+        <S.InputNumber
+          placeholder="JID do Grupo"
+          className="input-msg"
+          value={jid}
+          onChange={(e) => setJid(e.target.value)}
+        />
+        <S.ButtonSend onClick={leaveG}> Sair do Grupo </S.ButtonSend>
+      </S.ContainerLeave>
+    </S.Container>
   );
 }
