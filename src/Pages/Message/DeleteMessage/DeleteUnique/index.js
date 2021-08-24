@@ -3,27 +3,33 @@ import { toast } from "react-hot-toast";
 import { deleteMessage } from "../../../../Actions/Message";
 import * as S from "./styles";
 
+import { ValidNumberDelete } from "../../../../hooks/ValidNumberDelete";
+
 export default function DeleteUnique() {
   const [chatJid, setChatJid] = useState("");
   const [messageID, setMessageID] = useState("");
 
   async function deleteMsg() {
+    const isValid = ValidNumberDelete(chatJid);
+    if (!isValid)
+      return toast.error("Número inválido. Se for celular digitar sem o 9.");
+
     const obj = {
       chatJid: "55" + chatJid.concat("@s.whatsapp.net"),
       messageID,
     };
     try {
       const resp = await deleteMessage(obj);
-      if (resp) {
-        toast.success("Mensagem Enviada com sucesso!");
+      if (resp?.status === 200) {
+        toast.success("Mensagem Apagada com Sucesso!");
+        setChatJid("");
+        setMessageID("");
       } else {
         toast.error("Mensagem Não Apagada!");
       }
     } catch (err) {
       console.log("erro");
     }
-    setChatJid("");
-    setMessageID("");
   }
   return (
     <S.Container>
