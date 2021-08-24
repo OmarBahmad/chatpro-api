@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { getContacts } from "../../../Actions/Contacts";
 import ExportExcelMessageSucess from "../../../Components/ExportExcel/ExportExcelMessageSucess";
+import * as S from "./styles";
 
 export default function SearchContacts() {
   const [data, setData] = useState([]);
@@ -20,9 +21,11 @@ export default function SearchContacts() {
     }
   }
   return (
-    <div>
-      <h2>Retornar lista de Contatos</h2>
-      <button onClick={postB}>Retornar lista de Contatos</button>
+    <S.Container>
+      <S.ContainerHeader>
+        <h3>Retornar lista de Contatos</h3>
+      </S.ContainerHeader>
+      <S.ButtonSend onClick={postB}>Retornar lista de Contatos</S.ButtonSend>
 
       {data.length > 0 && (
         <>
@@ -36,6 +39,6 @@ export default function SearchContacts() {
           />
         </>
       )}
-    </div>
+    </S.Container>
   );
 }

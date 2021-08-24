@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { getProfile } from "../../../Actions/Contacts";
+import * as S from "./styles";
 
 export default function GetUniqueContact() {
   const [number, setNumber] = useState("");
@@ -29,14 +30,16 @@ export default function GetUniqueContact() {
     setNumber("");
   }
   return (
-    <div>
-      <h2>Obter Perfil</h2>
-      <input
+    <S.Container>
+      <S.ContainerHeader>
+        <h3>Obter Perfil</h3>
+      </S.ContainerHeader>
+      <S.InputNumber
         placeholder="Número"
         value={number}
         onChange={(e) => setNumber(e.target.value)}
       />
-      <button onClick={sendCTT}>Obter Contato</button>
+      <S.ButtonSend onClick={sendCTT}>Obter Contato</S.ButtonSend>
       {respTrue && (
         <div>
           <p>
@@ -50,7 +53,7 @@ export default function GetUniqueContact() {
           <img src={data.eurl} height="300px" />
         </div>
       )}
-    </div>
+    </S.Container>
   );
 }
 

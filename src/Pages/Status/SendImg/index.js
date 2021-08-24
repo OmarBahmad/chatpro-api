@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { sendImageStatus } from "../../../Actions/Status";
+import * as S from "./styles";
 
 export default function SendImg() {
   const [caption, setCaption] = useState("");
@@ -20,19 +21,23 @@ export default function SendImg() {
     setUrl("");
   }
   return (
-    <div>
-      <h2>Adicionar Status de Imagem</h2>
-      <input
+    <S.Container>
+      <S.ContainerHeader>
+        <h3>Adicionar Status de Imagem</h3>
+      </S.ContainerHeader>
+      <S.InputNumber
         placeholder="Texto do Status"
         value={caption}
         onChange={(e) => setCaption(e.target.value)}
       />
-      <input
-        placeholder="Imagem do Status"
+      <S.InputMessage
+        placeholder="Imagem do Status (URL)"
         value={url}
         onChange={(e) => setUrl(e.target.value)}
       />
-      <button onClick={sendStatus}>Adicionar Status de Imagem</button>
-    </div>
+      <S.ButtonSend onClick={sendStatus}>
+        Adicionar Status de Imagem
+      </S.ButtonSend>
+    </S.Container>
   );
 }

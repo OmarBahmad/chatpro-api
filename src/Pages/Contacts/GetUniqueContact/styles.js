@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  margin-top: 2rem;
 `;
 export const ContainerHeader = styled.div`
   width: 100%;
@@ -40,30 +39,6 @@ export const ButtonSend = styled.button`
   background: rgb(4, 170, 109);
   border: 1px solid rgb(4, 170, 109);
   margin-left: 1rem;
-
-  :disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-  }
-`;
-
-export const ContainerLeave = styled.div`
-  width: 100%;
-  padding-bottom: 2rem;
-  margin-top: 2rem;
-
-`;
-
-export const ButtonCreate = styled.button`
-  font-weight: 500;
-  color: rgb(255, 255, 255);
-  outline: none;
-  border-radius: 0.4rem;
-  padding: 0.8rem 2.5rem;
-  transition: all 0.2s ease 0s;
-  cursor: pointer;
-  background: rgb(4, 170, 109);
-  border: 1px solid rgb(4, 170, 109);
 
   :disabled {
     opacity: 0.3;

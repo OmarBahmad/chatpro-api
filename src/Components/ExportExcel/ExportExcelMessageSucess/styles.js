@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   margin-top: 1rem;
   margin-bottom: 1rem;
+  margin-right: 1rem;
 
   button {
     font-weight: 500;

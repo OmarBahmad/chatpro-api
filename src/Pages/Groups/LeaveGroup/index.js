@@ -36,7 +36,7 @@ export default function LeaveGroup() {
 
   return (
     <S.Container>
-      <h2>Pesquisar Grupos</h2>
+      <h3>Pesquisar</h3>
       <S.ButtonCreate onClick={postB}> Pesquisar grupos </S.ButtonCreate>
       <br />
       {group?.map((index) => (
@@ -47,7 +47,7 @@ export default function LeaveGroup() {
         </>
       ))}
       <S.ContainerLeave>
-        <h2>Sair de um grupo</h2>
+        <h3>Sair</h3>
         <S.InputNumber
           placeholder="JID do Grupo"
           className="input-msg"

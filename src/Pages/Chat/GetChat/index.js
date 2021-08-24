@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
-
+import * as S from "./styles";
 import { getChat } from "../../../Actions/Chat";
 import ExportExcelMessageSucess from "../../../Components/ExportExcel/ExportExcelMessageSucess";
 
@@ -39,48 +39,52 @@ export default function GetChat() {
     }
   }
   return (
-    <div>
-      <h2>Retornar lista de Chat</h2>
-      <button onClick={postB}>Retornar lista de Chats</button>
+    <S.Container>
+      <S.ContainerHeader>
+        <h2>Retornar lista de Chat</h2>
+      </S.ContainerHeader>
+      <S.ButtonCreate onClick={postB}>Retornar lista de Chats</S.ButtonCreate>
 
-      {chatUnique.length > 0 && (
-        <>
-          <ExportExcelMessageSucess
-            respTrue={chatUnique}
-            collum1="Jid"
-            collum2="Name"
-            collum3="message"
-            nameButton="Download das conversas individuais"
-            nameFile={"Conversas Individuais"}
-          />
-        </>
-      )}
+      <S.ContainerExcel>
+        {chatUnique.length > 0 && (
+          <>
+            <ExportExcelMessageSucess
+              respTrue={chatUnique}
+              collum1="Jid"
+              collum2="Name"
+              collum3="message"
+              nameButton="Download das conversas individuais"
+              nameFile={"Conversas Individuais"}
+            />
+          </>
+        )}
 
-      {chatGroup.length > 0 && (
-        <>
-          <ExportExcelMessageSucess
-            respTrue={chatGroup}
-            collum1="Jid"
-            collum2="Name"
-            collum3="message"
-            nameButton="Download dos grupos"
-            nameFile={"Grupos"}
-          />
-        </>
-      )}
+        {chatGroup.length > 0 && (
+          <>
+            <ExportExcelMessageSucess
+              respTrue={chatGroup}
+              collum1="Jid"
+              collum2="Name"
+              collum3="message"
+              nameButton="Download dos grupos"
+              nameFile={"Grupos"}
+            />
+          </>
+        )}
 
-      {listaTransmissao.length > 0 && (
-        <>
-          <ExportExcelMessageSucess
-            respTrue={listaTransmissao}
-            collum1="Jid"
-            collum2="Name"
-            collum3="message"
-            nameButton="Download da Lista de transmissão"
-            nameFile={"Lista de transmissao"}
-          />
-        </>
-      )}
-    </div>
+        {listaTransmissao.length > 0 && (
+          <>
+            <ExportExcelMessageSucess
+              respTrue={listaTransmissao}
+              collum1="Jid"
+              collum2="Name"
+              collum3="message"
+              nameButton="Download da Lista de transmissão"
+              nameFile={"Lista de transmissao"}
+            />
+          </>
+        )}
+      </S.ContainerExcel>
+    </S.Container>
   );
 }

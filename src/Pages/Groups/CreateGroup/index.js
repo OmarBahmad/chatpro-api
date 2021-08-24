@@ -40,23 +40,26 @@ export default function CreateGroup() {
       setPhones([...phones, number]);
       setCount(count + 1);
       setNumber("");
+      toast.success("Número Adicionado");
+    } else {
+      toast.error("Número Inválido");
     }
-    toast.error("Número Inválido");
   }
 
   return (
     <S.Container>
+      <h2>Grupos</h2>
       <S.ContainerHeader>
-        <h2>Criar Grupo</h2>
+        <h3>Criar Novo</h3>
       </S.ContainerHeader>
       <S.InputNumber
-        placeholder="Nome do grupo a ser criado"
+        placeholder="Nome do Grupo"
         className="input-msg"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
       <S.InputMessage
-        placeholder="Numeros a serem adicionados"
+        placeholder="Números a serem adicionados"
         className="input-msg"
         value={number}
         onChange={(e) => setNumber(e.target.value)}
