@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { getProfile } from "../../../Actions/Contacts";
 import * as S from "./styles";
+import { ValidNumber } from "../../../hooks/ValidNumber";
+
 
 export default function GetUniqueContact() {
   const [number, setNumber] = useState("");
@@ -10,6 +12,8 @@ export default function GetUniqueContact() {
   const [respTrue, setRespTrue] = useState(false);
 
   async function sendCTT() {
+    const isValid = ValidNumber(number);
+    if (!isValid) return toast.error("Número Invalido");
     const obj = {
       number,
     };

@@ -3,11 +3,16 @@ import { toast } from "react-hot-toast";
 import { sendMessage } from "../../../../Actions/Message";
 import * as S from "./styles";
 
+import { ValidNumber } from "../../../../hooks/ValidNumber";
+
 export default function SendUniqueMessage() {
   const [message, setMessage] = useState("");
   const [number, setNumber] = useState("");
 
   async function sendM() {
+    const isValid = ValidNumber(number);
+    if (!isValid) return toast.error("Número Invalido");
+
     const obj = {
       number: number.toString(),
       message: message.toString(),
@@ -16,6 +21,8 @@ export default function SendUniqueMessage() {
       const resp = await sendMessage(obj);
       if (resp.status) {
         toast.success("Mensagem Enviada com sucesso!");
+        setMessage("");
+        setNumber("");
       } else {
         toast.error("Mensagem Não Enviada!");
       }

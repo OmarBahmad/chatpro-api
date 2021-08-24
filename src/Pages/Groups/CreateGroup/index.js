@@ -3,6 +3,8 @@ import { toast } from "react-hot-toast";
 import { createGroup } from "../../../Actions/Groups";
 import * as S from "./styles";
 
+import { ValidNumber } from "../../../hooks/ValidNumber";
+
 export default function CreateGroup() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
@@ -30,20 +32,13 @@ export default function CreateGroup() {
   }
 
   function pushNumber() {
-    if (
-      number !== "" &&
-      !isNaN(parseFloat(number)) &&
-      isFinite(number) &&
-      number.length >= 10 &&
-      number.length < 12
-    ) {
-      setPhones([...phones, number]);
-      setCount(count + 1);
-      setNumber("");
-      toast.success("Número Adicionado");
-    } else {
-      toast.error("Número Inválido");
-    }
+    const isValid = ValidNumber(number);
+    if (!isValid) return toast.error("Número Invalido");
+
+    setPhones([...phones, number]);
+    setCount(count + 1);
+    setNumber("");
+    toast.success("Número Adicionado");
   }
 
   return (
