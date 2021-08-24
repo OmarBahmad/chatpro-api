@@ -1,6 +1,8 @@
 import React from "react";
 import ReactExport from "react-export-excel";
 
+import * as S from "./styles";
+
 const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
@@ -17,7 +19,7 @@ export default function ExportExcelMessageSucess({
   nameFile,
 }) {
   return (
-    <div>
+    <S.Container>
       <ExcelFile element={<button>{nameButton}</button>} filename={nameFile}>
         <ExcelSheet data={respTrue} name={nameFile}>
           {collum1 !== null && <ExcelColumn label={collum1} value={collum1} />}
@@ -28,6 +30,6 @@ export default function ExportExcelMessageSucess({
           {collum6 !== null && <ExcelColumn label={collum6} value={collum6} />}
         </ExcelSheet>
       </ExcelFile>
-    </div>
+      </S.Container>
   );
 }

@@ -6,11 +6,9 @@ import DeleteMultiple from "./DeleteMultiple";
 export default function DeleteMessage() {
   return (
     <div>
-      <hr></hr>
       <h2>Excluir Mensagens</h2>
       <DeleteUnique />
       <DeleteMultiple />
-      <hr></hr>
     </div>
   );
 }

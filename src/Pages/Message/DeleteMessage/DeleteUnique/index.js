@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { deleteMessage } from "../../../../Actions/Message";
+import * as S from "./styles";
 
 export default function DeleteUnique() {
   const [chatJid, setChatJid] = useState("");
@@ -25,21 +26,28 @@ export default function DeleteUnique() {
     setMessageID("");
   }
   return (
-    <div>
-      <h3>Excluir uma Mensagem</h3>
-      <input
+    <S.Container>
+      <S.ContainerHeader>
+        <h4>Excluir uma Mensagem</h4>
+      </S.ContainerHeader>
+      <S.InputNumber
         placeholder="Numero do telefone sem o '9'"
         className="input-msg"
         value={chatJid}
         onChange={(e) => setChatJid(e.target.value)}
       />
-      <input
+      <S.InputMessage
         placeholder="Id da Mensagem"
         className="input-msg"
         value={messageID}
         onChange={(e) => setMessageID(e.target.value)}
       />
-      <button onClick={deleteMsg}>Excluir Mensagem</button>
-    </div>
+      <S.ButtonSend
+        onClick={deleteMsg}
+        disabled={chatJid === "" || messageID === ""}
+      >
+        Excluir Mensagem{" "}
+      </S.ButtonSend>
+    </S.Container>
   );
 }
