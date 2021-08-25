@@ -8,7 +8,7 @@ export const ContainerHeader = styled.div`
 `;
 
 export const InputNumber = styled.input`
-  width: 15%;
+  width: 25%;
   height: 1.75rem;
   border-radius: 5px;
   padding: 0.5rem 1rem;

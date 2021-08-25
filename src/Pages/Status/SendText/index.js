@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { toast } from "react-hot-toast";
+
 import { sendTextStatus } from "../../../Actions/Status";
 import * as S from "./styles";
 
@@ -10,12 +12,17 @@ export default function SendText() {
       text: textStatus,
     };
     try {
-      await sendTextStatus(obj);
-      alert("Status de texto postado com sucesso");
+      const resp = await sendTextStatus(obj);
+
+      if (resp?.length && resp?.code !== 400) {
+        alert("Status de texto postado com sucesso");
+        setTextStatus("");
+      } else {
+        toast.error("Não foi possível adicionar o Status");
+      }
     } catch (err) {
       console.log("erro");
     }
-    setTextStatus("");
   }
 
   return (
@@ -29,7 +36,7 @@ export default function SendText() {
         value={textStatus}
         onChange={(e) => setTextStatus(e.target.value)}
       />
-      <S.ButtonSend onClick={sendStatus}>
+      <S.ButtonSend onClick={sendStatus} disabled={textStatus === ""}>
         Adicionar Status de Texto
       </S.ButtonSend>
     </S.Container>

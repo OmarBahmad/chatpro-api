@@ -20,7 +20,7 @@ export default function GetUniqueContact() {
     try {
       const resp = await getProfile(obj);
 
-      if (resp) {
+      if (resp?.length && resp?.code !== 400) {
         setData(resp);
         toast.success("Contato obtido com sucesso.");
         setData(resp);
@@ -43,7 +43,7 @@ export default function GetUniqueContact() {
         value={number}
         onChange={(e) => setNumber(e.target.value)}
       />
-      <S.ButtonSend onClick={sendCTT}>Obter Contato</S.ButtonSend>
+      <S.ButtonSend onClick={sendCTT} disabled={number === ""} >Obter Contato</S.ButtonSend>
       {respTrue && (
         <div>
           <p>

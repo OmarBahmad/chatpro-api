@@ -14,7 +14,7 @@ export default function GetChat() {
       const resp = await getChat();
 
       //verificar quando esta certo resp.code === 400 celular nao conectado
-      if (resp.length || resp.code !== 400) {
+      if (resp.length && resp?.code !== 400) {
         const group = await resp?.filter((group) =>
           group.Jid.includes("@g.us")
         );

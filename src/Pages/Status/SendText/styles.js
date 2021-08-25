@@ -39,4 +39,8 @@ export const ButtonSend = styled.button`
   background: rgb(4, 170, 109);
   border: 1px solid rgb(4, 170, 109);
   margin-left: 1rem;
+  :disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
 `;

@@ -18,13 +18,14 @@ export function SendUniqueFile() {
       const resp = await sendFile(obj);
       if (resp.status === true) {
         toast.success("Arquivo Enviado com Sucesso");
+        setCaption("");
+        setNumber("");
+        setURL("");
       } else {
         toast.error("Arquivo Não Enviado");
       }
     } catch (err) {}
-    setCaption("");
-    setNumber("");
-    setURL("");
+
   }
 
   return (

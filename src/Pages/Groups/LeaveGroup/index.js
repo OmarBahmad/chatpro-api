@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-hot-toast";
 import { leaveGroup } from "../../../Actions/Groups";
 import { getChat } from "../../../Actions/Chat";
 import * as S from "./styles";
@@ -26,12 +27,16 @@ export default function LeaveGroup() {
     };
 
     try {
-      await leaveGroup(obj);
-      alert("Você saiu do grupo!");
-    } catch {
-      console.log("Erro ao sair do grupo!");
+      const resp = await leaveGroup(obj);
+      if (resp?.length && resp?.code !== 400) {
+        toast.success("Você saiu do Grupo!");
+        setJid("");
+      } else {
+        toast.error("Não foi possível criar o grupo!");
+      }
+    } catch (err) {
+      console.log("Erro ao criar grupo.");
     }
-    setJid("");
   }
 
   return (

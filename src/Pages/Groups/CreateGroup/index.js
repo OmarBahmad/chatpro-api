@@ -18,17 +18,17 @@ export default function CreateGroup() {
     };
     try {
       const resp = await createGroup(obj);
-      if (resp) {
+      if (resp?.length && resp?.code !== 400) {
         toast.success("Grupo criado!");
+        setName("");
+        setPhones([]);
+        setCount(0);
       } else {
         toast.error("Não foi possível criar o grupo!");
       }
     } catch (err) {
       console.log("Erro ao criar grupo.");
     }
-    setName("");
-    setPhones([]);
-    setCount(0);
   }
 
   function pushNumber() {

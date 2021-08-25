@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-hot-toast";
 import { sendImageStatus } from "../../../Actions/Status";
 import * as S from "./styles";
 
@@ -12,13 +13,18 @@ export default function SendImg() {
       url,
     };
     try {
-      await sendImageStatus(obj);
-      alert("Status de texto postado com sucesso");
+      const resp = await sendImageStatus(obj);
+
+      if (resp?.length && resp?.code !== 400) {
+        alert("Status de texto postado com sucesso");
+        setCaption("");
+        setUrl("");
+      } else {
+        toast.error("Não foi possível adicionar o Status");
+      }
     } catch (err) {
       console.log("erro");
     }
-    setCaption("");
-    setUrl("");
   }
   return (
     <S.Container>
@@ -35,7 +41,10 @@ export default function SendImg() {
         value={url}
         onChange={(e) => setUrl(e.target.value)}
       />
-      <S.ButtonSend onClick={sendStatus}>
+      <S.ButtonSend
+        onClick={sendStatus}
+        disabled={caption === "" || url === ""}
+      >
         Adicionar Status de Imagem
       </S.ButtonSend>
     </S.Container>
