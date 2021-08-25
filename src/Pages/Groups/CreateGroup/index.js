@@ -18,7 +18,7 @@ export default function CreateGroup() {
     };
     try {
       const resp = await createGroup(obj);
-      if (resp?.length && resp?.code !== 400) {
+      if (resp && resp?.code !== 400) {
         toast.success("Grupo criado!");
         setName("");
         setPhones([]);

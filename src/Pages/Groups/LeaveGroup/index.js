@@ -28,7 +28,7 @@ export default function LeaveGroup() {
 
     try {
       const resp = await leaveGroup(obj);
-      if (resp?.length && resp?.code !== 400) {
+      if (resp.status === 200 && resp?.code !== 400) {
         toast.success("Você saiu do Grupo!");
         setJid("");
       } else {
