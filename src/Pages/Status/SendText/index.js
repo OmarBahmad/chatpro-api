@@ -9,7 +9,7 @@ export default function SendText() {
 
   async function sendStatus() {
     const obj = {
-      text: textStatus,
+      text: textStatus 
     };
     try {
       const resp = await sendTextStatus(obj);
