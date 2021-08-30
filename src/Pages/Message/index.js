@@ -4,7 +4,7 @@ import { Container } from "../../Components/Container";
 import SendMessage from "./SendMessage";
 import DeleteMessage from "./DeleteMessage";
 import SendFile from "./SendFile";
-//import SendLocation from "./SendLocation";
+import SendLocation from "./SendLocation";
 //import SendContact from "./SendContact";
 //import SendMessageTemplate from "./SendMessageTemplate";
 
@@ -16,13 +16,14 @@ export default function Chat() {
         <SendMessage />
         <DeleteMessage />
         <SendFile />
+        <SendLocation />
       </Container>
     </>
   );
 }
 
 /*
-<SendLocation />
+
 <SendContact />
 <SendMessageTemplate />
 */
