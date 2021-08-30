@@ -6,7 +6,6 @@ import ExportExcelMessageSucess from "../../../../Components/ExportExcel/ExportE
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
 import * as S from "./styles";
 
-
 export default function SendMultipleLocation({
   setCheckMessage,
   checkMessage,
@@ -42,7 +41,7 @@ export default function SendMultipleLocation({
             RemoteJid: resp.messageInfo.RemoteJid,
           },
         ]);
-        toast.error("Localização enviada com sucesso");
+        toast.success("Localização enviada com sucesso");
       } else {
         setCheckMessage((oldArray) => [...oldArray, { sendTrue: false }]);
         setRespFalse((index) => [
@@ -63,33 +62,34 @@ export default function SendMultipleLocation({
     setCount((prev) => prev + 1);
     setAmountMessage((index) => index - 1);
   }
+
   useEffect(() => {
     if (count < 0 || count === items.length) return;
 
     if (
       items[count].number !== undefined &&
       items[count].name !== undefined &&
-      items[count].address !== undefined && 
-      items[count].lat !== undefined && 
-      items[count].lng !== undefined
+      items[count].address !== undefined
     ) {
       const handler = setInterval(() => {
         triggerLocations();
       }, getRandomArbitrary());
       return () => clearInterval(handler);
     } else {
+      setCount((prev) => prev + 1);
       alert(
         "Algum campo da linha 1 da planilha importada está com o nome incorreto"
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
   useEffect(() => {
-   setAmountMessage(items.length);
+    setAmountMessage(items.length);
   }, [items]);
 
   function getRandomArbitrary() {
-    return (Math.random() * (3500 - 2600) + 2600).toFixed();
+    return (Math.random() * (4500 - 3600) + 3600).toFixed();
   }
 
   useEffect(() => {
@@ -99,13 +99,14 @@ export default function SendMultipleLocation({
       setCount(-1);
       setAmountMessage(0);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amountMessage]);
 
   return (
     <S.Container>
       <h4>Disparo de Mensagens</h4>
       <S.ImportMessage>
-        <ImportExcel setItems={setItems} setAmountMessage={setAmountMessage}/>
+        <ImportExcel setItems={setItems} setAmountMessage={setAmountMessage} />
         <S.ButtonFile
           onClick={() => setCount((prev) => prev + 1)}
           disabled={amountMessage === 0}

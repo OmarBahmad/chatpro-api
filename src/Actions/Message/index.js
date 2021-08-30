@@ -56,6 +56,7 @@ export const sendLocation = async (params) => {
           "Content-Type": "application/json",
           authorization: keyAuthorization,
         },
+        timeout: 3500,
       }
     );
     summary = data;

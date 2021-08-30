@@ -37,13 +37,13 @@ export default function SendUniqueLocation() {
         onChange={(e) => setAddress(e.target.value)}
       />
       <input
-        placeholder="Latitude"
+        placeholder="Latitude (opcional)"
         type="number"
         value={lat}
         onChange={(e) => setLat(e.target.value)}
       />
       <input
-        placeholder="Longitude"
+        placeholder="Longitude (opcional)"
         type="number"
         value={lng}
         onChange={(e) => setLng(e.target.value)}
