@@ -24,7 +24,7 @@ export const InputMessage = styled.input`
   border-radius: 5px;
   margin-left: 1rem;
   border: 1px solid black;
-  outline: none;
+  outline: none;    
   font-size: 18px;
 `;
 
