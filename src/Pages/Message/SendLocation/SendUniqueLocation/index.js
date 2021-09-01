@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { sendLocation } from "../../../../Actions/Message";
+import * as S from "./styles";
 
 export default function SendUniqueLocation() {
   const [address, setAddress] = useState("");
@@ -29,36 +30,38 @@ export default function SendUniqueLocation() {
     setNumber("");
   }
   return (
-    <div>
-      <h2>Enviar Localização</h2>
-      <input
+    <S.Container>
+      <S.ContainerHeader>
+        <h4>Enviar Localização</h4>
+      </S.ContainerHeader>
+      <S.InputAdress
         placeholder="Endereço"
         value={address}
         onChange={(e) => setAddress(e.target.value)}
       />
-      <input
+      <S.InputLat
         placeholder="Latitude (opcional)"
         type="number"
         value={lat}
         onChange={(e) => setLat(e.target.value)}
       />
-      <input
+      <S.InputLong
         placeholder="Longitude (opcional)"
         type="number"
         value={lng}
         onChange={(e) => setLng(e.target.value)}
       />
-      <input
+      <S.InputLocalName
         placeholder="Nome do local"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <input
+      <S.InputNumber
         placeholder="Número"
         value={number}
         onChange={(e) => setNumber(e.target.value)}
       />
-      <button onClick={sendLocal}>Enviar Localização</button>
-    </div>
+      <S.ButtonSend onClick={sendLocal}>Enviar Localização</S.ButtonSend>
+    </S.Container>
   );
 }

@@ -35,8 +35,8 @@ export default function SendMultipleMessages({
           {
             number: items[count].number.toString(),
             message: items[count].message.toString(),
-            id: resp.messageInfo.Id.toString(),
-            numberJid: resp.messageInfo.RemoteJid,
+            messageID: resp.messageInfo.Id.toString(),
+            chatJid: resp.messageInfo.RemoteJid,
           },
         ]);
         toast.success("Mensagem Enviada com sucesso!");
@@ -119,8 +119,8 @@ export default function SendMultipleMessages({
             respTrue={respTrue}
             collum1="number"
             collum2="message"
-            collum3="id"
-            collum4="numberJid"
+            collum3="messageID"
+            collum4="chatJid"
             nameButton="Download da planilha de disparos bem sucedidos"
             nameFile="Disparos bem sucedidos"
           />

@@ -1,53 +1,28 @@
 import React, { useState } from "react";
-import { sendContact } from "../../../Actions/Message";
+import SendUniqueContact from "./SendUniqueContact";
+import SendMultipleContact from "./SendMultipleContact";
 
-export default function SendContact() {
-  const [contact_name, setContactName] = useState("");
-  const [contact_number, setContactNumber] = useState("");
-  const [number, setNumber] = useState("");
+export default function SendMessage() {
+  const [items, setItems] = useState([]);
+  const [checkMessage, setCheckMessage] = useState([]);
+  const [respTrue, setRespTrue] = useState([]);
+  const [respFalse, setRespFalse] = useState([]);
 
-  async function sendCTT() {
-    const obj = {
-      contact_name,
-      contact_number,
-      number,
-    };
-    try {
-      const resp = await sendContact(obj);
-      alert("Contato enviado com sucesso.");
-    } catch (err) {
-      console.log("erro");
-    }
-    setContactNumber("");
-    setContactName("");
-    setNumber("");
-  }
   return (
     <div>
-      <h2>Enviar Contato</h2>
-      <input
-        placeholder="Nome do Contato"
-        value={contact_name}
-        onChange={(e) => setContactName(e.target.value)}
+      <h2>Enviar contatos</h2>
+      
+      <SendUniqueContact />
+      <SendMultipleContact
+        items={items}
+        setItems={setItems}
+        setCheckMessage={setCheckMessage}
+        checkMessage={checkMessage}
+        respTrue={respTrue}
+        setRespTrue={setRespTrue}
+        respFalse={respFalse}
+        setRespFalse={setRespFalse}
       />
-      <input
-        placeholder="Numero desse contato"
-        value={contact_number}
-        onChange={(e) => setContactNumber(e.target.value)}
-      />
-      <input
-        placeholder="Número"
-        value={number}
-        onChange={(e) => setNumber(e.target.value)}
-      />
-      <button onClick={sendCTT}>Enviar Contato</button>
     </div>
   );
 }
-
-
-/*
-      contact_name: "Vitor Henrique",
-      contact_number: "62982530552",
-      number: "62996422859",
-*/

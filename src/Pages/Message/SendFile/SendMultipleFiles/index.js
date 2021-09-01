@@ -31,8 +31,8 @@ export function SendMultipleFiles() {
             number: items[count].number.toString(),
             caption: resp.requestMenssage.caption.toString(),
             url: resp.requestMenssage.url.toString(),
-            id: resp.requestMenssage.id.toString(),
-            numberJid: resp.requestMenssage.number.toString(),
+            messageID: resp.requestMenssage.id.toString(),
+            chatJid: resp.requestMenssage.number.toString(),
           },
         ]);
         toast.success("Arquivo Enviado com sucesso!");
@@ -120,8 +120,8 @@ export function SendMultipleFiles() {
             collum1="number"
             collum2="caption"
             collum3="url"
-            collum4="id"
-            collum5="numberJid"
+            collum4="messageID"
+            collum5="chatJid"
             nameButton="Download da planilha de disparos bem sucedidos"
             nameFile="Disparos bem sucedidos"
           />
