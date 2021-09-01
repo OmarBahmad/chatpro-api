@@ -3,8 +3,8 @@ import { sendLocation } from "../../../../Actions/Message";
 
 export default function SendUniqueLocation() {
   const [address, setAddress] = useState("");
-  const [lat, setLat] = useState(0);
-  const [lng, setLng] = useState(0);
+  const [lat, setLat] = useState("");
+  const [lng, setLng] = useState("");
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
 
@@ -23,8 +23,8 @@ export default function SendUniqueLocation() {
       console.log("erro");
     }
     setAddress("");
-    setLat(0);
-    setLng(0);
+    setLat("");
+    setLng("");
     setName("");
     setNumber("");
   }

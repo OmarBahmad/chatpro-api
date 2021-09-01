@@ -68,7 +68,7 @@ export default function SendMultipleLocation({
 
     if (
       items[count].number !== undefined &&
-      items[count].name !== undefined &&
+      //items[count].name !== undefined &&
       items[count].address !== undefined
     ) {
       const handler = setInterval(() => {
