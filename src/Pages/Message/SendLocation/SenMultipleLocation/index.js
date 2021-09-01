@@ -37,8 +37,8 @@ export default function SendMultipleLocation({
             address: items[count].address.toString(),
             name: items[count].name.toString(),
             number: items[count].number.toString(),
-            Id: resp.messageInfo.Id,
-            RemoteJid: resp.messageInfo.RemoteJid,
+            messageID: resp.messageInfo.Id,
+            chatJid: resp.messageInfo.RemoteJid,
           },
         ]);
         toast.success("Localização enviada com sucesso");
@@ -125,10 +125,10 @@ export default function SendMultipleLocation({
           <ExportExcelMessageSucess
             respTrue={respTrue}
             collum1="address"
-            collum2="lat"
-            collum3="lng"
-            collum4="name"
-            collum5="number"
+            collum2="name"
+            collum3="number"
+            collum4="messageID"
+            collum5="chatJid"
             nameButton="Download da planilha de disparos bem sucedidos"
             nameFile="Disparos bem sucedidos"
           />

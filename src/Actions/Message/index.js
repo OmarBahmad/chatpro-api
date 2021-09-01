@@ -121,6 +121,7 @@ export const sendContact = async (params) => {
           "Content-Type": "application/json",
           authorization: keyAuthorization,
         },
+        timeout: 3000,
       }
     );
     summary = data;
