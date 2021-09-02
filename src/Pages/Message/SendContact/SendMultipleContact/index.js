@@ -4,18 +4,20 @@ import { toast } from "react-hot-toast";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageSucess from "../../../../Components/ExportExcel/ExportExcelMessageSucess";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
+import DataTable from "./datatable";
 import * as S from "./styles";
 
 export default function SendMultipleContact() {
   const [items, setItems] = useState([]);
-  const [checkMessage, setCheckMessage] = useState([]);
   const [respTrue, setRespTrue] = useState([]);
   const [respFalse, setRespFalse] = useState([]);
+  const [respAll, setRespAll] = useState([]);
   const [count, setCount] = useState(-1);
   const [amountMessage, setAmountMessage] = useState(0);
   const [showExcel, setShowExcel] = useState(false);
 
   async function sendCTT() {
+    let verify = '';
     const obj = {
       contact_name: items[count].contact_name.toString(),
       contact_number: items[count].contact_number.toString(),
@@ -24,7 +26,8 @@ export default function SendMultipleContact() {
     try {
       const resp = await sendContact(obj);
       if (resp?.Status === 0){
-        setCheckMessage((oldArray) => [...oldArray, {sendTrue: true}])
+        verify = '✅';
+
         setRespTrue((index) => [
           ...index,
           {
@@ -39,7 +42,8 @@ export default function SendMultipleContact() {
         )
         toast.success("Contato Enviado com Sucesso!")
       } else{
-        setCheckMessage((oldArray) => [...oldArray, { sendTrue : false}])
+        verify = '❌'
+
         setRespFalse((index)=> [
           ...index,
           {
@@ -50,6 +54,18 @@ export default function SendMultipleContact() {
         ])
         toast.error("Contato não enviado")
       }
+
+
+      setRespAll((index)=> [
+        ...index,
+        {
+          index: count + 1,
+          number: items[count].number.toString(),
+          contact_number: items[count].contact_number.toString(),
+          contact_name: items[count].contact_name.toString(),
+          checkMsg: verify
+        }
+      ])
     } catch (err) {
       console.log("erro");
     }
@@ -141,6 +157,8 @@ export default function SendMultipleContact() {
         />
       </>
     )}
+    {console.log(respAll)}
+    <DataTable data={respAll} collum0="Índice" collum1="Número" collum2="Nome"  collum3="Número do Contato" collum4="Status de Envio"/>
   </S.Container>
   );
 }
