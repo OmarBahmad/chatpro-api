@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
 import * as XLSX from "xlsx";
-import "./styles2.css";
 
 export default function ImportExcel({ setItems }) {
   const readExcel = (file) => {

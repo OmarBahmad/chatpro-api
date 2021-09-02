@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageSucess from "../../../../Components/ExportExcel/ExportExcelMessageSucess";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
-import DataTable from "./datatable";
+import DataTable from "../../../../Components/DataTable";
 import * as S from "./styles";
 
 export default function SendMultipleContact() {
@@ -17,7 +17,7 @@ export default function SendMultipleContact() {
   const [showExcel, setShowExcel] = useState(false);
 
   async function sendCTT() {
-    let verify = '';
+    let verify = "";
     const obj = {
       contact_name: items[count].contact_name.toString(),
       contact_number: items[count].contact_number.toString(),
@@ -25,8 +25,8 @@ export default function SendMultipleContact() {
     };
     try {
       const resp = await sendContact(obj);
-      if (resp?.Status === 0){
-        verify = '✅';
+      if (resp?.Status === 0) {
+        verify = "✅";
 
         setRespTrue((index) => [
           ...index,
@@ -36,36 +36,33 @@ export default function SendMultipleContact() {
             contact_number: items[count].contact_number.toString(),
             messageID: resp.Id.toString(),
             chatJid: resp.RemoteJid.toString(),
-          }
+          },
+        ]);
+        toast.success("Contato Enviado com Sucesso!");
+      } else {
+        verify = "❌";
 
-        ]
-        )
-        toast.success("Contato Enviado com Sucesso!")
-      } else{
-        verify = '❌'
-
-        setRespFalse((index)=> [
+        setRespFalse((index) => [
           ...index,
           {
             contact_name: items[count].contact_name.toString(),
             contact_number: items[count].contact_number.toString(),
             number: items[count].number.toString(),
-          }
-        ])
-        toast.error("Contato não enviado")
+          },
+        ]);
+        toast.error("Contato não enviado");
       }
 
-
-      setRespAll((index)=> [
+      setRespAll((index) => [
         ...index,
         {
           index: count + 1,
           number: items[count].number.toString(),
           contact_number: items[count].contact_number.toString(),
           contact_name: items[count].contact_name.toString(),
-          checkMsg: verify
-        }
-      ])
+          checkMsg: verify,
+        },
+      ]);
     } catch (err) {
       console.log("erro");
     }
@@ -113,59 +110,60 @@ export default function SendMultipleContact() {
 
   return (
     <S.Container>
-    <h4>Disparar Arquivos</h4>
-    <S.ImportMessage>
-      <ImportExcel setItems={setItems} />
-      <S.ButtonFile
-        onClick={() => setCount((prev) => prev + 1)}
-        disabled={amountMessage === 0}
-      >
-        Enviar Arquivos
-      </S.ButtonFile>
-    </S.ImportMessage>
+      <h4>Disparar Arquivos</h4>
+      <S.ImportMessage>
+        <ImportExcel setItems={setItems} />
+        <S.ButtonFile
+          onClick={() => setCount((prev) => prev + 1)}
+          disabled={amountMessage === 0}
+        >
+          Enviar Arquivos
+        </S.ButtonFile>
+      </S.ImportMessage>
 
-    {amountMessage !== 0 && (
-      <S.CardQuant>
-        Quantidade de Arquivos:
-        <strong>{amountMessage}</strong>
-      </S.CardQuant>
-    )}
+      {amountMessage !== 0 && (
+        <S.CardQuant>
+          Quantidade de Arquivos:
+          <strong>{amountMessage}</strong>
+        </S.CardQuant>
+      )}
 
-    {respTrue.length > 0 && showExcel && (
-      <>
-        <ExportExcelMessageSucess
-          respTrue={respTrue}
-          collum1="number"
-          collum2="contact_name"
-          collum3="contact_number"
-          collum4="messageID"
-          collum5="chatJid"
-          nameButton="Download da planilha de disparos bem sucedidos"
-          nameFile="Disparos bem sucedidos"
-        />
-      </>
-    )}
-    {respFalse.length > 0 && showExcel && (
-      <>
-        <ExportExcelMessageFailed
-          respFalse={respFalse}
-          collum1="number"
-          collum2="contact_name"
-          collum3="contact_number"
-          nameButton="Download da planilha de disparos mal sucedidos"
-          nameFile="Disparos mal sucedidos"
-        />
-      </>
-    )}
-    {console.log(respAll)}
-    <DataTable data={respAll} collum0="Índice" collum1="Número" collum2="Nome"  collum3="Número do Contato" collum4="Status de Envio"/>
-  </S.Container>
+      {respTrue.length > 0 && showExcel && (
+        <>
+          <ExportExcelMessageSucess
+            respTrue={respTrue}
+            collum1="number"
+            collum2="contact_name"
+            collum3="contact_number"
+            collum4="messageID"
+            collum5="chatJid"
+            nameButton="Download da planilha de disparos bem sucedidos"
+            nameFile="Disparos bem sucedidos"
+          />
+        </>
+      )}
+      {respFalse.length > 0 && showExcel && (
+        <>
+          <ExportExcelMessageFailed
+            respFalse={respFalse}
+            collum1="number"
+            collum2="contact_name"
+            collum3="contact_number"
+            nameButton="Download da planilha de disparos mal sucedidos"
+            nameFile="Disparos mal sucedidos"
+          />
+        </>
+      )}
+      {console.log(respAll)}
+      <DataTable
+        type='contact'
+        data={respAll}
+        collum0="Índice"
+        collum1="Número"
+        collum2="Nome"
+        collum3="Número do Contato"
+        collum4="Status de Envio"
+      />
+    </S.Container>
   );
 }
-
-
-/*
-      contact_name: "Vitor Henrique",
-      contact_number: "62982530552",
-      number: "62996422859",
-*/
