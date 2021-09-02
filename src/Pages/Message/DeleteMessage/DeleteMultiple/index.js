@@ -3,17 +3,19 @@ import { toast } from "react-hot-toast";
 import { deleteMessage } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
+import DataTable from "../../../../Components/DataTable";
 import * as S from "./styles";
 
 export default function DeleteMultiple() {
   const [amountMessage, setAmountMessage] = useState(0);
   const [count, setCount] = useState(-1);
   const [showExcel, setShowExcel] = useState(false);
+  const [respAll, setRespAll] = useState([]);
   const [items, setItems] = useState([]);
   const [respFalse, setRespFalse] = useState([]);
-  const [checkMessage, setCheckMessage] = useState([]);
 
   async function deleteMsg() {
+    let verify = "";
     const obj = {
       chatJid: items[count].chatJid.toString(),
       messageID: items[count].messageID.toString(),
@@ -21,10 +23,10 @@ export default function DeleteMultiple() {
     try {
       const resp = await deleteMessage(obj);
       if (resp.status) {
-        setCheckMessage((oldArray) => [...oldArray, { sendTrue: true }]);
+        verify = "✅";
         toast.success("Mensagem Excluída com sucesso!");
       } else {
-        setCheckMessage((oldArray) => [...oldArray, { sendTrue: false }]);
+        verify = "❌";
         setRespFalse((index) => [
           ...index,
           {
@@ -36,6 +38,17 @@ export default function DeleteMultiple() {
         ]);
         toast.error("Mensagem não excluida");
       }
+
+      setRespAll((index) => [
+        ...index,
+        {
+          index: count + 1,
+          messageID: items[count].messageID.toString(),
+          number: items[count].number.toString(),
+          message: items[count].message.toString(),
+          checkMsg: verify,
+        },
+      ]);
     } catch (err) {
       console.log("erro");
     }
@@ -46,7 +59,10 @@ export default function DeleteMultiple() {
   useEffect(() => {
     if (count < 0 || count === items.length) return;
 
-    if (items[count].chatJid !== undefined || items[count].messageID !== undefined) {
+    if (
+      items[count].chatJid !== undefined ||
+      items[count].messageID !== undefined
+    ) {
       const handler = setInterval(() => {
         deleteMsg();
       }, getRandomArbitrary());
@@ -109,7 +125,7 @@ export default function DeleteMultiple() {
           />
         </>
       )}
-      {console.log(checkMessage)}
+      <DataTable type="delete" data={respAll} />
     </S.Container>
   );
 }

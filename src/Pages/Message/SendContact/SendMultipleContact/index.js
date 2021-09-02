@@ -154,16 +154,8 @@ export default function SendMultipleContact() {
           />
         </>
       )}
-      {console.log(respAll)}
-      <DataTable
-        type='contact'
-        data={respAll}
-        collum0="Índice"
-        collum1="Número"
-        collum2="Nome"
-        collum3="Número do Contato"
-        collum4="Status de Envio"
-      />
+
+      <DataTable type="contact" data={respAll} />
     </S.Container>
   );
 }

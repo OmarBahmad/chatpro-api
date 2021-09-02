@@ -4,6 +4,7 @@ import { sendLocation } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageSucess from "../../../../Components/ExportExcel/ExportExcelMessageSucess";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
+import DataTable from "../../../../Components/DataTable";
 import * as S from "./styles";
 
 export default function SendMultipleLocation({
@@ -17,9 +18,11 @@ export default function SendMultipleLocation({
   const [items, setItems] = useState([]);
   const [count, setCount] = useState(-1);
   const [amountMessage, setAmountMessage] = useState(0);
+  const [respAll, setRespAll] = useState([]);
   const [showExcel, setShowExcel] = useState(false);
 
   async function triggerLocations() {
+    let verify = "";
     const obj = {
       address: items[count].address.toString(),
       lat: Number(items[count].lat),
@@ -30,7 +33,7 @@ export default function SendMultipleLocation({
     try {
       const resp = await sendLocation(obj);
       if (resp.status) {
-        setCheckMessage((oldArray) => [...oldArray, { sendTrue: true }]);
+        verify = "✅";
         setRespTrue((index) => [
           ...index,
           {
@@ -43,7 +46,8 @@ export default function SendMultipleLocation({
         ]);
         toast.success("Localização enviada com sucesso");
       } else {
-        setCheckMessage((oldArray) => [...oldArray, { sendTrue: false }]);
+        verify = "❌";
+
         setRespFalse((index) => [
           ...index,
           {
@@ -56,6 +60,18 @@ export default function SendMultipleLocation({
         ]);
         toast.error("Localização não enviada");
       }
+
+      setRespAll((index) => [
+        ...index,
+        {
+          index: count + 1,
+          address: items[count].address.toString(),
+          name: items[count].name.toString(),
+          number: items[count].number.toString(),
+          checkMsg: verify,
+        },
+      ]);
+
     } catch (err) {
       console.log("erro");
     }
@@ -148,7 +164,7 @@ export default function SendMultipleLocation({
           />
         </>
       )}
-      {console.log(checkMessage)}
+      <DataTable type="location" data={respAll} />
     </S.Container>
   );
 }

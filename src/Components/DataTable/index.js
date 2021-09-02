@@ -1,35 +1,26 @@
 import React from "react";
 import * as S from "./styles";
 import Table from "../Table";
-import { ColumnsContact, ColumnsMessage } from "./columns";
+import {
+  ColumnsContact,
+  ColumnsMessage,
+  ColumnsFile,
+  ColumnsDelete,
+  ColumnsLocation,
+} from "./columns";
+
+const typeColumns = {
+  contact: ColumnsContact,
+  delete: ColumnsDelete,
+  file: ColumnsFile,
+  message: ColumnsMessage,
+  location: ColumnsLocation,
+};
 
 export default function DataTable({ data, type }) {
-  if (type === "contact") {
-    return (
-      <S.DataTable>
-        <Table columns={ColumnsContact} data={data} />
-      </S.DataTable>
-    );
-  } else if (type === "message") {
-    return (
-      <S.DataTable>
-        <Table columns={ColumnsMessage} data={data} />
-      </S.DataTable>
-    );
-  } else if (type === "file") {
-    return (
-      <S.DataTable>
-        <Table columns={ColumnsContact} data={data} />
-      </S.DataTable>
-    );
-  } else if(type === "localization") {
-    return (
-      <S.DataTable>
-        <Table columns={ColumnsContact} data={data} />
-      </S.DataTable>
-    );
-  }
-  else {
-      return null
-  }
+  return (
+    <S.DataTable>
+      <Table columns={typeColumns[type]} data={data} />
+    </S.DataTable>
+  );
 }

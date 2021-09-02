@@ -4,18 +4,20 @@ import { sendFile } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageSucess from "../../../../Components/ExportExcel/ExportExcelMessageSucess";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
+import DataTable from "../../../../Components/DataTable";
 import * as S from "./styles";
 
 export function SendMultipleFiles() {
   const [items, setItems] = useState([]);
-  const [checkMessage, setCheckMessage] = useState([]);
   const [respTrue, setRespTrue] = useState([]);
+  const [respAll, setRespAll] = useState([]);
   const [respFalse, setRespFalse] = useState([]);
   const [count, setCount] = useState(-1);
   const [amountMessage, setAmountMessage] = useState(0);
   const [showExcel, setShowExcel] = useState(false);
 
   async function sendUrlFile() {
+    let verify = "";
     const obj = {
       caption: items[count].caption.toString(),
       number: items[count].number.toString(),
@@ -24,7 +26,7 @@ export function SendMultipleFiles() {
     try {
       const resp = await sendFile(obj);
       if (resp.status) {
-        setCheckMessage((oldArray) => [...oldArray, { sendTrue: true }]);
+        verify = "✅";
         setRespTrue((index) => [
           ...index,
           {
@@ -37,7 +39,7 @@ export function SendMultipleFiles() {
         ]);
         toast.success("Arquivo Enviado com sucesso!");
       } else {
-        setCheckMessage((oldArray) => [...oldArray, { sendTrue: false }]);
+        verify = "❌";
         setRespFalse((index) => [
           ...index,
           {
@@ -48,6 +50,15 @@ export function SendMultipleFiles() {
         ]);
         toast.error("Arquivo Não Enviado");
       }
+      setRespAll((index) => [
+        ...index,
+        {
+          index: count + 1,
+          caption: items[count].caption.toString(),
+          number: items[count].number.toString(),
+          checkMsg: verify,
+        },
+      ]);
     } catch (err) {
       console.log("erro");
     }
@@ -139,6 +150,7 @@ export function SendMultipleFiles() {
           />
         </>
       )}
+      <DataTable type="file" data={respAll} />
     </S.Container>
   );
 }
