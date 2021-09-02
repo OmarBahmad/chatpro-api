@@ -23,7 +23,7 @@ export default function SendMultipleContact() {
     };
     try {
       const resp = await sendContact(obj);
-      if (resp.status){
+      if (resp?.Status === 0){
         setCheckMessage((oldArray) => [...oldArray, {sendTrue: true}])
         setRespTrue((index) => [
           ...index,

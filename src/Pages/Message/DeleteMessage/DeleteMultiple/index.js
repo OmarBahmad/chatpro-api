@@ -15,8 +15,8 @@ export default function DeleteMultiple() {
 
   async function deleteMsg() {
     const obj = {
-      chatJid: items[count].numberJid.toString(),
-      messageID: items[count].id.toString(),
+      chatJid: items[count].chatJid.toString(),
+      messageID: items[count].messageID.toString(),
     };
     try {
       const resp = await deleteMessage(obj);
@@ -28,8 +28,8 @@ export default function DeleteMultiple() {
         setRespFalse((index) => [
           ...index,
           {
-            chatJid: items[count].numberJid.toString(),
-            messageID: items[count].id.toString(),
+            chatJid: items[count].chatJid.toString(),
+            messageID: items[count].messageID.toString(),
             number: items[count].number.toString(),
             message: items[count].message.toString(),
           },
@@ -46,7 +46,7 @@ export default function DeleteMultiple() {
   useEffect(() => {
     if (count < 0 || count === items.length) return;
 
-    if (items[count].numberJid !== undefined || items[count].id !== undefined) {
+    if (items[count].chatJid !== undefined || items[count].messageID !== undefined) {
       const handler = setInterval(() => {
         deleteMsg();
       }, getRandomArbitrary());

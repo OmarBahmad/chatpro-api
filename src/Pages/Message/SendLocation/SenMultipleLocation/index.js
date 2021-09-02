@@ -37,8 +37,8 @@ export default function SendMultipleLocation({
             address: items[count].address.toString(),
             name: items[count].name.toString(),
             number: items[count].number.toString(),
-            id: resp.messageInfo.Id,
-            numberJid: resp.messageInfo.RemoteJid,
+            messageID: resp.messageInfo.Id,
+            chatJid: resp.messageInfo.RemoteJid,
           },
         ]);
         toast.success("Localização enviada com sucesso");
@@ -127,8 +127,8 @@ export default function SendMultipleLocation({
             collum1="address"
             collum2="name"
             collum3="number"
-            collum4="id"
-            collum5="numberJid"
+            collum4="messageID"
+            collum5="chatJid"
             nameButton="Download da planilha de disparos bem sucedidos"
             nameFile="Disparos bem sucedidos"
           />
