@@ -1,16 +1,17 @@
 import React from "react";
+import Sidebar from "../../../Components/newSidebar/Sidebar";
+
 import { SendMultipleFiles } from "./SendMultipleFiles";
 import { SendUniqueFile } from "./SendUniqueFile";
 
 export default function SendFile() {
-
   return (
-    <div>
+    <>
+      <Sidebar />
       <h2>Enviar Arquivos</h2>
       <SendUniqueFile />
-      <SendMultipleFiles
-      />
-    </div>
+      <SendMultipleFiles />
+    </>
   );
 }
 

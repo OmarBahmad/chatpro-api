@@ -1,15 +1,17 @@
 import React from "react";
+import Sidebar from "../../../Components/newSidebar/Sidebar";
 
 import DeleteUnique from "./DeleteUnique";
 import DeleteMultiple from "./DeleteMultiple";
 
 export default function DeleteMessage() {
   return (
-    <div>
+    <>
+      <Sidebar />
       <h2>Excluir Mensagens</h2>
       <DeleteUnique />
       <DeleteMultiple />
-    </div>
+    </>
   );
 }
 

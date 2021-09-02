@@ -19,7 +19,7 @@ export default function Login() {
       return alert("ChatID ou token invalido");
     localStorage.setItem("@chatID", JSON.stringify(chatId));
     localStorage.setItem("@tokenID", JSON.stringify(tokenID));
-    navigate("/message");
+    navigate("/messages/text");
   }
   return (
     <div>

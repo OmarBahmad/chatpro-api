@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Sidebar from "../../../Components/newSidebar/Sidebar";
 import SendUniqueLocation from "./SendUniqueLocation";
 import SendMultipleLocation from "./SenMultipleLocation";
 
@@ -9,9 +10,10 @@ export default function SendLocation() {
   const [respFalse, setRespFalse] = useState([]);
 
   return (
-    <div>
+    <>
+      <Sidebar />
       <h2>Enviar Localização</h2>
-      
+
       <SendUniqueLocation />
       <SendMultipleLocation
         items={items}
@@ -23,6 +25,6 @@ export default function SendLocation() {
         respFalse={respFalse}
         setRespFalse={setRespFalse}
       />
-    </div>
+    </>
   );
 }

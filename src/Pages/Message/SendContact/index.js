@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Sidebar from "../../../Components/newSidebar/Sidebar";
+
 import SendUniqueContact from "./SendUniqueContact";
 import SendMultipleContact from "./SendMultipleContact";
 
@@ -9,9 +11,10 @@ export default function SendMessage() {
   const [respFalse, setRespFalse] = useState([]);
 
   return (
-    <div>
+    <>
+      <Sidebar />
       <h2>Enviar contatos</h2>
-      
+
       <SendUniqueContact />
       <SendMultipleContact
         items={items}
@@ -23,6 +26,6 @@ export default function SendMessage() {
         respFalse={respFalse}
         setRespFalse={setRespFalse}
       />
-    </div>
+    </>
   );
 }

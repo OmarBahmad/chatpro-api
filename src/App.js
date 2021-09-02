@@ -1,46 +1,48 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-
-import Login from "./Pages/Login";
-import Message from "./Pages/Message";
-import Contacts from "./Pages/Contacts";
-import Chat from "./Pages/Chat";
-import Group from "./Pages/Groups";
-import Status from "./Pages/Status";
 import { ProtectedRoute } from "./Components/ProtectedRoute";
-// import Instance from "./Pages/Instance";
-
-//import { ExcelToJson } from "./Components/ReadFileXML/ReadFile";
+import Login from "./Pages/Login";
+import SendMessage from "./Pages/Message/SendMessage";
+import SendFile from "./Pages/Message/SendFile";
+import SendLocation from "./Pages/Message/SendLocation";
+import SendContact from "./Pages/Message/SendContact";
+import DeleteMessage from "./Pages/Message/DeleteMessage";
+import Chat from "./Pages/Chat";
+import Contacts from "./Pages/Contacts";
+import Groups from "./Pages/Groups";
+import Status from "./Pages/Status";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Routes>
-          <Route exact path="/" element={<Login/>} />
-          <ProtectedRoute exact path="/message" element={<Message/>} />
-          <ProtectedRoute exact path="/contacts" element={<Contacts/>} />
-          <ProtectedRoute exact path="/chat" element={<Chat/>} />
-          <ProtectedRoute exact path="/group" element={<Group/>} />
-          <ProtectedRoute exact path="/status" element={<Status/>} />
-        </Routes>
-        <Toaster position="top-right" reverseOrder={false} />
-      </div>
-    </BrowserRouter>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Login />} />
+        <ProtectedRoute path="/messages/text" exact element={<SendMessage />} />
+        <ProtectedRoute path="/messages/file" exact element={<SendFile />} />
+        <ProtectedRoute
+          path="/messages/localization"
+          exact
+          element={<SendLocation />}
+        />
+        <ProtectedRoute
+          path="/messages/contact"
+          exact
+          element={<SendContact />}
+        />
+        <ProtectedRoute
+          path="/messages/delete"
+          exact
+          element={<DeleteMessage />}
+        />
+        <ProtectedRoute path="/chat" exact element={<Chat />} />
+        <ProtectedRoute path="/contacts" exact element={<Contacts />} />
+        <ProtectedRoute path="/groups" exact element={<Groups />} />
+        <ProtectedRoute path="/status" exact element={<Status />} />
+      </Routes>
+      <Toaster position="top-right" reverseOrder={false} />
+    </Router>
   );
 }
 
 export default App;
-
-/*
- <Container>
-          <Route exact path="/instance" component={Instance} />
-
-      {/*<div>
-        <ExcelToJson />
-      </div>
-      }
-    </Container>
-
-*/
