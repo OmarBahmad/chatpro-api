@@ -23,22 +23,23 @@ export default function Login() {
     navigate("/messages/text");
   }
   return (
-    <S.Container>
+    <S.ContainerUp>
       <S.ContainerLogin>
-        <input
+        <S.Login> PLENO API</S.Login>
+        <S.Input
           type="text"
           value={chatId}
           placeholder="Informar o ChatID"
           onChange={(e) => setChatId(e.target.value)}
         />
-        <input
+        <S.Input
           type="text"
           value={tokenID}
           placeholder="Informar o Token"
           onChange={(e) => setToken(e.target.value)}
         />
-        <button onClick={handleLogin}>Login</button>
+        <S.Button onClick={handleLogin}>Login</S.Button>
       </S.ContainerLogin>
-    </S.Container>
+    </S.ContainerUp>
   );
 }
