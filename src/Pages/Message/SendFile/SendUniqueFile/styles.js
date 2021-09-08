@@ -8,7 +8,7 @@ export const ContainerHeader = styled.div`
 `;
 
 export const InputName = styled.input`
-  width: 15%;
+  width: 22%;
   height: 1.75rem;
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -18,7 +18,7 @@ export const InputName = styled.input`
   font-size: 18px;
 `;
 export const InputNumber = styled.input`
-  width: 15%;
+  width: 20%;
 
   height: 1.75rem;
   border-radius: 5px;
@@ -29,7 +29,7 @@ export const InputNumber = styled.input`
   margin-left: 1rem;
 `;
 export const InputURL = styled.input`
-  width: 15%;
+  width: 25%;
 
   height: 1.75rem;
   border-radius: 5px;

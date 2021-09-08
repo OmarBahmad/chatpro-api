@@ -4,7 +4,6 @@ import { sendMessage } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageSucess from "../../../../Components/ExportExcel/ExportExcelMessageSucess";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
-import DataTable from "../../../../Components/DataTable";
 import * as S from "./styles";
 
 export default function SendMultipleMessages({
@@ -16,11 +15,11 @@ export default function SendMultipleMessages({
   setRespTrue,
   respFalse,
   setRespFalse,
+  setRespAll,
 }) {
   const [count, setCount] = useState(-1);
   const [amountMessage, setAmountMessage] = useState(0);
   const [showExcel, setShowExcel] = useState(false);
-  const [respAll, setRespAll] = useState([]);
 
   async function triggerMessages() {
     let verify = "";
@@ -153,7 +152,6 @@ export default function SendMultipleMessages({
         </>
       )}
       {console.log(checkMessage)}
-      <DataTable type="message" data={respAll} />
     </S.Container>
   );
 }

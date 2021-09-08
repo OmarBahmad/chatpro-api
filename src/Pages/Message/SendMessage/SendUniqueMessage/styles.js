@@ -2,14 +2,17 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
+  margin-top: 10px;
+
 `;
 export const ContainerHeader = styled.div`
   width: 100%;
+  margin-bottom: 5px;
 `;
 
 export const InputNumber = styled.input`
-  width: 18%;
-  height: 1.75rem;
+  width: 25%;
+  height: 2rem;
   border-radius: 5px;
   padding: 0.5rem 1rem;
   border: 1px solid black;
@@ -18,8 +21,8 @@ export const InputNumber = styled.input`
 `;
 
 export const InputMessage = styled.input`
-  width: 30%;
-  height: 1.75rem;
+  width: 35%;
+  height: 2rem;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   margin-left: 1rem;

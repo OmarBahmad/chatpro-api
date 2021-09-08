@@ -4,13 +4,11 @@ import { sendFile } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageSucess from "../../../../Components/ExportExcel/ExportExcelMessageSucess";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
-import DataTable from "../../../../Components/DataTable";
 import * as S from "./styles";
 
-export function SendMultipleFiles() {
+export function SendMultipleFiles({ setRespAll }) {
   const [items, setItems] = useState([]);
   const [respTrue, setRespTrue] = useState([]);
-  const [respAll, setRespAll] = useState([]);
   const [respFalse, setRespFalse] = useState([]);
   const [count, setCount] = useState(-1);
   const [amountMessage, setAmountMessage] = useState(0);
@@ -150,7 +148,6 @@ export function SendMultipleFiles() {
           />
         </>
       )}
-      <DataTable type="file" data={respAll} />
     </S.Container>
   );
 }
