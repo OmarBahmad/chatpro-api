@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SendUniqueMessage from "./SendUniqueMessage";
 import SendMultipleMessages from "./SendMultipleMessages";
+import Sidebar from '../../../Components/newSidebar/Sidebar'
 
 export default function SendMessage() {
   const [items, setItems] = useState([]);
@@ -9,7 +10,8 @@ export default function SendMessage() {
   const [respFalse, setRespFalse] = useState([]);
 
   return (
-    <div>
+    <>
+    <Sidebar />
       <h2>Enviar Mensagens</h2>
       
       <SendUniqueMessage />
@@ -23,7 +25,8 @@ export default function SendMessage() {
         respFalse={respFalse}
         setRespFalse={setRespFalse}
       />
-    </div>
+
+    </>
   );
 }
 /*

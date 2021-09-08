@@ -1,6 +1,6 @@
 import React from "react";
-import { Sidebar } from "../../Components/Sidebar";
-import { Container } from "../../Components/Container";
+import Sidebar from "../../Components/newSidebar/Sidebar";
+
 import CreateGroup from "./CreateGroup";
 import LeaveGroup from "./LeaveGroup";
 
@@ -8,10 +8,8 @@ export default function Chat() {
   return (
     <>
       <Sidebar />
-      <Container>
-        <CreateGroup />
-        <LeaveGroup />
-      </Container>
+      <CreateGroup />
+      <LeaveGroup />
     </>
   );
 }
