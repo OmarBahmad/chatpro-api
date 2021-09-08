@@ -1,12 +1,8 @@
-import styled from "styled-components";
+input[type='file'] {
+  display: none
+}
 
-
-export const InputFile = styled.input`
- display: none;
-
-`;
-
-export const LabelFile = styled.label`
+label {
   font-weight: 500;
   color: rgb(255, 255, 255);
   outline: none;
@@ -16,4 +12,5 @@ export const LabelFile = styled.label`
   cursor: pointer;
   background: #27251f;
   border: 1px solid #27251f;
-`;
+
+}

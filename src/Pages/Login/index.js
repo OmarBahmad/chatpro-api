@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import * as S from "./styles";
 
 export default function Login() {
   const [chatId, setChatId] = useState("");
@@ -22,20 +23,22 @@ export default function Login() {
     navigate("/message");
   }
   return (
-    <div>
-      <input
-        type="text"
-        value={chatId}
-        placeholder="Informar o ChatID"
-        onChange={(e) => setChatId(e.target.value)}
-      />
-      <input
-        type="text"
-        value={tokenID}
-        placeholder="Informar o Token"
-        onChange={(e) => setToken(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
-    </div>
+    <S.Container>
+      <S.ContainerLogin>
+        <input
+          type="text"
+          value={chatId}
+          placeholder="Informar o ChatID"
+          onChange={(e) => setChatId(e.target.value)}
+        />
+        <input
+          type="text"
+          value={tokenID}
+          placeholder="Informar o Token"
+          onChange={(e) => setToken(e.target.value)}
+        />
+        <button onClick={handleLogin}>Login</button>
+      </S.ContainerLogin>
+    </S.Container>
   );
 }

@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
 import * as XLSX from "xlsx";
+import * as S from "./styles";
 
 export default function ImportExcel({ setItems }) {
   const readExcel = (file) => {
@@ -34,7 +35,8 @@ export default function ImportExcel({ setItems }) {
 
   return (
     <>
-      <input
+      <S.LabelFile for="selecao-arquivo">Selecionar um arquivo</S.LabelFile>
+      <S.InputFile
         type="file"
         id="selecao-arquivo"
         onChange={(e) => {
