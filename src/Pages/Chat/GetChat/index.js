@@ -30,6 +30,18 @@ export default function GetChat() {
         setChatGroup(group);
         SetChatUnique(unique);
         setListaTransmisao(broadcast);
+
+        /*for(let i = 0; i<resp.length; i++){
+        setRespAll((index) => [
+          ...index,
+          {
+            Jid: resp[i].Jid,
+            LastMessageTime: resp[i].LastMessageTime,
+          },
+        ]);
+      }
+*/
+
         toast.success("Lista de chats retornadas com sucesso!");
       } else {
         toast.error("Não foi possível efetuar a busca!");
@@ -38,10 +50,11 @@ export default function GetChat() {
       console.log(err);
     }
   }
+
   return (
     <S.Container>
       <S.ContainerHeader>
-        <h2>Retornar lista de Chat</h2>
+        <h2>Retornar lista de Chat </h2>
       </S.ContainerHeader>
       <S.ButtonCreate onClick={postB}>Retornar lista de Chats</S.ButtonCreate>
 
@@ -88,3 +101,5 @@ export default function GetChat() {
     </S.Container>
   );
 }
+
+//<DataTable type="chat" data={respAll} />

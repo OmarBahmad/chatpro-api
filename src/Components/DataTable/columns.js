@@ -126,3 +126,22 @@ export const ColumnsDelete = [
     ],
   },
 ];
+export const ColumnsChat= [
+  {
+    Header: "Disparo de Mensagens",
+    columns: [
+      {
+        Header: "Índice",
+        accessor: `index`,
+      },
+      {
+        Header: "Jid",
+        accessor: `Jid`,
+      },
+      {
+        Header: "LastMessageTime",
+        accessor: `LastMessageTime`,
+      },
+    ],
+  },
+];

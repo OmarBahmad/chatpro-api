@@ -7,6 +7,7 @@ import {
   ColumnsFile,
   ColumnsDelete,
   ColumnsLocation,
+  ColumnsChat,
 } from "./columns";
 
 const typeColumns = {
@@ -15,6 +16,7 @@ const typeColumns = {
   file: ColumnsFile,
   message: ColumnsMessage,
   location: ColumnsLocation,
+  chat: ColumnsChat,
 };
 
 export default function DataTable({ data, type }) {
