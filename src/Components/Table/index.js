@@ -76,13 +76,13 @@ export default function Table({ columns, data }) {
           {">>"}
         </button>{" "}
         <span>
-          Page{" "}
+          Página{" "}
           <strong>
-            {pageIndex + 1} of {pageOptions.length}
+            {pageIndex + 1} de {pageOptions.length}
           </strong>{" "}
         </span>
         <span>
-          | Go to page:{" "}
+          | Ir para a página:{" "}
           <input
             type="number"
             defaultValue={pageIndex + 1}
@@ -101,7 +101,7 @@ export default function Table({ columns, data }) {
         >
           {[10, 20, 30, 40, 50].map((pageSize) => (
             <option key={pageSize} value={pageSize}>
-              Show {pageSize}
+              Mostrar {pageSize}
             </option>
           ))}
         </select>

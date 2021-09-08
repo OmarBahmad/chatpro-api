@@ -71,7 +71,6 @@ export default function SendMultipleLocation({
           checkMsg: verify,
         },
       ]);
-
     } catch (err) {
       console.log("erro");
     }
