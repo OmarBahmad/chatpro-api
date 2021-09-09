@@ -6,11 +6,10 @@ import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportE
 import DataTable from "../../../../Components/DataTable";
 import * as S from "./styles";
 
-export default function DeleteMultiple() {
+export default function DeleteMultiple({ setRespAll }) {
   const [amountMessage, setAmountMessage] = useState(0);
   const [count, setCount] = useState(-1);
   const [showExcel, setShowExcel] = useState(false);
-  const [respAll, setRespAll] = useState([]);
   const [items, setItems] = useState([]);
   const [respFalse, setRespFalse] = useState([]);
 
@@ -125,7 +124,6 @@ export default function DeleteMultiple() {
           />
         </>
       )}
-      <DataTable type="delete" data={respAll} />
     </S.Container>
   );
 }

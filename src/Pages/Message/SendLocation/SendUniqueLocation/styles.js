@@ -2,64 +2,23 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 `;
 export const ContainerHeader = styled.div`
   width: 100%;
 `;
 
-export const InputAdress = styled.input`
-  width: 10%;
+export const Input = styled.input`
+  width: 350px;
   height: 1.75rem;
   padding: 0.5rem 1rem;
-  border-radius: 5px;
-
+  margin: 0.2rem 0 0.2rem 0;
+  border-radius: 10px;
   border: 1px solid black;
   outline: none;
   font-size: 14px;
-`;
-export const InputLat = styled.input`
-  width: 10%;
-
-  height: 1.75rem;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
-  border: 1px solid black;
-  outline: none;
-  font-size: 14px;
-  margin-left: 1rem;
-`;
-export const InputLong = styled.input`
-  width: 10%;
-
-  height: 1.75rem;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
-  border: 1px solid black;
-  outline: none;
-  font-size: 14px;
-  margin-left: 1rem;
-`;
-export const InputLocalName = styled.input`
-  width: 10%;
-
-  height: 1.75rem;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
-  border: 1px solid black;
-  outline: none;
-  font-size: 14px;
-  margin-left: 1rem;
-`;
-export const InputNumber = styled.input`
-  width: 10%;
-
-  height: 1.75rem;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
-  border: 1px solid black;
-  outline: none;
-  font-size: 14px;
-  margin-left: 1rem;
 `;
 export const ButtonSend = styled.button`
   font-weight: 500;
@@ -71,7 +30,7 @@ export const ButtonSend = styled.button`
   cursor: pointer;
   background: rgb(4, 170, 109);
   border: 1px solid rgb(4, 170, 109);
-  margin-left: 1rem;
+  margin: 1rem 5rem;
 
   :disabled {
     opacity: 0.3;

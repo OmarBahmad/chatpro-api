@@ -8,17 +8,16 @@ import DataTable from "../../../../Components/DataTable";
 import * as S from "./styles";
 
 export default function SendMultipleLocation({
-  setCheckMessage,
-  checkMessage,
+  items,
+  setItems,
   respTrue,
   setRespTrue,
   respFalse,
   setRespFalse,
+  setRespAll,
 }) {
-  const [items, setItems] = useState([]);
   const [count, setCount] = useState(-1);
   const [amountMessage, setAmountMessage] = useState(0);
-  const [respAll, setRespAll] = useState([]);
   const [showExcel, setShowExcel] = useState(false);
 
   async function triggerLocations() {
@@ -163,7 +162,6 @@ export default function SendMultipleLocation({
           />
         </>
       )}
-      <DataTable type="location" data={respAll} />
     </S.Container>
   );
 }

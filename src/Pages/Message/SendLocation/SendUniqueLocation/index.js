@@ -34,29 +34,29 @@ export default function SendUniqueLocation() {
       <S.ContainerHeader>
         <h4>Enviar Localização</h4>
       </S.ContainerHeader>
-      <S.InputAdress
+      <S.Input
         placeholder="Endereço"
         value={address}
         onChange={(e) => setAddress(e.target.value)}
       />
-      <S.InputLat
+      <S.Input
         placeholder="Latitude (opcional)"
         type="number"
         value={lat}
         onChange={(e) => setLat(e.target.value)}
       />
-      <S.InputLong
+      <S.Input
         placeholder="Longitude (opcional)"
         type="number"
         value={lng}
         onChange={(e) => setLng(e.target.value)}
       />
-      <S.InputLocalName
+      <S.Input
         placeholder="Nome do local"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <S.InputNumber
+      <S.Input
         placeholder="Número"
         value={number}
         onChange={(e) => setNumber(e.target.value)}

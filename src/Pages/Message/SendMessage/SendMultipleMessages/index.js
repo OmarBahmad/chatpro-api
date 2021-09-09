@@ -9,8 +9,6 @@ import * as S from "./styles";
 export default function SendMultipleMessages({
   items,
   setItems,
-  setCheckMessage,
-  checkMessage,
   respTrue,
   setRespTrue,
   respFalse,
@@ -32,7 +30,6 @@ export default function SendMultipleMessages({
       const resp = await sendMessage(obj);
       if (resp.status) {
         verify = "✅";
-        setCheckMessage((oldArray) => [...oldArray, { sendTrue: true }]);
         setRespTrue((index) => [
           ...index,
           {
@@ -45,7 +42,6 @@ export default function SendMultipleMessages({
         toast.success("Mensagem Enviada com sucesso!");
       } else {
         verify = "❌";
-        setCheckMessage((oldArray) => [...oldArray, { sendTrue: false }]);
         setRespFalse((index) => [
           ...index,
           {
@@ -151,7 +147,6 @@ export default function SendMultipleMessages({
           />
         </>
       )}
-      {console.log(checkMessage)}
     </S.Container>
   );
 }

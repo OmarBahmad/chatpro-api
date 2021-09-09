@@ -8,6 +8,7 @@ export const ImportMessage = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+  margin-top: 0.6rem;
 `;
 
 export const ButtonFile = styled.button`

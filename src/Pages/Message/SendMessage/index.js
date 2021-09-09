@@ -8,7 +8,6 @@ import * as S from "./Styles";
 
 export default function SendMessage() {
   const [items, setItems] = useState([]);
-  const [checkMessage, setCheckMessage] = useState([]);
   const [respTrue, setRespTrue] = useState([]);
   const [respFalse, setRespFalse] = useState([]);
   const [respAll, setRespAll] = useState([]);
@@ -23,8 +22,6 @@ export default function SendMessage() {
           <SendMultipleMessages
             items={items}
             setItems={setItems}
-            setCheckMessage={setCheckMessage}
-            checkMessage={checkMessage}
             respTrue={respTrue}
             setRespTrue={setRespTrue}
             respFalse={respFalse}

@@ -4,14 +4,19 @@ import { toast } from "react-hot-toast";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageSucess from "../../../../Components/ExportExcel/ExportExcelMessageSucess";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
-import DataTable from "../../../../Components/DataTable";
 import * as S from "./styles";
 
-export default function SendMultipleContact() {
-  const [items, setItems] = useState([]);
-  const [respTrue, setRespTrue] = useState([]);
-  const [respFalse, setRespFalse] = useState([]);
-  const [respAll, setRespAll] = useState([]);
+export default function SendMultipleContact({
+  items,
+  setItems,
+  respTrue,
+  setRespTrue,
+  respFalse,
+  setRespFalse,
+  setRespAll,
+
+}) {
+ 
   const [count, setCount] = useState(-1);
   const [amountMessage, setAmountMessage] = useState(0);
   const [showExcel, setShowExcel] = useState(false);
@@ -154,8 +159,6 @@ export default function SendMultipleContact() {
           />
         </>
       )}
-
-      <DataTable type="contact" data={respAll} />
     </S.Container>
   );
 }

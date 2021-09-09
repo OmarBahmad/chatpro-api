@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Modal } from "../../Components/Modal/index";
 import * as S from "./styles";
 
 export default function Login() {
@@ -33,7 +32,6 @@ export default function Login() {
           placeholder="Informar o ChatID"
           onChange={(e) => setChatId(e.target.value)}
         />
-        <Modal></Modal>
         <S.Input
           type="text"
           value={tokenID}
