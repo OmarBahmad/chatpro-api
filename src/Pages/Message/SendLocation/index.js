@@ -29,7 +29,9 @@ export default function SendLocation() {
           />
         </S.Column1>
         <S.Column2>
-        <DataTable type="location" data={respAll} />
+          {respAll.length > 0 ? (
+            <DataTable type="location" data={respAll} />
+          ) : null}
         </S.Column2>
       </S.Container>
     </>

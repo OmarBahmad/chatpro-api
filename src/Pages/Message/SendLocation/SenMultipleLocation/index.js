@@ -82,7 +82,6 @@ export default function SendMultipleLocation({
 
     if (
       items[count].number !== undefined &&
-      //items[count].name !== undefined &&
       items[count].address !== undefined
     ) {
       const handler = setInterval(() => {
@@ -90,7 +89,6 @@ export default function SendMultipleLocation({
       }, getRandomArbitrary());
       return () => clearInterval(handler);
     } else {
-      setCount((prev) => prev + 1);
       alert(
         "Algum campo da linha 1 da planilha importada está com o nome incorreto"
       );

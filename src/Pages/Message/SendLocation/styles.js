@@ -12,5 +12,7 @@ export const Column1 = styled.div`
 `;
 
 export const Column2 = styled.div`
+  display: flex;
+  justify-content: center;
   width: 65%;
 `;

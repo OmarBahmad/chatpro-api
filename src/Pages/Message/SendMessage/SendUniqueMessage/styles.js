@@ -10,9 +10,18 @@ export const ContainerHeader = styled.div`
   margin-bottom: 5px;
 `;
 
+export const ContainerForm = styled.div`
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+
+
 export const InputNumber = styled.input`
-  width: 25%;
-  height: 2rem;
+  width: 80%;
+  height: 2.25rem;
   border-radius: 5px;
   padding: 0.5rem 1rem;
   border: 1px solid black;
@@ -21,14 +30,14 @@ export const InputNumber = styled.input`
 `;
 
 export const InputMessage = styled.input`
-  width: 35%;
-  height: 2rem;
+  width: 80%;
+  height: 2.25rem;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  margin-left: 1rem;
   border: 1px solid black;
   outline: none;    
   font-size: 18px;
+  margin-top: 10px;
 `;
 
 export const ButtonSend = styled.button`
@@ -36,12 +45,15 @@ export const ButtonSend = styled.button`
   color: rgb(255, 255, 255);
   outline: none;
   border-radius: 0.4rem;
-  padding: 0.8rem 2.5rem;
+  width: 50%;
+  height: 2.5rem;
   transition: all 0.2s ease 0s;
   cursor: pointer;
   background: rgb(4, 170, 109);
   border: 1px solid rgb(4, 170, 109);
-  margin-left: 1rem;
+  margin-top: 10px;
+  
+
 
   :disabled {
     opacity: 0.3;

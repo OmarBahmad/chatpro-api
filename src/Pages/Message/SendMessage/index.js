@@ -30,33 +30,11 @@ export default function SendMessage() {
           />
         </S.Column1>
         <S.Column2>
-          <DataTable type="message" data={respAll} />
+          {respAll.length > 0 ? (
+            <DataTable type="message" data={respAll} />
+          ) : null}
         </S.Column2>
       </S.Container>
     </>
   );
 }
-/*
-
-FAZER UMA TABLE PRA MOSTRAR OS DADOS
-
-{items?.map((index) => (
-        <div key={index.mensagem}>
-          <p>
-            Número: {index.numero} - Mensagem: {index.mensagem}
-          </p>
-        </div>
-      ))}
-{items?.map((index) => (
-  <div key={index.mensagem}>
-    <p>
-      Número: {index.numero} - Mensagem: {index.mensagem}
-    </p>
-  </div>
-))}
-{checkMessage?.map((index) => (
-  <div key={index.sendTrue}>
-    <p>Mensagem Enviada: {index.sendTrue === true ? "Sim" : "Não"}</p>
-  </div>
-))}
-*/

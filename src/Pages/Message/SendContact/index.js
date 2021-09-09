@@ -29,7 +29,9 @@ export default function SendMessage() {
           />
         </S.Column1>
         <S.Column2>
-        <DataTable type="contact" data={respAll} />
+          {respAll.length > 0 ? (
+            <DataTable type="contact" data={respAll} />
+          ) : null}
         </S.Column2>
       </S.Container>
     </>

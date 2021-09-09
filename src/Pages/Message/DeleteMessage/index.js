@@ -14,20 +14,14 @@ export default function DeleteMessage() {
         <S.Column1>
           <h2>Excluir Mensagens</h2>
           <DeleteUnique />
-          <DeleteMultiple 
-          setRespAll={setRespAll}/>
+          <DeleteMultiple setRespAll={setRespAll} />
         </S.Column1>
         <S.Column2>
-          <DataTable type="delete" data={respAll} />
+          {respAll.length > 0 ? (
+            <DataTable type="delete" data={respAll} />
+          ) : null}
         </S.Column2>
       </S.Container>
     </>
   );
 }
-
-/*
-      chatJid: "556282530552@s.whatsapp.net", //sem o 9
-      messageID: "2B632CC4CCECA2E3FBA3",
-  
-
-*/

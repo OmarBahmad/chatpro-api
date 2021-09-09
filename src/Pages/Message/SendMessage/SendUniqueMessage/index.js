@@ -36,21 +36,26 @@ export default function SendUniqueMessage() {
       <S.ContainerHeader>
         <h4>Enviar uma mensagem</h4>
       </S.ContainerHeader>
-      <S.InputNumber
-        placeholder="Numero do telefone"
-        className="input-msg"
-        value={number}
-        onChange={(e) => setNumber(e.target.value)}
-      />
-      <S.InputMessage
-        placeholder="Mensagem"
-        className="input-msg"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      />
-      <S.ButtonSend onClick={sendM} disabled={message === "" || number === ""}>
-        Enviar Mensagem
-      </S.ButtonSend>
+      <S.ContainerForm>
+        <S.InputNumber
+          placeholder="Numero do telefone"
+          className="input-msg"
+          value={number}
+          onChange={(e) => setNumber(e.target.value)}
+        />
+        <S.InputMessage
+          placeholder="Mensagem"
+          className="input-msg"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <S.ButtonSend
+          onClick={sendM}
+          disabled={message === "" || number === ""}
+        >
+          Enviar Mensagem
+        </S.ButtonSend>
+      </S.ContainerForm>
     </S.Container>
   );
 }
