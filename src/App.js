@@ -12,7 +12,7 @@ import Chat from "./Pages/Chat";
 import Contacts from "./Pages/Contacts";
 import Groups from "./Pages/Groups";
 import Status from "./Pages/Status";
-
+import Logout from "./Pages/Logout";
 function App() {
   return (
     <Router>
@@ -39,10 +39,10 @@ function App() {
         <ProtectedRoute path="/contacts" exact element={<Contacts />} />
         <ProtectedRoute path="/groups" exact element={<Groups />} />
         <ProtectedRoute path="/status" exact element={<Status />} />
+        <ProtectedRoute path="/logout" exact element={<Logout />} />
       </Routes>
       <Toaster position="top-right" reverseOrder={false} />
     </Router>
   );
 }
-
 export default App;

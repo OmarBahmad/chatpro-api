@@ -36,24 +36,26 @@ export default function DeleteUnique() {
       <S.ContainerHeader>
         <h4>Excluir uma Mensagem</h4>
       </S.ContainerHeader>
-      <S.InputNumber
-        placeholder="Numero do telefone sem o '9'"
-        className="input-msg"
-        value={chatJid}
-        onChange={(e) => setChatJid(e.target.value)}
-      />
-      <S.InputMessage
-        placeholder="Id da Mensagem"
-        className="input-msg"
-        value={messageID}
-        onChange={(e) => setMessageID(e.target.value)}
-      />
-      <S.ButtonSend
-        onClick={deleteMsg}
-        disabled={chatJid === "" || messageID === ""}
-      >
-        Excluir Mensagem{" "}
-      </S.ButtonSend>
+      <S.ContainerForm>
+        <S.InputNumber
+          placeholder="Numero do telefone sem o '9'"
+          className="input-msg"
+          value={chatJid}
+          onChange={(e) => setChatJid(e.target.value)}
+        />
+        <S.InputMessage
+          placeholder="Id da Mensagem"
+          className="input-msg"
+          value={messageID}
+          onChange={(e) => setMessageID(e.target.value)}
+        />
+        <S.ButtonSend
+          onClick={deleteMsg}
+          disabled={chatJid === "" || messageID === ""}
+        >
+          Excluir Mensagem{" "}
+        </S.ButtonSend>
+      </S.ContainerForm>
     </S.Container>
   );
 }

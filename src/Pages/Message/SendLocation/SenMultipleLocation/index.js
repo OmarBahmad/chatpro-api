@@ -116,14 +116,14 @@ export default function SendMultipleLocation({
 
   return (
     <S.Container>
-      <h4>Disparo de Mensagens</h4>
+      <h4>Disparo de Localizações</h4>
       <S.ImportMessage>
         <ImportExcel setItems={setItems} setAmountMessage={setAmountMessage} />
         <S.ButtonFile
           onClick={() => setCount((prev) => prev + 1)}
           disabled={amountMessage === 0}
         >
-          Disparar Mensagens
+          Disparar Localizações
         </S.ButtonFile>
       </S.ImportMessage>
       {amountMessage !== 0 && (

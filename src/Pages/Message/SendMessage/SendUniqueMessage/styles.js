@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   margin-top: 10px;
-
 `;
 export const ContainerHeader = styled.div`
   width: 100%;
@@ -16,8 +15,6 @@ export const ContainerForm = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
-
 
 export const InputNumber = styled.input`
   width: 80%;
@@ -35,7 +32,7 @@ export const InputMessage = styled.input`
   padding: 0.5rem 1rem;
   border-radius: 5px;
   border: 1px solid black;
-  outline: none;    
+  outline: none;
   font-size: 18px;
   margin-top: 10px;
 `;
@@ -52,8 +49,6 @@ export const ButtonSend = styled.button`
   background: rgb(4, 170, 109);
   border: 1px solid rgb(4, 170, 109);
   margin-top: 10px;
-  
-
 
   :disabled {
     opacity: 0.3;

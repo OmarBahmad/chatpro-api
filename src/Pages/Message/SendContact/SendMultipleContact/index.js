@@ -115,20 +115,20 @@ export default function SendMultipleContact({
 
   return (
     <S.Container>
-      <h4>Disparar Arquivos</h4>
+      <h4>Disparar Contatos</h4>
       <S.ImportMessage>
         <ImportExcel setItems={setItems} />
         <S.ButtonFile
           onClick={() => setCount((prev) => prev + 1)}
           disabled={amountMessage === 0}
         >
-          Enviar Arquivos
+          Enviar Contatos
         </S.ButtonFile>
       </S.ImportMessage>
 
       {amountMessage !== 0 && (
         <S.CardQuant>
-          Quantidade de Arquivos:
+          Quantidade de Contatos:
           <strong>{amountMessage}</strong>
         </S.CardQuant>
       )}

@@ -32,22 +32,24 @@ export default function SendUniqueContact() {
       <S.ContainerHeader>
         <h4>Enviar Localização</h4>
       </S.ContainerHeader>
-      <S.InputContact
-        placeholder="Nome do Contato"
-        value={contact_name}
-        onChange={(e) => setContactName(e.target.value)}
-      />
-      <S.InputContactNumber
-        placeholder="Numero desse contato"
-        value={contact_number}
-        onChange={(e) => setContactNumber(e.target.value)}
-      />
-      <S.InputNumber
-        placeholder="Número"
-        value={number}
-        onChange={(e) => setNumber(e.target.value)}
-      />
-      <S.ButtonSend onClick={sendCTT}>Enviar Contato</S.ButtonSend>
+      <S.ContainerForm>
+        <S.InputContact
+          placeholder="Nome do Contato"
+          value={contact_name}
+          onChange={(e) => setContactName(e.target.value)}
+        />
+        <S.InputContactNumber
+          placeholder="Numero desse contato"
+          value={contact_number}
+          onChange={(e) => setContactNumber(e.target.value)}
+        />
+        <S.InputNumber
+          placeholder="Número"
+          value={number}
+          onChange={(e) => setNumber(e.target.value)}
+        />
+        <S.ButtonSend onClick={sendCTT}>Enviar Contato</S.ButtonSend>
+      </S.ContainerForm>
     </S.Container>
   );
 }

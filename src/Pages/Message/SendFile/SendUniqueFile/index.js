@@ -25,7 +25,6 @@ export function SendUniqueFile() {
         toast.error("Arquivo Não Enviado");
       }
     } catch (err) {}
-
   }
 
   return (
@@ -33,28 +32,29 @@ export function SendUniqueFile() {
       <S.ContainerHeader>
         <h4>Enviar Arquivo</h4>
       </S.ContainerHeader>
-
-      <S.InputName
-        placeholder="Nome do Arquivo"
-        value={caption}
-        onChange={(e) => setCaption(e.target.value)}
-      />
-      <S.InputNumber
-        placeholder="Número"
-        value={number}
-        onChange={(e) => setNumber(e.target.value)}
-      />
-      <S.InputURL
-        placeholder="URL do Arquivo"
-        value={url}
-        onChange={(e) => setURL(e.target.value)}
-      />
-      <S.ButtonSend
-        onClick={sendUrlFile}
-        disabled={caption === "" || number === "" || url === ""}
-      >
-        Enviar Arquivo
-      </S.ButtonSend>
+      <S.ContainerForm>
+        <S.InputName
+          placeholder="Nome do Arquivo"
+          value={caption}
+          onChange={(e) => setCaption(e.target.value)}
+        />
+        <S.InputNumber
+          placeholder="Número"
+          value={number}
+          onChange={(e) => setNumber(e.target.value)}
+        />
+        <S.InputURL
+          placeholder="URL do Arquivo"
+          value={url}
+          onChange={(e) => setURL(e.target.value)}
+        />
+        <S.ButtonSend
+          onClick={sendUrlFile}
+          disabled={caption === "" || number === "" || url === ""}
+        >
+          Enviar Arquivo
+        </S.ButtonSend>
+      </S.ContainerForm>
     </S.Container>
   );
 }

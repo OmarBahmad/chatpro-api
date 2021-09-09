@@ -5,20 +5,28 @@ export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  margin-bottom: 10px;
 `;
 export const ContainerHeader = styled.div`
   width: 100%;
 `;
 
+export const ContainerForm = styled.div`
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const Input = styled.input`
-  width: 350px;
-  height: 1.75rem;
+  width: 80%;
+  height: 2.25rem;
   padding: 0.5rem 1rem;
-  margin: 0.2rem 0 0.2rem 0;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid black;
   outline: none;
-  font-size: 14px;
+  font-size: 18px;
+  margin-top: 10px;
 `;
 export const ButtonSend = styled.button`
   font-weight: 500;
@@ -30,7 +38,7 @@ export const ButtonSend = styled.button`
   cursor: pointer;
   background: rgb(4, 170, 109);
   border: 1px solid rgb(4, 170, 109);
-  margin: 1rem 5rem;
+  margin-top: 10px;
 
   :disabled {
     opacity: 0.3;
