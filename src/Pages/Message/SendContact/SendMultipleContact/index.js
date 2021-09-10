@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageSucess from "../../../../Components/ExportExcel/ExportExcelMessageSucess";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
+import { ValidNumber } from "../../../../hooks/ValidNumber";
 import * as S from "./styles";
 
 export default function SendMultipleContact({
@@ -14,63 +15,78 @@ export default function SendMultipleContact({
   respFalse,
   setRespFalse,
   setRespAll,
-
 }) {
- 
   const [count, setCount] = useState(-1);
   const [amountMessage, setAmountMessage] = useState(0);
   const [showExcel, setShowExcel] = useState(false);
 
   async function sendCTT() {
     let verify = "";
+    let isValid = ValidNumber(items[count].number.toString());
+
     const obj = {
       contact_name: items[count].contact_name.toString(),
       contact_number: items[count].contact_number.toString(),
       number: items[count].number.toString(),
     };
-    try {
-      const resp = await sendContact(obj);
-      if (resp?.Status === 0) {
-        verify = "✅";
+    if (isValid) {
+      try {
+        const resp = await sendContact(obj);
+        if (resp?.Status === 0) {
+          verify = "✅";
 
-        setRespTrue((index) => [
-          ...index,
-          {
-            number: items[count].number.toString(),
-            contact_name: items[count].contact_name.toString(),
-            contact_number: items[count].contact_number.toString(),
-            messageID: resp.Id.toString(),
-            chatJid: resp.RemoteJid.toString(),
-          },
-        ]);
-        toast.success("Contato Enviado com Sucesso!");
-      } else {
-        verify = "❌";
+          setRespTrue((index) => [
+            ...index,
+            {
+              number: items[count].number.toString(),
+              contact_name: items[count].contact_name.toString(),
+              contact_number: items[count].contact_number.toString(),
+              messageID: resp.Id.toString(),
+              chatJid: resp.RemoteJid.toString(),
+            },
+          ]);
+          toast.success("Contato Enviado com Sucesso!");
+        } else {
+          verify = "❌";
 
-        setRespFalse((index) => [
-          ...index,
-          {
-            contact_name: items[count].contact_name.toString(),
-            contact_number: items[count].contact_number.toString(),
-            number: items[count].number.toString(),
-          },
-        ]);
-        toast.error("Contato não enviado");
+          setRespFalse((index) => [
+            ...index,
+            {
+              contact_name: items[count].contact_name.toString(),
+              contact_number: items[count].contact_number.toString(),
+              number: items[count].number.toString(),
+            },
+          ]);
+          toast.error("Contato não enviado");
+        }
+      } catch (err) {
+        console.log("erro");
       }
+    } else {
+      verify = "❌";
 
-      setRespAll((index) => [
+      setRespFalse((index) => [
         ...index,
         {
-          index: count + 1,
-          number: items[count].number.toString(),
-          contact_number: items[count].contact_number.toString(),
           contact_name: items[count].contact_name.toString(),
-          checkMsg: verify,
+          contact_number: items[count].contact_number.toString(),
+          number: items[count].number.toString(),
         },
       ]);
-    } catch (err) {
-      console.log("erro");
+      toast.error("Contato não enviado");
     }
+
+    setRespAll((index) => [
+      ...index,
+      {
+        index: count + 1,
+        number: items[count].number.toString(),
+        contact_number: items[count].contact_number.toString(),
+        contact_name: items[count].contact_name.toString(),
+        checkMsg: verify,
+      },
+    ]);
+
     setCount((prev) => prev + 1);
     setAmountMessage((index) => index - 1);
   }

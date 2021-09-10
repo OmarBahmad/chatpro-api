@@ -89,7 +89,7 @@ export function SendMultipleFiles({ setRespAll }) {
   }, [items]);
 
   function getRandomArbitrary() {
-    return (Math.random() * (7000 - 6100) + 6100).toFixed();
+    return (Math.random() * (6000 - 5100) + 5100).toFixed();
   }
 
   useEffect(() => {
