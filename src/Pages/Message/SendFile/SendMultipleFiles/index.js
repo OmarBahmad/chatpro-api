@@ -4,6 +4,7 @@ import { sendFile } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageSucess from "../../../../Components/ExportExcel/ExportExcelMessageSucess";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
+import { ValidNumber } from "../../../../hooks/ValidNumber";
 import * as S from "./styles";
 
 export function SendMultipleFiles({ setRespAll }) {
@@ -16,50 +17,67 @@ export function SendMultipleFiles({ setRespAll }) {
 
   async function sendUrlFile() {
     let verify = "";
+    let isValid = ValidNumber(items[count].number.toString());
+
     const obj = {
       caption: items[count].caption.toString(),
       number: items[count].number.toString(),
       url: items[count].url.toString(),
     };
-    try {
-      const resp = await sendFile(obj);
-      if (resp.status) {
-        verify = "✅";
-        setRespTrue((index) => [
-          ...index,
-          {
-            number: items[count].number.toString(),
-            caption: resp.requestMenssage.caption.toString(),
-            url: resp.requestMenssage.url.toString(),
-            messageID: resp.requestMenssage.id.toString(),
-            chatJid: resp.requestMenssage.number.toString(),
-          },
-        ]);
-        toast.success("Arquivo Enviado com sucesso!");
-      } else {
-        verify = "❌";
-        setRespFalse((index) => [
-          ...index,
-          {
-            caption: items[count].caption.toString(),
-            number: items[count].number.toString(),
-            url: items[count].url.toString(),
-          },
-        ]);
-        toast.error("Arquivo Não Enviado");
+
+    if (isValid) {
+      try {
+        const resp = await sendFile(obj);
+        if (resp.status) {
+          verify = "✅";
+          setRespTrue((index) => [
+            ...index,
+            {
+              number: items[count].number.toString(),
+              caption: resp.requestMenssage.caption.toString(),
+              url: resp.requestMenssage.url.toString(),
+              messageID: resp.requestMenssage.id.toString(),
+              chatJid: resp.requestMenssage.number.toString(),
+            },
+          ]);
+          toast.success("Arquivo Enviado com sucesso!");
+        } else {
+          verify = "❌";
+          setRespFalse((index) => [
+            ...index,
+            {
+              caption: items[count].caption.toString(),
+              number: items[count].number.toString(),
+              url: items[count].url.toString(),
+            },
+          ]);
+          toast.error("Arquivo Não Enviado");
+        }
+      } catch (err) {
+        console.log("erro");
       }
-      setRespAll((index) => [
+    } else {
+      verify = "❌";
+      setRespFalse((index) => [
         ...index,
         {
-          index: count + 1,
           caption: items[count].caption.toString(),
           number: items[count].number.toString(),
-          checkMsg: verify,
+          url: items[count].url.toString(),
         },
       ]);
-    } catch (err) {
-      console.log("erro");
+      toast.error("Arquivo Não Enviado");
     }
+    setRespAll((index) => [
+      ...index,
+      {
+        index: count + 1,
+        caption: items[count].caption.toString(),
+        number: items[count].number.toString(),
+        checkMsg: verify,
+      },
+    ]);
+
     setCount((prev) => prev + 1);
     setAmountMessage((index) => index - 1);
   }
