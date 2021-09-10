@@ -4,6 +4,7 @@ import { sendMessage } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageSucess from "../../../../Components/ExportExcel/ExportExcelMessageSucess";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
+import { ValidNumber } from "../../../../hooks/ValidNumber";
 import * as S from "./styles";
 
 export default function SendMultipleMessages({
@@ -21,49 +22,64 @@ export default function SendMultipleMessages({
 
   async function triggerMessages() {
     let verify = "";
+    let isValid = ValidNumber(items[count].number.toString());
+
     const obj = {
       number: items[count].number.toString(),
       message: items[count].message.toString(),
     };
 
-    try {
-      const resp = await sendMessage(obj);
-      if (resp.status) {
-        verify = "✅";
-        setRespTrue((index) => [
-          ...index,
-          {
-            number: items[count].number.toString(),
-            message: items[count].message.toString(),
-            messageID: resp.messageInfo.Id.toString(),
-            chatJid: resp.messageInfo.RemoteJid,
-          },
-        ]);
-        toast.success("Mensagem Enviada com sucesso!");
-      } else {
-        verify = "❌";
-        setRespFalse((index) => [
-          ...index,
-          {
-            number: items[count].number.toString(),
-            message: items[count].message.toString(),
-          },
-        ]);
-        toast.error("Mensagem não enviada");
+    if (isValid) {
+      try {
+        const resp = await sendMessage(obj);
+        if (resp.status) {
+          verify = "✅";
+          setRespTrue((index) => [
+            ...index,
+            {
+              number: items[count].number.toString(),
+              message: items[count].message.toString(),
+              messageID: resp.messageInfo.Id.toString(),
+              chatJid: resp.messageInfo.RemoteJid,
+            },
+          ]);
+          toast.success("Mensagem Enviada com sucesso!");
+        } else {
+          verify = "❌";
+          setRespFalse((index) => [
+            ...index,
+            {
+              number: items[count].number.toString(),
+              message: items[count].message.toString(),
+            },
+          ]);
+          toast.error("Mensagem não enviada");
+        }
+      } catch (err) {
+        console.log("erro");
       }
-
-      setRespAll((index) => [
+    } else {
+      verify = "❌";
+      setRespFalse((index) => [
         ...index,
         {
-          index: count + 1,
           number: items[count].number.toString(),
           message: items[count].message.toString(),
-          checkMsg: verify,
         },
       ]);
-    } catch (err) {
-      console.log("erro");
+      toast.error("Mensagem não enviada");
     }
+
+    setRespAll((index) => [
+      ...index,
+      {
+        index: count + 1,
+        number: items[count].number.toString(),
+        message: items[count].message.toString(),
+        checkMsg: verify,
+      },
+    ]);
+
     setCount((prev) => prev + 1);
     setAmountMessage((index) => index - 1);
   }
@@ -112,7 +128,7 @@ export default function SendMultipleMessages({
         <ImportExcel setItems={setItems} setAmountMessage={setAmountMessage} />
         <S.ButtonFile
           onClick={() => setCount((prev) => prev + 1)}
-          disabled={amountMessage === 0}
+          disabled={amountMessage === 0 || count !== -1}
         >
           Disparar Mensagens
         </S.ButtonFile>

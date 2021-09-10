@@ -99,7 +99,7 @@ export default function DeleteMultiple({ setRespAll }) {
         <ImportExcel setItems={setItems} setAmountMessage={setAmountMessage} />
         <S.ButtonFile
           onClick={() => setCount((prev) => prev + 1)}
-          disabled={amountMessage === 0}
+          disabled={amountMessage === 0 || count !== -1}
         >
           Excluir Mensagens
         </S.ButtonFile>

@@ -121,7 +121,7 @@ export default function SendMultipleLocation({
         <ImportExcel setItems={setItems} setAmountMessage={setAmountMessage} />
         <S.ButtonFile
           onClick={() => setCount((prev) => prev + 1)}
-          disabled={amountMessage === 0}
+          disabled={amountMessage === 0 || count !== -1}
         >
           Disparar Localizações
         </S.ButtonFile>

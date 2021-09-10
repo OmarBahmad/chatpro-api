@@ -120,7 +120,7 @@ export default function SendMultipleContact({
         <ImportExcel setItems={setItems} />
         <S.ButtonFile
           onClick={() => setCount((prev) => prev + 1)}
-          disabled={amountMessage === 0}
+          disabled={amountMessage === 0 || count !== -1}
         >
           Enviar Contatos
         </S.ButtonFile>
