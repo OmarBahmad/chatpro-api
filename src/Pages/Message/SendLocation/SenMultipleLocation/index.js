@@ -4,7 +4,6 @@ import { sendLocation } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageSucess from "../../../../Components/ExportExcel/ExportExcelMessageSucess";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
-import DataTable from "../../../../Components/DataTable";
 import * as S from "./styles";
 
 export default function SendMultipleLocation({

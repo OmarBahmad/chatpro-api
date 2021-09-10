@@ -3,7 +3,6 @@ import { toast } from "react-hot-toast";
 import { deleteMessage } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
-import DataTable from "../../../../Components/DataTable";
 import * as S from "./styles";
 
 export default function DeleteMultiple({ setRespAll }) {
@@ -31,20 +30,16 @@ export default function DeleteMultiple({ setRespAll }) {
           {
             chatJid: items[count].chatJid.toString(),
             messageID: items[count].messageID.toString(),
-            number: items[count].number.toString(),
-            message: items[count].message.toString(),
           },
         ]);
         toast.error("Mensagem não excluida");
       }
-
       setRespAll((index) => [
         ...index,
         {
           index: count + 1,
+          chatJid: items[count].chatJid.toString(),
           messageID: items[count].messageID.toString(),
-          number: items[count].number.toString(),
-          message: items[count].message.toString(),
           checkMsg: verify,
         },
       ]);
@@ -111,7 +106,7 @@ export default function DeleteMultiple({ setRespAll }) {
         </S.CardQuant>
       )}
 
-      {respFalse.length > 0 && (
+      {respFalse.length > 0 && showExcel &&(
         <>
           <ExportExcelMessageFailed
             respFalse={respFalse}

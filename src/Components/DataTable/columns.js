@@ -108,12 +108,8 @@ export const ColumnsDelete = [
         accessor: `index`,
       },
       {
-        Header: "Número",
-        accessor: `number`,
-      },
-      {
-        Header: "Mensagem",
-        accessor: `message`,
+        Header: "chatJid",
+        accessor: `chatJid`,
       },
       {
         Header: "MessageID",
