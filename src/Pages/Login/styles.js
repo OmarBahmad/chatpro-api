@@ -3,50 +3,44 @@ import styled from "styled-components";
 export const ContainerUp = styled.div`
   width: 100%;
   height: 100vh;
-  background: rgb(36, 46, 77);
-  background: linear-gradient(
-    132deg,
-    rgba(23,30,54,1) 0%,
-    rgba(137, 126, 121, 1) 100%
-  );
-  color: #7e8ba3;
+  background: #15151c;
   display: flex;
-  align-items: center;
   justify-content: center;
 `;
 
 export const ContainerLogin = styled.div`
-  width: 70vh;
+  width: 100%;
   margin: auto;
   padding: 0px 15px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60vh;
-  background: rgba(0, 0, 0, 0.35);
+  height: 100%;
+  background: #1d1d26;
   flex-direction: column;
-  border-radius: 15px;
+  h2 {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 100;
+    margin: 1rem 0.5rem 0.5rem 0.5rem;
+    font-family: "Poppins", sans-serif;
+  }
 `;
-export const Login = styled.h2`
-color: #bbbbbb;
-  font-size: 2.75rem;
-  font-weight: 100;
-  margin: 0 0 1rem;
-  text-transform: uppercase;
+export const ContainerPadding = styled.div`
+  min-width: 20%;
+  max-width: 50%;
+  display: flex;
+  margin: auto;
 `;
 export const Input = styled.input`
+  font-family: "Poppins", sans-serif;
   border: 0;
-  padding: 1.5vh 8vh;
-  width: 50vh;
-  margin: 3vh auto;
-  border-radius: 999px;
-  border: 1px solid #070e2480;
-  background: transparent;
+  padding: 1rem 1rem;
+  margin: 0.5rem 0.5rem;
+  width: 95%;
+  background: #15151c;
   color: #fff;
-  text-align: center;
   &::placeholder {
-    color: #bbbbbb;
-    text-align: center;
+    color: #5e5e5e;
+    text-align: left;
   }
   :focus {
     outline: 0;
@@ -54,19 +48,14 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
+  font-family: "Poppins", sans-serif;
   box-shadow: 0 0 250px #000;
-  border-radius: 999px;
-  border: 1px solid #242c37;
+  width: 95%;
+  padding: 1rem 1rem;
+  margin: 0.5rem 0.5rem 1.5rem 0.5rem;
   text-align: center;
-  padding: 2vh 23vh;
-  margin: 3vh auto;
   color: #fff;
-  background: rgb(53, 195, 193);
-  background: linear-gradient(
-    132deg,
-    rgba(53, 195, 193, 1) 0%,
-    rgba(0, 214, 183, 1) 100%
-  );
+  background: #179788;
   cursor: pointer;
   transition: 0.5s;
   :hover {

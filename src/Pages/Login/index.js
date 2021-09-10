@@ -33,22 +33,24 @@ export default function Login() {
   }
   return (
     <S.ContainerUp>
-      <S.ContainerLogin>
-        <S.Login> PLENO API</S.Login>
-        <S.Input
-          type="text"
-          value={chatId}
-          placeholder="Informar o ChatID"
-          onChange={(e) => setChatId(e.target.value)}
-        />
-        <S.Input
-          type="text"
-          value={tokenID}
-          placeholder="Informar o Token"
-          onChange={(e) => setToken(e.target.value)}
-        />
-        <S.Button onClick={handleLogin}>Login</S.Button>
-      </S.ContainerLogin>
+      <S.ContainerPadding>
+        <S.ContainerLogin>
+          <h2>Genius API</h2>
+          <S.Input
+            type="text"
+            value={chatId}
+            placeholder="Informar o ChatID"
+            onChange={(e) => setChatId(e.target.value)}
+          />
+          <S.Input
+            type="text"
+            value={tokenID}
+            placeholder="Informar o Token"
+            onChange={(e) => setToken(e.target.value)}
+          />
+          <S.Button onClick={handleLogin}>Login</S.Button>
+        </S.ContainerLogin>
+      </S.ContainerPadding>
     </S.ContainerUp>
   );
 }
