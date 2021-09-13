@@ -6,18 +6,24 @@ export const Container = styled.div`
   margin-right: 1rem;
 
   button {
+    width: 25%;
+    height: 5.5rem;
+    font-size: 16px;
+    border-radius: 5px;
     font-weight: 500;
-    color: black;
+    color: 000;
     outline: none;
     border-radius: 0.4rem;
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 2.5rem;
     transition: all 0.2s ease 0s;
     cursor: pointer;
-    background: white;
-    border: 1px solid #27251f;
+    background: #fff;
+    border: 1px solid #fff;
+    margin-bottom: 15px;
     :hover {
-      color: rgb(255, 255, 255);
-      background: #27251f;
+      background-color: #898794;
+      border: #898794;
+      color: #fff;
     }
   }
 `;

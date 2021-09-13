@@ -9,8 +9,10 @@ export default function Contacts() {
     <>
       <Sidebar />
       <S.Container>
-        <h1>Buscar Contatos</h1>
+        <h1>Contatos</h1>
+        <hr></hr>
         <GetUniqueContact />
+        <hr></hr>
         <SearchContacts />
       </S.Container>
     </>
