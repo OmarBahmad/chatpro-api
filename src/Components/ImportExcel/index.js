@@ -48,4 +48,3 @@ export default function ImportExcel({ setItems }) {
   );
 }
 
-// <label for='selecao-arquivo'>Selecionar um arquivo</label>

@@ -19,6 +19,7 @@ export default function SendMultipleMessages({
   const [count, setCount] = useState(-1);
   const [amountMessage, setAmountMessage] = useState(0);
   const [showExcel, setShowExcel] = useState(false);
+  const [dirty, setDirty] = useState(true);
 
   async function triggerMessages() {
     let verify = "";
@@ -112,11 +113,21 @@ export default function SendMultipleMessages({
   }
 
   useEffect(() => {
+    window.onbeforeunload =
+      dirty && count > -1 && (() => "Deseja realmente sair da seesão?");
+
+    return () => {
+      window.onbeforeunload = null;
+    };
+  }, [dirty, count]);
+
+  useEffect(() => {
     if (amountMessage === 0 && items.length !== 0) {
       toast("Disparos de Mensagens Finalizados!!");
       setShowExcel(true);
       setCount(-1);
       setAmountMessage(0);
+      setDirty(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amountMessage]);
