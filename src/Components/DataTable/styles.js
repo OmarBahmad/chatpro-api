@@ -6,6 +6,7 @@ export const DataTable = styled.div`
   table {
     border-spacing: 0;
     border: 1px solid black;
+    width: 100%;
 
     tr {
       :last-child {
@@ -18,7 +19,7 @@ export const DataTable = styled.div`
     th,
     td {
       margin: 0;
-      padding: 0.5rem;
+      padding: 0.75rem;
       border-bottom: 1px solid black;
       border-right: 1px solid black;
 

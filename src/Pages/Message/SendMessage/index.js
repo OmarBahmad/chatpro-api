@@ -16,8 +16,10 @@ export default function SendMessage() {
     <>
       <Sidebar />
       <S.Container>
+        <h1>Mensagens</h1>
+        <hr></hr>
+
         <S.Column1>
-          <h2>Enviar Mensagens</h2>
           <SendUniqueMessage />
           <SendMultipleMessages
             items={items}
@@ -29,6 +31,7 @@ export default function SendMessage() {
             setRespAll={setRespAll}
           />
         </S.Column1>
+
         <S.Column2>
           {respAll.length > 0 ? (
             <DataTable type="message" data={respAll} />

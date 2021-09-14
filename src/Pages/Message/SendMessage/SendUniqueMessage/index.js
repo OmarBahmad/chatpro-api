@@ -33,12 +33,12 @@ export default function SendUniqueMessage() {
 
   return (
     <S.Container>
-      <S.ContainerHeader>
-        <h4>Enviar uma mensagem</h4>
-      </S.ContainerHeader>
-      <S.ContainerForm>
+      <S.ContainerCard>
+        <S.ContainerHeaderCard>
+          <h3>Enviar uma mensagem</h3>
+        </S.ContainerHeaderCard>
         <S.InputNumber
-          placeholder="Numero do telefone"
+          placeholder="Número de telefone"
           className="input-msg"
           value={number}
           onChange={(e) => setNumber(e.target.value)}
@@ -55,7 +55,7 @@ export default function SendUniqueMessage() {
         >
           Enviar Mensagem
         </S.ButtonSend>
-      </S.ContainerForm>
+      </S.ContainerCard>
     </S.Container>
   );
 }

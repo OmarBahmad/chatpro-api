@@ -11,8 +11,7 @@ export const LabelFile = styled.label`
   color: rgb(255, 255, 255);
   outline: none;
   border-radius: 0.4rem;
-  font-size: 16px;
-  padding: 1rem 0 1rem 6rem;
+  padding: 0.8rem 1.5rem;
   transition: all 0.2s ease 0s;
   cursor: pointer;
   background: #27251f;
