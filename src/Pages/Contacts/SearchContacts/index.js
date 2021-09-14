@@ -25,7 +25,7 @@ export default function SearchContacts() {
       <S.ContainerHeader>
         <h3>Retornar lista de Contatos</h3>
       </S.ContainerHeader>
-      <S.ButtonSend onClick={postB}>Retornar lista de Contatos</S.ButtonSend>
+      <S.ButtonSend onClick={postB}>Retornar lista</S.ButtonSend>
 
       {data.length > 0 && (
         <>

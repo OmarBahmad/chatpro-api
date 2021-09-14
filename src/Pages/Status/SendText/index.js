@@ -9,7 +9,7 @@ export default function SendText() {
 
   async function sendStatus() {
     const obj = {
-      text: textStatus 
+      text: textStatus,
     };
     try {
       const resp = await sendTextStatus(obj);
@@ -27,18 +27,19 @@ export default function SendText() {
 
   return (
     <S.Container>
-      <h2>Status</h2>
-      <S.ContainerHeader>
-        <h3>Adicionar Status de Texto</h3>
-      </S.ContainerHeader>
-      <S.InputNumber
-        placeholder="Texto"
-        value={textStatus}
-        onChange={(e) => setTextStatus(e.target.value)}
-      />
-      <S.ButtonSend onClick={sendStatus} disabled={textStatus === ""}>
-        Adicionar Status de Texto
-      </S.ButtonSend>
+      <S.ContainerCard>
+        <S.ContainerHeaderCard>
+          <h3>Adicionar status de texto</h3>
+        </S.ContainerHeaderCard>
+        <S.InputNumber
+          placeholder="Texto"
+          value={textStatus}
+          onChange={(e) => setTextStatus(e.target.value)}
+        />
+        <S.ButtonSend onClick={sendStatus} disabled={textStatus === ""}>
+          Adicionar Status de Texto
+        </S.ButtonSend>
+      </S.ContainerCard>
     </S.Container>
   );
 }

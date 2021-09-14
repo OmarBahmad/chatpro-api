@@ -43,40 +43,46 @@ export default function CreateGroup() {
 
   return (
     <S.Container>
-      <h2>Grupos</h2>
       <S.ContainerHeader>
         <h3>Criar Novo</h3>
       </S.ContainerHeader>
-      <S.InputNumber
-        placeholder="Nome do Grupo"
-        className="input-msg"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <S.InputMessage
-        placeholder="Números a serem adicionados"
-        className="input-msg"
-        value={number}
-        onChange={(e) => setNumber(e.target.value)}
-      />
+      <S.ContainerGroup>
+      <S.ContainerCard>
+        <S.ContainerHeaderCard>
+          <h3>Criar novo grupo</h3>
+        </S.ContainerHeaderCard>
+        <S.InputNumber
+          placeholder="Nome do Grupo"
+          className="input-msg"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <S.InputNumber
+          placeholder="Números a adicionar"
+          className="input-msg"
+          value={number}
+          onChange={(e) => setNumber(e.target.value)}
+        />
 
-      <S.ButtonSend onClick={pushNumber}>Adicionar Número</S.ButtonSend>
-      <br />
-      <br />
-      <S.ButtonCreate
-        onClick={createG}
-        disabled={name === "" || phones.length < 1}
-      >
-        Criar Grupo
-      </S.ButtonCreate>
+        <S.ButtonSend onClick={pushNumber}>Adicionar Números</S.ButtonSend>
+        <S.ButtonCreate
+          onClick={createG}
+          disabled={name === "" || phones.length < 2}
+        >
+          Criar Grupo
+        </S.ButtonCreate>
+      </S.ContainerCard>
 
-      {phones.length > 0 && <h3>Números adicionados ({count})</h3>}
+      <S.ContainerCardNumber>
+        {phones.length > 0 && <h3>Números adicionados ({count})</h3>}
 
-      <S.ContainerNumbers>
-        {phones?.map((index) => (
-          <S.UniqueNumbers>{index} -</S.UniqueNumbers>
-        ))}
-      </S.ContainerNumbers>
+        <S.ContainerNumbers>
+          {phones?.map((index) => (
+            <S.UniqueNumbers>{index} -</S.UniqueNumbers>
+          ))}
+        </S.ContainerNumbers>
+      </S.ContainerCardNumber>
+      </S.ContainerGroup>
     </S.Container>
   );
 }

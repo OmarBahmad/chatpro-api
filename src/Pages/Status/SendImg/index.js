@@ -28,9 +28,10 @@ export default function SendImg() {
   }
   return (
     <S.Container>
-      <S.ContainerHeader>
-        <h3>Adicionar Status de Imagem</h3>
-      </S.ContainerHeader>
+      <S.ContainerCard>
+      <S.ContainerHeaderCard>
+          <h3>Adicionar status de imagem</h3>
+        </S.ContainerHeaderCard>
       <S.InputNumber
         placeholder="Texto do Status"
         value={caption}
@@ -47,6 +48,7 @@ export default function SendImg() {
       >
         Adicionar Status de Imagem
       </S.ButtonSend>
+      </S.ContainerCard>
     </S.Container>
   );
 }

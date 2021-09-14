@@ -5,7 +5,6 @@ import { getProfile } from "../../../Actions/Contacts";
 import * as S from "./styles";
 import { ValidNumber } from "../../../hooks/ValidNumber";
 
-
 export default function GetUniqueContact() {
   const [number, setNumber] = useState("");
   const [data, setData] = useState([]);
@@ -36,27 +35,41 @@ export default function GetUniqueContact() {
   return (
     <S.Container>
       <S.ContainerHeader>
-        <h3>Obter Perfil</h3>
+        <h3>Buscar Contato</h3>
       </S.ContainerHeader>
-      <S.InputNumber
-        placeholder="Número"
-        value={number}
-        onChange={(e) => setNumber(e.target.value)}
-      />
-      <S.ButtonSend onClick={sendCTT} disabled={number === ""} >Obter Contato</S.ButtonSend>
-      {respTrue && (
-        <div>
-          <p>
-            <strong>Nome: </strong>
-            {data.name}
-          </p>
-          <p>
-            <strong>Número: </strong>
-            {data.jid}
-          </p>
-          <img src={data.eurl} height="300px" />
-        </div>
-      )}
+      <S.ContainerContact>
+        <S.ContainerCard>
+          <S.ContainerHeaderCard>
+            <h3>Obter Perfil</h3>
+          </S.ContainerHeaderCard>
+          <S.InputNumber
+            placeholder="Número de telefone"
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+          />
+          <S.ButtonSend onClick={sendCTT} disabled={number === ""}>
+            Obter Contato
+          </S.ButtonSend>
+        </S.ContainerCard>
+
+        {respTrue && (
+          <S.ContainerResp>
+            <S.ContainerRespColumn1>
+              <p>
+                <strong>Nome: </strong>
+                {data.name}
+              </p>
+              <p>
+                <strong>Número: </strong>
+                {data.jid}
+              </p>
+            </S.ContainerRespColumn1>
+            <S.ContainerRespColumn2>
+              <img src={data.eurl} height="100%" width="200px" />
+            </S.ContainerRespColumn2>
+          </S.ContainerResp>
+        )}
+      </S.ContainerContact>
     </S.Container>
   );
 }

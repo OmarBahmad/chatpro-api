@@ -41,25 +41,49 @@ export default function LeaveGroup() {
 
   return (
     <S.Container>
-      <h3>Pesquisar</h3>
-      <S.ButtonCreate onClick={postB}> Pesquisar grupos </S.ButtonCreate>
-      <br />
-      {group?.map((index) => (
-        <>
-          <p>
-            Nome do Grupo: {index.Name} <span> Id: {index.Jid}</span>{" "}
-          </p>
-        </>
-      ))}
+      <S.ContainerHeader>
+        <h3>Pesquisar um grupo</h3>
+      </S.ContainerHeader>
+
+      <S.ContainerGroup>
+        <S.ButtonCreate onClick={postB}> Pesquisar grupos </S.ButtonCreate>
+        <S.ContainerCardNumber>
+          <S.ContainerNumbers>
+            {group?.map((index) => (
+              <S.UniqueNumbers>
+                {" "}
+                <strong>Nome do Grupo:</strong> {index.Name}{" "}
+                <span>
+                  {" "}
+                  - <strong>Id: </strong>
+                  {index.Jid} |
+                </span>{" "}
+              </S.UniqueNumbers>
+            ))}
+          </S.ContainerNumbers>
+        </S.ContainerCardNumber>
+      </S.ContainerGroup>
+
+      <hr />
       <S.ContainerLeave>
-        <h3>Sair</h3>
-        <S.InputNumber
-          placeholder="JID do Grupo"
-          className="input-msg"
-          value={jid}
-          onChange={(e) => setJid(e.target.value)}
-        />
-        <S.ButtonSend onClick={leaveG}> Sair do Grupo </S.ButtonSend>
+        <S.ContainerHeader>
+          <h3>Sair de um grupo</h3>
+        </S.ContainerHeader>
+        <S.ContainerCard>
+          <S.ContainerHeaderCard>
+            <h3>Sair</h3>
+          </S.ContainerHeaderCard>
+          <S.InputNumber
+            placeholder="JID do Grupo"
+            className="input-msg"
+            value={jid}
+            onChange={(e) => setJid(e.target.value)}
+          />
+          <S.ButtonSend onClick={leaveG} disabled={jid === ""}>
+            {" "}
+            Sair do Grupo{" "}
+          </S.ButtonSend>
+        </S.ContainerCard>
       </S.ContainerLeave>
     </S.Container>
   );

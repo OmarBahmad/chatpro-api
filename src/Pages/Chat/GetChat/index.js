@@ -54,7 +54,7 @@ export default function GetChat() {
   return (
     <S.Container>
       <S.ContainerHeader>
-        <h2>Retornar lista de Chat </h2>
+        <h3>Retornar lista de Chat </h3>
       </S.ContainerHeader>
       <S.ButtonCreate onClick={postB}>Retornar lista de Chats</S.ButtonCreate>
 
