@@ -22,7 +22,7 @@ export const ContainerGroup = styled.div`
 export const ContainerCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 50vh;
   height: 100%;
   background-color: #1d1d26;
   color: #e2e2e2;

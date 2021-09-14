@@ -74,7 +74,7 @@ export const ContainerGroup = styled.div`
 `;
 
 export const ButtonCreate = styled.button`
-  width: 25%;
+  width: 50vh;
   height: 5rem;
   font-size: 16px;
   border-radius: 5px;
@@ -112,7 +112,6 @@ export const UniqueNumbers = styled.span`
   margin-right: 5px;
 `;
 
-
 export const Containerleave = styled.div`
   display: flex;
   margin-top: 10px;
@@ -122,7 +121,7 @@ export const Containerleave = styled.div`
 export const ContainerCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 50vh;
   height: 100%;
   background-color: #1d1d26;
   color: #e2e2e2;

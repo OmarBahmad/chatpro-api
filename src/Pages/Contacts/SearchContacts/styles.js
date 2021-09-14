@@ -36,7 +36,7 @@ export const InputMessage = styled.input`
 `;
 
 export const ButtonSend = styled.button`
-  width: 25%;
+  width: 50vh;
   height: 5rem;
   font-size: 16px;
   border-radius: 5px;

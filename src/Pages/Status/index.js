@@ -9,8 +9,15 @@ export default function Status() {
     <>
       <Sidebar />
       <S.Container>
-        <SendText />
-        <SendImg />
+        <h1>Status</h1>
+        <hr />
+        <S.ContainerBody>
+          <S.ContainerBodyHeader>
+            <h3>Status</h3>
+          </S.ContainerBodyHeader>
+            <SendText />
+            <SendImg />
+        </S.ContainerBody>
       </S.Container>
     </>
   );

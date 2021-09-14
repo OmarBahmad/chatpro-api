@@ -16,7 +16,7 @@ export const ContainerHeader = styled.div`
 `;
 
 export const ButtonCreate = styled.button`
-width: 25%;
+  width: 50vh;
   height: 5rem;
   font-size: 16px;
   border-radius: 5px;
@@ -30,7 +30,6 @@ width: 25%;
   background: #179788;
   border: 1px solid rgb(4, 170, 109);
   margin-bottom: 15px;
-
 `;
 
 export const ContainerExcel = styled.div`

@@ -70,16 +70,19 @@ export default function LeaveGroup() {
           <h3>Sair de um grupo</h3>
         </S.ContainerHeader>
         <S.ContainerCard>
-        <S.ContainerHeaderCard>
-          <h3>Sair</h3>
-        </S.ContainerHeaderCard>
+          <S.ContainerHeaderCard>
+            <h3>Sair</h3>
+          </S.ContainerHeaderCard>
           <S.InputNumber
             placeholder="JID do Grupo"
             className="input-msg"
             value={jid}
             onChange={(e) => setJid(e.target.value)}
           />
-          <S.ButtonSend onClick={leaveG}> Sair do Grupo </S.ButtonSend>
+          <S.ButtonSend onClick={leaveG} disabled={jid === ""}>
+            {" "}
+            Sair do Grupo{" "}
+          </S.ButtonSend>
         </S.ContainerCard>
       </S.ContainerLeave>
     </S.Container>
