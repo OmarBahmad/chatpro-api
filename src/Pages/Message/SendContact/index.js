@@ -15,8 +15,9 @@ export default function SendMessage() {
     <>
       <Sidebar />
       <S.Container>
+        <h1>Contatos</h1>
+        <hr></hr>
         <S.Column1>
-          <h2>Enviar contatos</h2>
           <SendUniqueContact />
           <SendMultipleContact
             items={items}

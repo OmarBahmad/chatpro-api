@@ -29,10 +29,10 @@ export default function SendUniqueContact() {
 
   return (
     <S.Container>
-      <S.ContainerHeader>
-        <h4>Enviar Localização</h4>
-      </S.ContainerHeader>
-      <S.ContainerForm>
+      <S.ContainerCard>
+        <S.ContainerHeaderCard>
+          <h3>Enviar um contato</h3>
+        </S.ContainerHeaderCard>
         <S.InputContact
           placeholder="Nome do Contato"
           value={contact_name}
@@ -49,7 +49,7 @@ export default function SendUniqueContact() {
           onChange={(e) => setNumber(e.target.value)}
         />
         <S.ButtonSend onClick={sendCTT}>Enviar Contato</S.ButtonSend>
-      </S.ContainerForm>
+      </S.ContainerCard>
     </S.Container>
   );
 }

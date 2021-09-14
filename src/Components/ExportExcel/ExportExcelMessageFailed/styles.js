@@ -6,9 +6,9 @@ export const Container = styled.div`
   margin-right: 1rem;
 
   button {
-    width: 50vh;
+    width: 100%;
     height: 5.5rem;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 5px;
     font-weight: 500;
     color: 000;

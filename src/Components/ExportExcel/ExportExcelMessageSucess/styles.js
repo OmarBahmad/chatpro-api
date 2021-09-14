@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   margin-right: 1rem;
 
   button {
-    width: 50vh;
+    width: 100%;
     height: 5.5rem;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 5px;
     font-weight: 500;
     color: 000;

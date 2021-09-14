@@ -109,7 +109,7 @@ export const ButtonCreate = styled.button`
 `;
 
 export const ContainerCardNumber = styled.div`
-  width: 60%;
+  width: 65%;
   margin-left: 5rem;
   color: white;
 

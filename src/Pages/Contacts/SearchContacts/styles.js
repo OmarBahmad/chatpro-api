@@ -51,3 +51,8 @@ export const ButtonSend = styled.button`
   border: 1px solid rgb(4, 170, 109);
   margin-bottom: 15px;
 `;
+
+export const ContainerResp = styled.div`
+  color: #e2e2e2;
+  width: 51vh;
+`;

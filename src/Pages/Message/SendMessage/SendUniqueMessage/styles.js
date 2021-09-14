@@ -26,7 +26,7 @@ export const ContainerForm = styled.div`
 export const ContainerCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50vh;
+  width: 100%;
   height: 100%;
   background-color: #1d1d26;
   color: #e2e2e2;

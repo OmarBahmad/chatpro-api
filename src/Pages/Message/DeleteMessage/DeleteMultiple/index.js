@@ -75,7 +75,7 @@ export default function DeleteMultiple({ setRespAll }) {
 
   useEffect(() => {
     if (amountMessage === 0 && items.length !== 0) {
-      toast("Disparos Finalizados!!");
+      toast("Exclusões Múltiplas de Mensagens Finalizadas!!");
       setShowExcel(true);
       setCount(-1);
       setAmountMessage(0);
@@ -89,36 +89,47 @@ export default function DeleteMultiple({ setRespAll }) {
 
   return (
     <S.Container>
-      <h3>Excluir Multiplas Mensagens</h3>
-      <S.ImportMessage>
-        <ImportExcel setItems={setItems} setAmountMessage={setAmountMessage} />
-        <S.ButtonFile
-          onClick={() => setCount((prev) => prev + 1)}
-          disabled={amountMessage === 0 || count !== -1}
-        >
-          Excluir Mensagens
-        </S.ButtonFile>
-      </S.ImportMessage>
-      {amountMessage !== 0 && (
-        <S.CardQuant>
-          Quantidade de Mensagem à serem excluídas:{" "}
-          <strong>{amountMessage}</strong>
-        </S.CardQuant>
-      )}
+      <S.ContainerCardAll>
+        <S.ContainerCard>
+          <S.ContainerHeaderCard>
+            <h3>Excluir múltiplas mensagens</h3>
+          </S.ContainerHeaderCard>
+          <S.ImportMessage>
+            <ImportExcel
+              setItems={setItems}
+              setAmountMessage={setAmountMessage}
+            />
+            <S.ButtonFile
+              onClick={() => setCount((prev) => prev + 1)}
+              disabled={amountMessage === 0 || count !== -1}
+            >
+              Excluir Mensagens
+            </S.ButtonFile>
+          </S.ImportMessage>
+          {amountMessage !== 0 && (
+            <S.CardQuant>
+              Quantidade de Mensagem à serem excluídas:{" "}
+              <strong>{amountMessage}</strong>
+            </S.CardQuant>
+          )}
+        </S.ContainerCard>
+      </S.ContainerCardAll>
 
-      {respFalse.length > 0 && showExcel &&(
-        <>
-          <ExportExcelMessageFailed
-            respFalse={respFalse}
-            collum1="chatJid"
-            collum2="messageID"
-            collum3="number"
-            collum4="message"
-            nameButton="Download da planilha de disparos mal sucedidos"
-            nameFile="Disparos mal sucedidos"
-          />
-        </>
-      )}
+      <S.ContainerResp>
+        {respFalse.length > 0 && showExcel && (
+          <>
+            <ExportExcelMessageFailed
+              respFalse={respFalse}
+              collum1="chatJid"
+              collum2="messageID"
+              collum3="number"
+              collum4="message"
+              nameButton="Download da planilha de disparos mal sucedidos"
+              nameFile="Disparos mal sucedidos"
+            />
+          </>
+        )}
+      </S.ContainerResp>
     </S.Container>
   );
 }

@@ -11,8 +11,9 @@ export default function DeleteMessage() {
     <>
       <Sidebar />
       <S.Container>
+        <h1>Excluir</h1>
+        <hr></hr>
         <S.Column1>
-          <h2>Excluir Mensagens</h2>
           <DeleteUnique />
           <DeleteMultiple setRespAll={setRespAll} />
         </S.Column1>

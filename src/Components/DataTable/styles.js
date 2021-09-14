@@ -2,16 +2,21 @@ import styled from "styled-components";
 
 export const DataTable = styled.div`
   padding: 1rem;
+  width: 100vh;
 
   table {
     border-spacing: 0;
     border: 1px solid black;
     width: 100%;
+    font-size: 16px;
 
     tr {
       :last-child {
         td {
-          border-bottom: 0;
+          max-width: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
       }
     }
@@ -22,6 +27,11 @@ export const DataTable = styled.div`
       padding: 0.75rem;
       border-bottom: 1px solid black;
       border-right: 1px solid black;
+      max-width: 0;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
 
       :last-child {
         border-right: 0;

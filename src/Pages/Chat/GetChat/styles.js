@@ -33,6 +33,6 @@ export const ButtonCreate = styled.button`
 `;
 
 export const ContainerExcel = styled.div`
-  width: 100%;
+  width: 51vh;
   margin-top: 1rem;
 `;

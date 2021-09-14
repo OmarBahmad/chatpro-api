@@ -15,8 +15,9 @@ export default function SendLocation() {
     <>
       <Sidebar />
       <S.Container>
+        <h1>Localização</h1>
+        <hr></hr>
         <S.Column1>
-          <h2>Enviar Localização</h2>
           <SendUniqueLocation />
           <SendMultipleLocation
             items={items}

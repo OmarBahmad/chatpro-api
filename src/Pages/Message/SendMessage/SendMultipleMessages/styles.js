@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 70%;
+  width: 75%;
   margin-top: 20px;
   margin-bottom: 30px;
   margin-left: 30px;
@@ -47,7 +47,7 @@ export const CardQuant = styled.div`
 export const ContainerCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 80%;
   height: 100%;
   background-color: #1d1d26;
   color: #e2e2e2;
@@ -69,4 +69,10 @@ export const ContainerResp = styled.div`
   display: flex;
   flex-direction: column;
   color: #e2e2e2;
+  width: 35%;
+  margin-left: 25px;
+`;
+
+export const ContainerCardAll = styled.div`
+  width: 50%;
 `;

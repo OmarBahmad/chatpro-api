@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { leaveGroup } from "../../../Actions/Groups";
@@ -88,3 +89,6 @@ export default function LeaveGroup() {
     </S.Container>
   );
 }
+/*
+
+*/

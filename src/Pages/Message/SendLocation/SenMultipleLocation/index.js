@@ -115,50 +115,61 @@ export default function SendMultipleLocation({
 
   return (
     <S.Container>
-      <h4>Disparo de Localizações</h4>
-      <S.ImportMessage>
-        <ImportExcel setItems={setItems} setAmountMessage={setAmountMessage} />
-        <S.ButtonFile
-          onClick={() => setCount((prev) => prev + 1)}
-          disabled={amountMessage === 0 || count !== -1}
-        >
-          Disparar Localizações
-        </S.ButtonFile>
-      </S.ImportMessage>
-      {amountMessage !== 0 && (
-        <S.CardQuant>
-          Quantidade de Mensagens: <strong>{amountMessage}</strong>
-        </S.CardQuant>
-      )}
+      <S.ContainerCardAll>
+        <S.ContainerCard>
+          <S.ContainerHeaderCard>
+            <h3>Disparo de localizações</h3>
+          </S.ContainerHeaderCard>
+          <S.ImportMessage>
+            <ImportExcel
+              setItems={setItems}
+              setAmountMessage={setAmountMessage}
+            />
+            <S.ButtonFile
+              onClick={() => setCount((prev) => prev + 1)}
+              disabled={amountMessage === 0 || count !== -1}
+            >
+              Disparar Localizações
+            </S.ButtonFile>
+          </S.ImportMessage>
+          {amountMessage !== 0 && (
+            <S.CardQuant>
+              Quantidade de Mensagens: <strong>{amountMessage}</strong>
+            </S.CardQuant>
+          )}
+        </S.ContainerCard>
+      </S.ContainerCardAll>
 
-      {respTrue.length > 0 && showExcel && (
-        <>
-          <ExportExcelMessageSucess
-            respTrue={respTrue}
-            collum1="address"
-            collum2="name"
-            collum3="number"
-            collum4="messageID"
-            collum5="chatJid"
-            nameButton="Download da planilha de disparos bem sucedidos"
-            nameFile="Disparos bem sucedidos"
-          />
-        </>
-      )}
-      {respFalse.length > 0 && showExcel && (
-        <>
-          <ExportExcelMessageFailed
-            respFalse={respFalse}
-            collum1="address"
-            collum2="lat"
-            collum3="lng"
-            collum4="name"
-            collum5="number"
-            nameButton="Download da planilha de disparos mal sucedidos"
-            nameFile="Disparos mal sucedidos"
-          />
-        </>
-      )}
+      <S.ContainerResp>
+        {respTrue.length > 0 && showExcel && (
+          <>
+            <ExportExcelMessageSucess
+              respTrue={respTrue}
+              collum1="address"
+              collum2="name"
+              collum3="number"
+              collum4="messageID"
+              collum5="chatJid"
+              nameButton="Download da planilha de disparos bem sucedidos"
+              nameFile="Disparos bem sucedidos"
+            />
+          </>
+        )}
+        {respFalse.length > 0 && showExcel && (
+          <>
+            <ExportExcelMessageFailed
+              respFalse={respFalse}
+              collum1="address"
+              collum2="lat"
+              collum3="lng"
+              collum4="name"
+              collum5="number"
+              nameButton="Download da planilha de disparos mal sucedidos"
+              nameFile="Disparos mal sucedidos"
+            />
+          </>
+        )}
+      </S.ContainerResp>
     </S.Container>
   );
 }

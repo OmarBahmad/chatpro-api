@@ -134,28 +134,31 @@ export default function SendMultipleMessages({
 
   return (
     <S.Container>
-      <S.ContainerCard>
-        <S.ContainerHeaderCard>
-          <h3>Disparo de mensagens</h3>
-        </S.ContainerHeaderCard>
-        <S.ImportMessage>
-          <ImportExcel
-            setItems={setItems}
-            setAmountMessage={setAmountMessage}
-          />
-          <S.ButtonFile
-            onClick={() => setCount((prev) => prev + 1)}
-            disabled={amountMessage === 0 || count !== -1}
-          >
-            Disparar Mensagens
-          </S.ButtonFile>
-        </S.ImportMessage>
-        {amountMessage !== 0 && (
-          <S.CardQuant>
-            Quantidade de Mensagens: <strong>{amountMessage}</strong>
-          </S.CardQuant>
-        )}
-      </S.ContainerCard>
+      <S.ContainerCardAll>
+        <S.ContainerCard>
+          <S.ContainerHeaderCard>
+            <h3>Disparo de mensagens</h3>
+          </S.ContainerHeaderCard>
+          <S.ImportMessage>
+            <ImportExcel
+              setItems={setItems}
+              setAmountMessage={setAmountMessage}
+            />
+            <S.ButtonFile
+              onClick={() => setCount((prev) => prev + 1)}
+              disabled={amountMessage === 0 || count !== -1}
+            >
+              Disparar Mensagens
+            </S.ButtonFile>
+          </S.ImportMessage>
+          {amountMessage !== 0 && (
+            <S.CardQuant>
+              Quantidade de Mensagens: <strong>{amountMessage}</strong>
+            </S.CardQuant>
+          )}
+        </S.ContainerCard>
+      </S.ContainerCardAll>
+
       <S.ContainerResp>
         {respTrue.length > 0 && showExcel && (
           <>

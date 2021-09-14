@@ -27,18 +27,20 @@ export default function SearchContacts() {
       </S.ContainerHeader>
       <S.ButtonSend onClick={postB}>Retornar lista</S.ButtonSend>
 
-      {data.length > 0 && (
-        <>
-          <ExportExcelMessageSucess
-            respTrue={data}
-            collum1="Jid"
-            collum2="Name"
-            collum3="Short"
-            nameButton="Download da lista de contatos"
-            nameFile={"Lista de Contatos"}
-          />
-        </>
-      )}
+      <S.ContainerResp>
+        {data.length > 0 && (
+          <>
+            <ExportExcelMessageSucess
+              respTrue={data}
+              collum1="Jid"
+              collum2="Name"
+              collum3="Short"
+              nameButton="Download da lista de contatos"
+              nameFile={"Lista de Contatos"}
+            />
+          </>
+        )}
+      </S.ContainerResp>
     </S.Container>
   );
 }

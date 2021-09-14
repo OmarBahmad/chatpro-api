@@ -33,10 +33,10 @@ export default function DeleteUnique() {
   }
   return (
     <S.Container>
-      <S.ContainerHeader>
-        <h4>Excluir uma Mensagem</h4>
-      </S.ContainerHeader>
-      <S.ContainerForm>
+      <S.ContainerCard>
+        <S.ContainerHeaderCard>
+          <h3>Excluir uma mensagem</h3>
+        </S.ContainerHeaderCard>
         <S.InputNumber
           placeholder="Numero do telefone sem o '9'"
           className="input-msg"
@@ -55,7 +55,7 @@ export default function DeleteUnique() {
         >
           Excluir Mensagem{" "}
         </S.ButtonSend>
-      </S.ContainerForm>
+      </S.ContainerCard>
     </S.Container>
   );
 }

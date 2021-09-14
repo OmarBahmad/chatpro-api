@@ -13,8 +13,9 @@ export default function SendFile() {
     <>
       <Sidebar />
       <S.Container>
+        <h1>Arquivos</h1>
+        <hr></hr>
         <S.Column1>
-          <h2>Enviar Arquivos</h2>
           <SendUniqueFile />
           <SendMultipleFiles setRespAll={setRespAll} />
         </S.Column1>

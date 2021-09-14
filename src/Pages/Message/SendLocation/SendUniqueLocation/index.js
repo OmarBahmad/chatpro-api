@@ -31,10 +31,10 @@ export default function SendUniqueLocation() {
   }
   return (
     <S.Container>
-      <S.ContainerHeader>
-        <h4>Enviar Localização</h4>
-      </S.ContainerHeader>
-      <S.ContainerForm>
+      <S.ContainerCard>
+        <S.ContainerHeaderCard>
+          <h3>Enviar uma localização</h3>
+        </S.ContainerHeaderCard>
         <S.Input
           placeholder="Endereço"
           value={address}
@@ -58,7 +58,6 @@ export default function SendUniqueLocation() {
           onChange={(e) => setName(e.target.value)}
         />
         <S.Input
-
           placeholder="Número"
           value={number}
           onChange={(e) => setNumber(e.target.value)}
@@ -69,7 +68,7 @@ export default function SendUniqueLocation() {
         >
           Enviar Localização
         </S.ButtonSend>
-      </S.ContainerForm>
+      </S.ContainerCard>
     </S.Container>
   );
 }

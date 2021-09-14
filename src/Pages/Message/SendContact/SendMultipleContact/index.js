@@ -121,7 +121,7 @@ export default function SendMultipleContact({
 
   useEffect(() => {
     if (amountMessage === 0 && items.length !== 0) {
-      toast("Disparos de Arquivos Finalizados!!");
+      toast("Disparos de Contatos Finalizados!!");
       setShowExcel(true);
       setCount(-1);
       setAmountMessage(0);
@@ -131,50 +131,58 @@ export default function SendMultipleContact({
 
   return (
     <S.Container>
-      <h4>Disparar Contatos</h4>
-      <S.ImportMessage>
-        <ImportExcel setItems={setItems} />
-        <S.ButtonFile
-          onClick={() => setCount((prev) => prev + 1)}
-          disabled={amountMessage === 0 || count !== -1}
-        >
-          Enviar Contatos
-        </S.ButtonFile>
-      </S.ImportMessage>
+      <S.ContainerCardAll>
+        <S.ContainerCard>
+          <S.ContainerHeaderCard>
+            <h3>Disparo de contatos</h3>
+          </S.ContainerHeaderCard>
+          <S.ImportMessage>
+            <ImportExcel setItems={setItems} />
+            <S.ButtonFile
+              onClick={() => setCount((prev) => prev + 1)}
+              disabled={amountMessage === 0 || count !== -1}
+            >
+              Disparar Contatos
+            </S.ButtonFile>
+          </S.ImportMessage>
 
-      {amountMessage !== 0 && (
-        <S.CardQuant>
-          Quantidade de Contatos:
-          <strong>{amountMessage}</strong>
-        </S.CardQuant>
-      )}
+          {amountMessage !== 0 && (
+            <S.CardQuant>
+              Quantidade de Contatos:
+              <strong>{amountMessage}</strong>
+            </S.CardQuant>
+          )}
+        </S.ContainerCard>
+      </S.ContainerCardAll>
 
-      {respTrue.length > 0 && showExcel && (
-        <>
-          <ExportExcelMessageSucess
-            respTrue={respTrue}
-            collum1="number"
-            collum2="contact_name"
-            collum3="contact_number"
-            collum4="messageID"
-            collum5="chatJid"
-            nameButton="Download da planilha de disparos bem sucedidos"
-            nameFile="Disparos bem sucedidos"
-          />
-        </>
-      )}
-      {respFalse.length > 0 && showExcel && (
-        <>
-          <ExportExcelMessageFailed
-            respFalse={respFalse}
-            collum1="number"
-            collum2="contact_name"
-            collum3="contact_number"
-            nameButton="Download da planilha de disparos mal sucedidos"
-            nameFile="Disparos mal sucedidos"
-          />
-        </>
-      )}
+      <S.ContainerResp>
+        {respTrue.length > 0 && showExcel && (
+          <>
+            <ExportExcelMessageSucess
+              respTrue={respTrue}
+              collum1="number"
+              collum2="contact_name"
+              collum3="contact_number"
+              collum4="messageID"
+              collum5="chatJid"
+              nameButton="Download da planilha de disparos bem sucedidos"
+              nameFile="Disparos bem sucedidos"
+            />
+          </>
+        )}
+        {respFalse.length > 0 && showExcel && (
+          <>
+            <ExportExcelMessageFailed
+              respFalse={respFalse}
+              collum1="number"
+              collum2="contact_name"
+              collum3="contact_number"
+              nameButton="Download da planilha de disparos mal sucedidos"
+              nameFile="Disparos mal sucedidos"
+            />
+          </>
+        )}
+      </S.ContainerResp>
     </S.Container>
   );
 }

@@ -29,19 +29,19 @@ export function SendUniqueFile() {
 
   return (
     <S.Container>
-      <S.ContainerHeader>
-        <h4>Enviar Arquivo</h4>
-      </S.ContainerHeader>
-      <S.ContainerForm>
+      <S.ContainerCard>
+        <S.ContainerHeaderCard>
+          <h3>Enviar um arquivo</h3>
+        </S.ContainerHeaderCard>
+        <S.InputNumber
+          placeholder="Número de telefone"
+          value={number}
+          onChange={(e) => setNumber(e.target.value)}
+        />
         <S.InputName
           placeholder="Nome do Arquivo"
           value={caption}
           onChange={(e) => setCaption(e.target.value)}
-        />
-        <S.InputNumber
-          placeholder="Número"
-          value={number}
-          onChange={(e) => setNumber(e.target.value)}
         />
         <S.InputURL
           placeholder="URL do Arquivo"
@@ -54,7 +54,7 @@ export function SendUniqueFile() {
         >
           Enviar Arquivo
         </S.ButtonSend>
-      </S.ContainerForm>
+      </S.ContainerCard>
     </S.Container>
   );
 }

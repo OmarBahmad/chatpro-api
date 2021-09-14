@@ -122,50 +122,57 @@ export function SendMultipleFiles({ setRespAll }) {
 
   return (
     <S.Container>
-      <h4>Disparar Arquivos</h4>
-      <S.ImportMessage>
-        <ImportExcel setItems={setItems} />
-        <S.ButtonFile
-          onClick={() => setCount((prev) => prev + 1)}
-          disabled={amountMessage === 0 || count !== -1}
-        >
-          Enviar Arquivos
-        </S.ButtonFile>
-      </S.ImportMessage>
+      <S.ContainerCardAll>
+        <S.ContainerCard>
+          <S.ContainerHeaderCard>
+            <h3>Disparo de arquivos</h3>
+          </S.ContainerHeaderCard>
+          <S.ImportMessage>
+            <ImportExcel setItems={setItems} />
+            <S.ButtonFile
+              onClick={() => setCount((prev) => prev + 1)}
+              disabled={amountMessage === 0 || count !== -1}
+            >
+              Disparar Arquivos
+            </S.ButtonFile>
+          </S.ImportMessage>
 
-      {amountMessage !== 0 && (
-        <S.CardQuant>
-          Quantidade de Arquivos:
-          <strong>{amountMessage}</strong>
-        </S.CardQuant>
-      )}
-
-      {respTrue.length > 0 && showExcel && (
-        <>
-          <ExportExcelMessageSucess
-            respTrue={respTrue}
-            collum1="number"
-            collum2="caption"
-            collum3="url"
-            collum4="messageID"
-            collum5="chatJid"
-            nameButton="Download da planilha de disparos bem sucedidos"
-            nameFile="Disparos bem sucedidos"
-          />
-        </>
-      )}
-      {respFalse.length > 0 && showExcel && (
-        <>
-          <ExportExcelMessageFailed
-            respFalse={respFalse}
-            collum1="number"
-            collum2="caption"
-            collum3="url"
-            nameButton="Download da planilha de disparos mal sucedidos"
-            nameFile="Disparos mal sucedidos"
-          />
-        </>
-      )}
+          {amountMessage !== 0 && (
+            <S.CardQuant>
+              Quantidade de Arquivos:
+              <strong> {amountMessage}</strong>
+            </S.CardQuant>
+          )}
+        </S.ContainerCard>
+      </S.ContainerCardAll>
+      <S.ContainerResp>
+        {respTrue.length > 0 && showExcel && (
+          <>
+            <ExportExcelMessageSucess
+              respTrue={respTrue}
+              collum1="number"
+              collum2="caption"
+              collum3="url"
+              collum4="messageID"
+              collum5="chatJid"
+              nameButton="Download da planilha de disparos bem sucedidos"
+              nameFile="Disparos bem sucedidos"
+            />
+          </>
+        )}
+        {respFalse.length > 0 && showExcel && (
+          <>
+            <ExportExcelMessageFailed
+              respFalse={respFalse}
+              collum1="number"
+              collum2="caption"
+              collum3="url"
+              nameButton="Download da planilha de disparos mal sucedidos"
+              nameFile="Disparos mal sucedidos"
+            />
+          </>
+        )}
+      </S.ContainerResp>
     </S.Container>
   );
 }
