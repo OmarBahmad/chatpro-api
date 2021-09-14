@@ -9,7 +9,10 @@ export default function Chat() {
     <>
       <Sidebar />
       <S.Container>
+        <h1>Grupos</h1>
+        <hr></hr>
         <CreateGroup />
+        <hr></hr>
         <LeaveGroup />
       </S.Container>
     </>

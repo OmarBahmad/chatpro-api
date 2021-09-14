@@ -52,8 +52,9 @@ export default function GetUniqueContact() {
           </S.ButtonSend>
         </S.ContainerCard>
 
-          {respTrue && (
-            <S.ContainerResp>
+        {respTrue && (
+          <S.ContainerResp>
+            <S.ContainerRespColumn1>
               <p>
                 <strong>Nome: </strong>
                 {data.name}
@@ -62,9 +63,12 @@ export default function GetUniqueContact() {
                 <strong>Número: </strong>
                 {data.jid}
               </p>
-              <img src={data.eurl} height="100%" width="150px"/>
-            </S.ContainerResp>
-          )}
+            </S.ContainerRespColumn1>
+            <S.ContainerRespColumn2>
+              <img src={data.eurl} height="100%" width="200px" />
+            </S.ContainerRespColumn2>
+          </S.ContainerResp>
+        )}
       </S.ContainerContact>
     </S.Container>
   );
