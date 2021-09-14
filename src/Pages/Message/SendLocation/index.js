@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../../../Components/newSidebar/Sidebar";
+import HeaderTab from "../../../Components/HeaderTab";
 import SendUniqueLocation from "./SendUniqueLocation";
 import SendMultipleLocation from "./SenMultipleLocation";
 import DataTable from "../../../Components/DataTable";
@@ -15,6 +16,7 @@ export default function SendLocation() {
     <>
       <Sidebar />
       <S.Container>
+        <HeaderTab />
         <h1>Localização</h1>
         <hr></hr>
         <S.Column1>

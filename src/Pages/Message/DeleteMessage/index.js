@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../../../Components/newSidebar/Sidebar";
+import HeaderTab from "../../../Components/HeaderTab";
 import DeleteUnique from "./DeleteUnique";
 import DeleteMultiple from "./DeleteMultiple";
 import DataTable from "../../../Components/DataTable";
@@ -11,6 +12,7 @@ export default function DeleteMessage() {
     <>
       <Sidebar />
       <S.Container>
+        <HeaderTab />
         <h1>Excluir</h1>
         <hr></hr>
         <S.Column1>

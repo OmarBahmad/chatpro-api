@@ -1,11 +1,12 @@
 import React from "react";
 import Sidebar from "../../Components/newSidebar/Sidebar";
+import HeaderTab from "../../Components/HeaderTab";
 
 export default function Message() {
   return (
     <div>
       <Sidebar />
-      <h2>Mensagens</h2>
+      <HeaderTab />
     </div>
   );
 }

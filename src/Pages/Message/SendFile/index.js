@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Sidebar from "../../../Components/newSidebar/Sidebar";
 import DataTable from "../../../Components/DataTable";
+import HeaderTab from "../../../Components/HeaderTab";
+
 import * as S from "./Styles";
 
 import { SendMultipleFiles } from "./SendMultipleFiles";
@@ -13,6 +15,7 @@ export default function SendFile() {
     <>
       <Sidebar />
       <S.Container>
+        <HeaderTab />
         <h1>Arquivos</h1>
         <hr></hr>
         <S.Column1>

@@ -3,6 +3,7 @@ import SendUniqueMessage from "./SendUniqueMessage";
 import SendMultipleMessages from "./SendMultipleMessages";
 import Sidebar from "../../../Components/newSidebar/Sidebar";
 import DataTable from "../../../Components/DataTable";
+import HeaderTab from "../../../Components/HeaderTab";
 
 import * as S from "./Styles";
 
@@ -16,6 +17,7 @@ export default function SendMessage() {
     <>
       <Sidebar />
       <S.Container>
+        <HeaderTab />
         <h1>Mensagens</h1>
         <hr></hr>
         <S.Column1>

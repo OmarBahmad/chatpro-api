@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../../../Components/newSidebar/Sidebar";
+import HeaderTab from "../../../Components/HeaderTab";
 import DataTable from "../../../Components/DataTable";
 import * as S from "./Styles";
 import SendUniqueContact from "./SendUniqueContact";
@@ -15,6 +16,7 @@ export default function SendMessage() {
     <>
       <Sidebar />
       <S.Container>
+        <HeaderTab />
         <h1>Contatos</h1>
         <hr></hr>
         <S.Column1>
