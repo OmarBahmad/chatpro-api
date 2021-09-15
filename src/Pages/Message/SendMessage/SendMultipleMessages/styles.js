@@ -14,6 +14,7 @@ export const Container = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     margin-left: 0px;
+    flex-direction: column;
   }
 `;
 
@@ -48,7 +49,6 @@ export const ButtonFile = styled.button`
   @media (max-width: 768px) {
     font-size: 12px;
     padding: 0;
-
   }
 
   :disabled {
@@ -60,7 +60,7 @@ export const ButtonFile = styled.button`
 export const CardQuant = styled.div`
   margin-top: 1rem;
   font-size: 20px;
-  
+
   @media (max-width: 768px) {
     font-size: 14px;
   }
@@ -82,7 +82,7 @@ export const ContainerCard = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 95%;
+    width: 100%;
   }
 `;
 
@@ -91,9 +91,6 @@ export const ContainerHeaderCard = styled.div`
   h3 {
     font-size: 18px;
     font-weight: 500;
-    @media (max-width: 768px) {
-    font-size: 14px;
-  }
   }
   margin-bottom: 15px;
 `;
@@ -114,10 +111,10 @@ export const ContainerResp = styled.div`
     }
   }
   @media (max-width: 768px) {
-    width: 30%;
-
-    button {
-      height: 16rem;
+    margin-top: 15px;
+    width: 100%;
+    button{
+      height: 7rem;
     }
   }
 `;
@@ -129,7 +126,6 @@ export const ContainerCardAll = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 70%;
+    width: 100%;
   }
-  
 `;

@@ -141,3 +141,19 @@ export const ColumnsChat= [
     ],
   },
 ];
+
+export const ColumnsGroups= [
+  {
+    Header: "Grupos",
+    columns: [
+      {
+        Header: "Nome do Grupo",
+        accessor: `Name`,
+      },
+      {
+        Header: "Jid",
+        accessor: `Jid`,
+      },
+    ],
+  },
+];

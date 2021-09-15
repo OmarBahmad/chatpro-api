@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const DataTable = styled.div`
-  padding: 1rem;
   width: 100vh;
 
   table {

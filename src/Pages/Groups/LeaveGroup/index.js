@@ -1,8 +1,9 @@
-
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { leaveGroup } from "../../../Actions/Groups";
 import { getChat } from "../../../Actions/Chat";
+import DataTable from "../../../Components/DataTable";
+
 import * as S from "./styles";
 
 export default function LeaveGroup() {
@@ -47,21 +48,10 @@ export default function LeaveGroup() {
       </S.ContainerHeader>
 
       <S.ContainerGroup>
-        
         <S.ButtonCreate onClick={postB}> Pesquisar grupos </S.ButtonCreate>
         <S.ContainerCardNumber>
           <S.ContainerNumbers>
-            {group?.map((index) => (
-              <S.UniqueNumbers>
-                {" "}
-                <strong>Nome do Grupo:</strong> {index.Name}{" "}
-                <span>
-                  {" "}
-                  - <strong>Id: </strong>
-                  {index.Jid} |
-                </span>{" "}
-              </S.UniqueNumbers>
-            ))}
+            {group.length > 0 ? <DataTable type="group" data={group} /> : null}
           </S.ContainerNumbers>
         </S.ContainerCardNumber>
       </S.ContainerGroup>

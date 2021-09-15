@@ -117,7 +117,7 @@ export const ContainerCardNumber = styled.div`
 
 export const ContainerNumbers = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  padding: 0;
 `;
 
 export const UniqueNumbers = styled.span`
