@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "../../Components/newSidebar/Sidebar";
+import { Sidebar } from "../../Components/Sidebar";
 import CreateGroup from "./CreateGroup";
 import LeaveGroup from "./LeaveGroup";
 import * as S from "./styles";

@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "../../Components/newSidebar/Sidebar";
+import { Sidebar } from "../../Components/Sidebar";
 import SearchContacts from "./SearchContacts";
 import GetUniqueContact from "./GetUniqueContact";
 import * as S from './styles'

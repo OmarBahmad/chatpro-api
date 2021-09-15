@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Sidebar from "../../../Components/newSidebar/Sidebar";
+import { Sidebar } from "../../../Components/Sidebar";
 import HeaderTab from "../../../Components/HeaderTab";
 import SendUniqueLocation from "./SendUniqueLocation";
 import SendMultipleLocation from "./SenMultipleLocation";

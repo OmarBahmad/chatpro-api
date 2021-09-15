@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "../../Components/newSidebar/Sidebar";
+import { Sidebar } from "../../Components/Sidebar";
 import GetChat from "./GetChat";
 import * as S from "./styles";
 

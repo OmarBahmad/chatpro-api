@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SendUniqueMessage from "./SendUniqueMessage";
 import SendMultipleMessages from "./SendMultipleMessages";
-import Sidebar from "../../../Components/newSidebar/Sidebar";
+import { Sidebar } from "../../../Components/Sidebar";
 import DataTable from "../../../Components/DataTable";
 import HeaderTab from "../../../Components/HeaderTab";
 

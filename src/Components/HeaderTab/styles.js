@@ -24,12 +24,35 @@ export const ContainerItens = styled.div`
     color: white;
     text-decoration: none;
     padding: 15px;
+    &.active {
+      color: #179788 !important;
+    }
   }
 
   :hover {
     background-color: white;
     span {
       color: #15151c;
+    }
+  }
+  @media (max-width: 1280px) {
+    width: 17%;
+  }
+
+  @media (max-width: 864px) {
+    width: 20%;
+    height: 3.5rem;
+
+    a {
+      padding: 0;
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 568px) {
+    height: 2.5rem;
+    a {
+      font-size: 10px;
     }
   }
 `;

@@ -30,9 +30,18 @@ export const ButtonCreate = styled.button`
   background: #179788;
   border: 1px solid rgb(4, 170, 109);
   margin-bottom: 15px;
+
+  @media (max-width: 568px) {
+    width: 97%;
+    font-size: 14px;
+  }
 `;
 
 export const ContainerExcel = styled.div`
   width: 51vh;
   margin-top: 1rem;
+  @media (max-width: 568px) {
+    width: 100%;
+    font-size: 14px;
+  }
 `;

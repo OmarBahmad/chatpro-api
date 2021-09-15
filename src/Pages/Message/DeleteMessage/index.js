@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Sidebar from "../../../Components/newSidebar/Sidebar";
+import { Sidebar } from "../../../Components/Sidebar";
 import HeaderTab from "../../../Components/HeaderTab";
 import DeleteUnique from "./DeleteUnique";
 import DeleteMultiple from "./DeleteMultiple";

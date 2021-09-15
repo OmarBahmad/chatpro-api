@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "../../Components/newSidebar/Sidebar";
+import { Sidebar } from "../../Components/Sidebar";
 import SendText from "./SendText";
 import SendImg from "./SendImg";
 import * as S from "./styles";

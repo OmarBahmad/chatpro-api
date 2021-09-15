@@ -25,5 +25,12 @@ export const Container = styled.div`
       border: #898794;
       color: #fff;
     }
+    @media (max-width: 414px) {
+    font-size: 11px;
+    height: 6.5rem;
+
   }
+  }
+
+
 `;
