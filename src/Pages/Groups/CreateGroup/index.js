@@ -47,41 +47,41 @@ export default function CreateGroup() {
         <h3>Criar Novo</h3>
       </S.ContainerHeader>
       <S.ContainerGroup>
-      <S.ContainerCard>
-        <S.ContainerHeaderCard>
-          <h3>Criar novo grupo</h3>
-        </S.ContainerHeaderCard>
-        <S.InputNumber
-          placeholder="Nome do Grupo"
-          className="input-msg"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <S.InputNumber
-          placeholder="Números a adicionar"
-          className="input-msg"
-          value={number}
-          onChange={(e) => setNumber(e.target.value)}
-        />
+        <S.ContainerCard>
+          <S.ContainerHeaderCard>
+            <h3>Criar novo grupo</h3>
+          </S.ContainerHeaderCard>
+          <S.InputNumber
+            placeholder="Nome do Grupo"
+            className="input-msg"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <S.InputNumber
+            placeholder="Números a adicionar"
+            className="input-msg"
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+          />
 
-        <S.ButtonSend onClick={pushNumber}>Adicionar Números</S.ButtonSend>
-        <S.ButtonCreate
-          onClick={createG}
-          disabled={name === "" || phones.length < 2}
-        >
-          Criar Grupo
-        </S.ButtonCreate>
-      </S.ContainerCard>
+          <S.ButtonSend onClick={pushNumber}>Adicionar Números</S.ButtonSend>
+          <S.ButtonCreate
+            onClick={createG}
+            disabled={name === "" || phones.length < 2}
+          >
+            Criar Grupo
+          </S.ButtonCreate>
+        </S.ContainerCard>
 
-      <S.ContainerCardNumber>
-        {phones.length > 0 && <h3>Números adicionados ({count})</h3>}
+        <S.ContainerCardNumber>
+          {phones.length > 0 && <h3>Números adicionados ({count})</h3>}
 
-        <S.ContainerNumbers>
-          {phones?.map((index) => (
-            <S.UniqueNumbers>{index} -</S.UniqueNumbers>
-          ))}
-        </S.ContainerNumbers>
-      </S.ContainerCardNumber>
+          <S.ContainerNumbers>
+            {phones?.map((index) => (
+              <S.UniqueNumbers>{index} -</S.UniqueNumbers>
+            ))}
+          </S.ContainerNumbers>
+        </S.ContainerCardNumber>
       </S.ContainerGroup>
     </S.Container>
   );

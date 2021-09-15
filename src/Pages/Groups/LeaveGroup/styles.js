@@ -71,6 +71,10 @@ export const ContainerGroup = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 30px;
+
+  @media (max-width: 682px) {
+    flex-direction: column;
+  }
 `;
 
 export const ButtonCreate = styled.button`
@@ -88,12 +92,22 @@ export const ButtonCreate = styled.button`
   background: #179788;
   border: 1px solid rgb(4, 170, 109);
   margin-bottom: 15px;
+
+  @media (max-width: 682px) {
+    width: 100%;
+  }
 `;
 
 export const ContainerCardNumber = styled.div`
   width: 60%;
   margin-left: 5rem;
   color: white;
+
+  @media (max-width: 682px) {
+    width: 100%;
+    margin-left: 0;
+    color: white;
+  }
 
   h3 {
     font-size: 18px;
@@ -127,6 +141,9 @@ export const ContainerCard = styled.div`
   color: #e2e2e2;
   padding: 20px 30px;
   border-radius: 5px;
+  @media (max-width: 568px) {
+    width: 100%;
+  }
 `;
 
 export const ContainerHeaderCard = styled.div`

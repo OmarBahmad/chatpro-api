@@ -18,6 +18,9 @@ export const ContainerHeader = styled.div`
 export const ContainerGroup = styled.div`
   display: flex;
   flex-direction: row;
+  @media (max-width: 568px) {
+    flex-direction: column;
+  }
 `;
 export const ContainerCard = styled.div`
   display: flex;
@@ -28,6 +31,9 @@ export const ContainerCard = styled.div`
   color: #e2e2e2;
   padding: 20px 30px;
   border-radius: 5px;
+  @media (max-width: 568px) {
+    width: 100%;
+  }
 `;
 
 export const ContainerHeaderCard = styled.div`
@@ -78,6 +84,10 @@ export const ButtonSend = styled.button`
   background: #179788;
   border: 1px solid rgb(4, 170, 109);
   margin-bottom: 15px;
+  @media (max-width: 568px) {
+    width: 100%;
+    font-size: 14px;
+  }
 
   :disabled {
     opacity: 0.7;
@@ -101,7 +111,10 @@ export const ButtonCreate = styled.button`
   border: 1px solid rgb(4, 170, 109);
   margin-top: 15px;
   margin-bottom: 15px;
-
+  @media (max-width: 568px) {
+    width: 100%;
+    font-size: 14px;
+  }
   :disabled {
     opacity: 0.7;
     cursor: not-allowed;
@@ -117,7 +130,12 @@ export const ContainerCardNumber = styled.div`
     font-size: 18px;
     font-weight: 500;
   }
-
+  @media (max-width: 568px) {
+    width: 100%;
+    margin-top: 2rem;
+    margin-left: 0;
+    color: white;
+  }
 `;
 
 export const ContainerNumbers = styled.div`
@@ -130,4 +148,7 @@ export const UniqueNumbers = styled.span`
   margin-top: 10px;
   margin-right: 5px;
 
+  @media (max-width: 568px) {
+    font-size: 14px;
+  }
 `;

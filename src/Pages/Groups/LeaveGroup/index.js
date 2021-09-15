@@ -47,6 +47,7 @@ export default function LeaveGroup() {
       </S.ContainerHeader>
 
       <S.ContainerGroup>
+        
         <S.ButtonCreate onClick={postB}> Pesquisar grupos </S.ButtonCreate>
         <S.ContainerCardNumber>
           <S.ContainerNumbers>

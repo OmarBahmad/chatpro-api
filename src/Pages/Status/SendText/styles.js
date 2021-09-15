@@ -33,6 +33,12 @@ export const ButtonSend = styled.button`
   border: 1px solid rgb(4, 170, 109);
   margin-bottom: 15px;
 
+  @media (max-width: 568px) {
+    height: 6.25rem;
+    font-size: 12px;
+
+  }
+
   :disabled {
     opacity: 0.7;
     cursor: not-allowed;
@@ -48,6 +54,9 @@ export const ContainerCard = styled.div`
   color: #e2e2e2;
   padding: 20px 30px;
   border-radius: 5px;
+  @media (max-width: 568px) {
+    width: 100%;
+  }
 `;
 
 export const ContainerHeaderCard = styled.div`
@@ -55,6 +64,9 @@ export const ContainerHeaderCard = styled.div`
   h3 {
     font-size: 18px;
     font-weight: 500;
+    @media (max-width: 568px) {
+      font-size: 14px;
+  }
   }
   margin-bottom: 15px;
 `;
