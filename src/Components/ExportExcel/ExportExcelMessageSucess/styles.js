@@ -26,11 +26,8 @@ export const Container = styled.div`
       color: #fff;
     }
     @media (max-width: 414px) {
-    font-size: 11px;
-    height: 6.5rem;
-
+      font-size: 11px;
+      height: 6.5rem;
+    }
   }
-  }
-
-
 `;

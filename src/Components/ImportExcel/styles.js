@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
-
 export const InputFile = styled.input`
- display: none;
-
+  display: none;
 `;
 
 export const LabelFile = styled.label`
@@ -17,4 +15,9 @@ export const LabelFile = styled.label`
   cursor: pointer;
   background: #27251f;
   border: 1px solid #27251f;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 1rem;
+  }
 `;
