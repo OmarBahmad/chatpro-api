@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Prompt } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { sendMessage } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
@@ -19,7 +20,7 @@ export default function SendMultipleMessages({
   const [count, setCount] = useState(-1);
   const [amountMessage, setAmountMessage] = useState(0);
   const [showExcel, setShowExcel] = useState(false);
-  const [dirty, setDirty] = useState(true);
+  const [dirty, setDirty] = useState(false);
 
   async function triggerMessages() {
     let verify = "";
@@ -33,6 +34,7 @@ export default function SendMultipleMessages({
     if (isValid) {
       try {
         const resp = await sendMessage(obj);
+        setDirty(true);
         if (resp.status) {
           verify = "✅";
           setRespTrue((index) => [
@@ -113,15 +115,6 @@ export default function SendMultipleMessages({
   }
 
   useEffect(() => {
-    window.onbeforeunload =
-      dirty && count > -1 && (() => "Deseja realmente sair da seesão?");
-
-    return () => {
-      window.onbeforeunload = null;
-    };
-  }, [dirty, count]);
-
-  useEffect(() => {
     if (amountMessage === 0 && items.length !== 0) {
       toast("Disparos de Mensagens Finalizados!!");
       setShowExcel(true);
@@ -185,6 +178,18 @@ export default function SendMultipleMessages({
           </>
         )}
       </S.ContainerResp>
+      <Prompt
+        when={dirty}
+        message={`Se você sair da página, os disparos não serão efetuados e todas as informações serão perdidas.`}
+      />
     </S.Container>
   );
 }
+
+/*
+window.onbeforeunload =
+  dirty && count > -1 && (() => "Deseja realmente sair da sessão?");
+  return () => {
+    window.onbeforeunload = null;
+};
+ */

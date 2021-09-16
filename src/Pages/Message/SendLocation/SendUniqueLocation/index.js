@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { toast } from "react-hot-toast";
 import { sendLocation } from "../../../../Actions/Message";
+import { ValidNumber } from "../../../../hooks/ValidNumber";
 import * as S from "./styles";
 
 export default function SendUniqueLocation() {
@@ -10,6 +12,9 @@ export default function SendUniqueLocation() {
   const [number, setNumber] = useState("");
 
   async function sendLocal() {
+    const isValid = ValidNumber(number);
+    if (!isValid) return toast.error("Número Invalido");
+
     const obj = {
       address,
       lat: Number(lat),
@@ -19,9 +24,9 @@ export default function SendUniqueLocation() {
     };
     try {
       await sendLocation(obj);
-      alert("Localização enviada com sucesso.");
+        toast.success("Localização Enviada com sucesso!");
     } catch (err) {
-      console.log("erro");
+      toast.error("Localização não enviada!");
     }
     setAddress("");
     setLat("");

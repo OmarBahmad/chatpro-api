@@ -83,7 +83,7 @@ export const ContainerCard = styled.div`
   display: flex;
   flex-direction: column;
   width: 80%;
-  height: 100%;
+  height: 85%;
   background-color: #1d1d26;
   color: #e2e2e2;
   padding: 20px 30px;

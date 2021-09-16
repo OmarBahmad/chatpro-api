@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { sendContact } from "../../../../Actions/Message";
+import { ValidNumber } from "../../../../hooks/ValidNumber";
+
 import * as S from "./styles";
 
 export default function SendUniqueContact() {
@@ -9,6 +11,9 @@ export default function SendUniqueContact() {
   const [number, setNumber] = useState("");
 
   async function sendCTT() {
+    const isValid = ValidNumber(number);
+    if (!isValid) return toast.error("Número Invalido");
+    
     const obj = {
       contact_name,
       contact_number,

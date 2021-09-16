@@ -4,6 +4,7 @@ import { sendLocation } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
 import ExportExcelMessageSucess from "../../../../Components/ExportExcel/ExportExcelMessageSucess";
 import ExportExcelMessageFailed from "../../../../Components/ExportExcel/ExportExcelMessageFailed";
+import { ValidNumber } from "../../../../hooks/ValidNumber";
 import * as S from "./styles";
 
 export default function SendMultipleLocation({
@@ -21,6 +22,8 @@ export default function SendMultipleLocation({
 
   async function triggerLocations() {
     let verify = "";
+    let isValid = ValidNumber(items[count].number.toString());
+
     const obj = {
       address: items[count].address.toString(),
       lat: Number(items[count].lat),
@@ -28,50 +31,67 @@ export default function SendMultipleLocation({
       name: items[count].name.toString(),
       number: items[count].number.toString(),
     };
-    try {
-      const resp = await sendLocation(obj);
-      if (resp.status) {
-        verify = "✅";
-        setRespTrue((index) => [
-          ...index,
-          {
-            address: items[count].address.toString(),
-            name: items[count].name.toString(),
-            number: items[count].number.toString(),
-            messageID: resp.messageInfo.Id,
-            chatJid: resp.messageInfo.RemoteJid,
-          },
-        ]);
-        toast.success("Localização enviada com sucesso");
-      } else {
-        verify = "❌";
 
-        setRespFalse((index) => [
-          ...index,
-          {
-            address: items[count].address.toString(),
-            lat: Number(items[count].lat),
-            lng: Number(items[count].lng),
-            name: items[count].name.toString(),
-            number: items[count].number.toString(),
-          },
-        ]);
-        toast.error("Localização não enviada");
+    if (isValid) {
+      try {
+        const resp = await sendLocation(obj);
+        if (resp.status) {
+          verify = "✅";
+          setRespTrue((index) => [
+            ...index,
+            {
+              address: items[count].address.toString(),
+              name: items[count].name.toString(),
+              number: items[count].number.toString(),
+              messageID: resp.messageInfo.Id,
+              chatJid: resp.messageInfo.RemoteJid,
+            },
+          ]);
+          toast.success("Localização enviada com sucesso");
+        } else {
+          verify = "❌";
+
+          setRespFalse((index) => [
+            ...index,
+            {
+              address: items[count].address.toString(),
+              lat: Number(items[count].lat),
+              lng: Number(items[count].lng),
+              name: items[count].name.toString(),
+              number: items[count].number.toString(),
+            },
+          ]);
+          toast.error("Localização não enviada");
+        }
+      } catch (err) {
+        console.log("erro");
       }
+    } else {
+      verify = "❌";
 
-      setRespAll((index) => [
+      setRespFalse((index) => [
         ...index,
         {
-          index: count + 1,
           address: items[count].address.toString(),
+          lat: Number(items[count].lat),
+          lng: Number(items[count].lng),
           name: items[count].name.toString(),
           number: items[count].number.toString(),
-          checkMsg: verify,
         },
       ]);
-    } catch (err) {
-      console.log("erro");
+      toast.error("Localização não enviada");
     }
+
+    setRespAll((index) => [
+      ...index,
+      {
+        index: count + 1,
+        address: items[count].address.toString(),
+        name: items[count].name.toString(),
+        number: items[count].number.toString(),
+        checkMsg: verify,
+      },
+    ]);
     setCount((prev) => prev + 1);
     setAmountMessage((index) => index - 1);
   }

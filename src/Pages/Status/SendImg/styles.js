@@ -60,7 +60,7 @@ export const InputMessage = styled.input`
 
 export const ButtonSend = styled.button`
   width: 100%;
-  height: 5rem;
+  height: 5.75rem;
   font-size: 16px;
   border-radius: 5px;
   font-weight: 500;

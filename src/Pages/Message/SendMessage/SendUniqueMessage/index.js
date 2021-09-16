@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { sendMessage } from "../../../../Actions/Message";
-import * as S from "./styles";
-
 import { ValidNumber } from "../../../../hooks/ValidNumber";
+
+import * as S from "./styles";
 
 export default function SendUniqueMessage() {
   const [message, setMessage] = useState("");

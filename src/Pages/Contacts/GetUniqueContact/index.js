@@ -61,7 +61,7 @@ export default function GetUniqueContact() {
               </p>
               <p>
                 <strong>Número: </strong>
-                {data.jid}
+                {data.jid.replace('@s.whatsapp.net', '')}
               </p>
             </S.ContainerRespColumn1>
             <S.ContainerRespColumn2>

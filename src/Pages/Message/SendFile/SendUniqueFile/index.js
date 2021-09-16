@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { sendFile } from "../../../../Actions/Message";
+import { ValidNumber } from "../../../../hooks/ValidNumber";
 import * as S from "./styles";
 
 export function SendUniqueFile() {
@@ -9,6 +10,9 @@ export function SendUniqueFile() {
   const [url, setURL] = useState("");
 
   async function sendUrlFile() {
+    const isValid = ValidNumber(number);
+    if (!isValid) return toast.error("Número Invalido");
+    
     const obj = {
       caption,
       number,
