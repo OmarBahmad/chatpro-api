@@ -4,6 +4,14 @@ export const Container = styled.div`
   width: 25%;
   margin-top: 20px;
   margin-bottom: 30px;
+
+  @media (max-width: 1280px) {
+    width: 35%;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const ContainerCard = styled.div`
@@ -25,7 +33,6 @@ export const ContainerHeaderCard = styled.div`
   }
   margin-bottom: 15px;
 `;
-
 
 export const Input = styled.input`
   width: 100%;
@@ -54,6 +61,10 @@ export const ButtonSend = styled.button`
   background: #179788;
   border: 1px solid rgb(4, 170, 109);
   margin-bottom: 15px;
+
+  @media (max-width: 1280px) {
+    height: 6rem;
+  }
 
   :disabled {
     opacity: 0.7;

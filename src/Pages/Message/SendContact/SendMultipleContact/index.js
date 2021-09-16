@@ -149,7 +149,7 @@ export default function SendMultipleContact({
           {amountMessage !== 0 && (
             <S.CardQuant>
               Quantidade de Contatos:
-              <strong>{amountMessage}</strong>
+              <strong> {amountMessage}</strong>
             </S.CardQuant>
           )}
         </S.ContainerCard>

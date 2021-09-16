@@ -16,7 +16,7 @@ export default function SendUniqueContact() {
     };
     try {
       const resp = await sendContact(obj);
-      if (resp.Status) {
+      if (resp?.Status === 0) {
         toast.success("Contato enviado com Sucesso");
         setContactName("");
         setContactNumber("");

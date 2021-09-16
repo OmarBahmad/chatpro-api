@@ -6,11 +6,10 @@ export const Container = styled.div`
   margin-left: 11.25rem;
   color: #fff;
 
-  h1{
+  h1 {
     margin-bottom: 10px;
     font-size: 30px;
   }
-
 `;
 
 export const Columns = styled.div`
@@ -23,7 +22,7 @@ export const Column1 = styled.div`
   display: flex;
   flex-direction: row;
   @media (max-width: 768px) {
-    width: 100%;
+    flex-direction: column;
   }
 `;
 
@@ -45,4 +44,3 @@ export const Column2 = styled.div`
     width: 100%;
   }
 `;
-

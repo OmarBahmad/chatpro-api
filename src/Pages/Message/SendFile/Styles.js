@@ -23,7 +23,7 @@ export const Column1 = styled.div`
   display: flex;
   flex-direction: row;
   @media (max-width: 768px) {
-    width: 100%;
+    flex-direction: column;
   }
 `;
 

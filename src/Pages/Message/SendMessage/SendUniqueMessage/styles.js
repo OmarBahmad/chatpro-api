@@ -44,11 +44,12 @@ export const ContainerCard = styled.div`
 
 export const ContainerHeaderCard = styled.div`
   width: 100%;
+  margin-bottom: 15px;
+
   h3 {
     font-size: 18px;
     font-weight: 500;
   }
-  margin-bottom: 15px;
 `;
 
 export const InputNumber = styled.input`

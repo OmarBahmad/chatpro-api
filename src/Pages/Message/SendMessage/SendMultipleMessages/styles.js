@@ -88,11 +88,12 @@ export const ContainerCard = styled.div`
 
 export const ContainerHeaderCard = styled.div`
   width: 100%;
+  margin-bottom: 15px;
+
   h3 {
     font-size: 18px;
     font-weight: 500;
   }
-  margin-bottom: 15px;
 `;
 
 export const ContainerResp = styled.div`
@@ -113,7 +114,7 @@ export const ContainerResp = styled.div`
   @media (max-width: 768px) {
     margin-top: 15px;
     width: 100%;
-    button{
+    button {
       height: 7rem;
     }
   }
