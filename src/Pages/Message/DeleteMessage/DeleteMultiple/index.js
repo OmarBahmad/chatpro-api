@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Prompt } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { deleteMessage } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
@@ -11,41 +12,62 @@ export default function DeleteMultiple({ setRespAll }) {
   const [showExcel, setShowExcel] = useState(false);
   const [items, setItems] = useState([]);
   const [respFalse, setRespFalse] = useState([]);
+  const [dirty, setDirty] = useState(false);
 
   async function deleteMsg() {
     let verify = "";
+    let isValidID = items[count]?.messageID;
+    let isValidChatId = items[count]?.chatJid;
+
+
     const obj = {
-      chatJid: items[count].chatJid.toString(),
-      messageID: items[count].messageID.toString(),
+      chatJid: items[count]?.chatJid?.toString(),
+      messageID: items[count]?.messageID?.toString(),
     };
-    try {
-      const resp = await deleteMessage(obj);
-      if (resp.status) {
-        verify = "✅";
-        toast.success("Mensagem Excluída com sucesso!");
-      } else {
-        verify = "❌";
-        setRespFalse((index) => [
-          ...index,
-          {
-            chatJid: items[count].chatJid.toString(),
-            messageID: items[count].messageID.toString(),
-          },
-        ]);
-        toast.error("Mensagem não excluida");
+
+    if (isValidID && isValidChatId) {
+      try {
+        const resp = await deleteMessage(obj);
+        setDirty(true);
+
+        if (resp.status) {
+          verify = "✅";
+          toast.success("Mensagem Excluída com sucesso!");
+        } else {
+          verify = "❌";
+          setRespFalse((index) => [
+            ...index,
+            {
+              chatJid: items[count]?.chatJid?.toString(),
+              messageID: items[count]?.messageID?.toString(),
+            },
+          ]);
+          toast.error("Mensagem não excluida");
+        }
+      } catch (err) {
+        console.log("erro");
       }
-      setRespAll((index) => [
+    } else {
+      verify = "❌";
+      setRespFalse((index) => [
         ...index,
         {
-          index: count + 1,
-          chatJid: items[count].chatJid.toString(),
-          messageID: items[count].messageID.toString(),
-          checkMsg: verify,
+          chatJid: items[count]?.chatJid?.toString(),
+          messageID: items[count]?.messageID?.toString(),
         },
       ]);
-    } catch (err) {
-      console.log("erro");
+      toast.error("Mensagem não excluida");
     }
+
+    setRespAll((index) => [
+      ...index,
+      {
+        index: count + 1,
+        chatJid: items[count]?.chatJid?.toString(),
+        messageID: items[count]?.messageID?.toString(),
+        checkMsg: verify,
+      },
+    ]);
     setCount((prev) => prev + 1);
     setAmountMessage((index) => index - 1);
   }
@@ -53,19 +75,11 @@ export default function DeleteMultiple({ setRespAll }) {
   useEffect(() => {
     if (count < 0 || count === items.length) return;
 
-    if (
-      items[count].chatJid !== undefined ||
-      items[count].messageID !== undefined
-    ) {
-      const handler = setInterval(() => {
-        deleteMsg();
-      }, getRandomArbitrary());
-      return () => clearInterval(handler);
-    } else {
-      alert(
-        "Algum campo da linha 1 da planilha importada está com o nome incorreto"
-      );
-    }
+    const handler = setInterval(() => {
+      deleteMsg();
+    }, getRandomArbitrary());
+    return () => clearInterval(handler);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
@@ -79,6 +93,7 @@ export default function DeleteMultiple({ setRespAll }) {
       setShowExcel(true);
       setCount(-1);
       setAmountMessage(0);
+      setDirty(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amountMessage]);
@@ -130,6 +145,10 @@ export default function DeleteMultiple({ setRespAll }) {
           </>
         )}
       </S.ContainerResp>
+      <Prompt
+        when={dirty}
+        message={`Se você sair da página, os disparos não serão efetuados e todas as informações serão perdidas.`}
+      />
     </S.Container>
   );
 }

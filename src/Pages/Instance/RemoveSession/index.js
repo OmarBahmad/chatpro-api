@@ -1,5 +1,5 @@
-import React from "react";
-import { DisconnectWhatsapp } from "../../../Actions/Instances";
+import React from 'react';
+import { DisconnectWhatsapp } from '../../../Actions/Instances';
 
 export default function Disconnect() {
   async function getDisconnect() {
@@ -7,7 +7,7 @@ export default function Disconnect() {
       const resp = await DisconnectWhatsapp();
       console.log(resp);
     } catch (err) {
-      console.log("erro");
+      console.log('erro');
     }
   }
 

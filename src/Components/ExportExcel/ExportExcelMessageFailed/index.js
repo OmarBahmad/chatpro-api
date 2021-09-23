@@ -1,7 +1,7 @@
-import React from "react";
-import ReactExport from "react-export-excel";
+import React from 'react';
+import ReactExport from 'react-export-excel';
 
-import * as S from "./styles";
+import * as S from './styles';
 
 const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;

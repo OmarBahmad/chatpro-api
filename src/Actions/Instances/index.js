@@ -1,10 +1,10 @@
-import { api, keyAuthorization } from "../../Api/api";
+import { api, keyAuthorization } from '../../Api/api';
 
 // Gerar um novo QRCode
 export const getQRCode = async () => {
   let summary = [];
   try {
-    const { data } = await api.get("/api/v1/generate_qrcode", {
+    const { data } = await api.get('/api/v1/generate_qrcode', {
       headers: { authorization: keyAuthorization },
     });
     summary = data;
@@ -18,7 +18,7 @@ export const getQRCode = async () => {
 export const getReloadInstance = async () => {
   let summary = [];
   try {
-    const { data } = await api.get("/api/v1/reload", {
+    const { data } = await api.get('/api/v1/reload', {
       headers: { authorization: keyAuthorization },
     });
     summary = data;
@@ -32,7 +32,7 @@ export const getReloadInstance = async () => {
 export const DisconnectWhatsapp = async () => {
   let summary = [];
   try {
-    const { data } = await api.get("/api/v1/remove_session", {
+    const { data } = await api.get('/api/v1/remove_session', {
       headers: { authorization: keyAuthorization },
     });
     summary = data;
@@ -46,7 +46,7 @@ export const DisconnectWhatsapp = async () => {
 export const getStatusCellphone = async () => {
   let summary = [];
   try {
-    const { data } = await api.get("/api/v1/status", {
+    const { data } = await api.get('/api/v1/status', {
       headers: { authorization: keyAuthorization },
     });
     summary = data;
@@ -61,11 +61,11 @@ export const updatePhoto = async (params) => {
   let summary = [];
   try {
     const { data } = await api.post(
-      "/api/v1/update_profile_pic",
+      '/api/v1/update_profile_pic',
       JSON.stringify(params),
       {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           authorization: keyAuthorization,
         },
       }
@@ -81,9 +81,9 @@ export const updatePhoto = async (params) => {
 export const updateWebhook = async (params) => {
   let summary = [];
   try {
-    const { data } = await api.post("/api/v1/webhook", JSON.stringify(params), {
+    const { data } = await api.post('/api/v1/webhook', JSON.stringify(params), {
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         authorization: keyAuthorization,
       },
     });

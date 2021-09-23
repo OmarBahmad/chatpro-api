@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Sidebar } from "../../../Components/Sidebar";
-import HeaderTab from "../../../Components/HeaderTab";
-import DeleteUnique from "./DeleteUnique";
-import DeleteMultiple from "./DeleteMultiple";
-import DataTable from "../../../Components/DataTable";
-import * as S from "./styles";
+import React, { useState } from 'react';
+import { Sidebar } from '../../../Components/Sidebar';
+import HeaderTab from '../../../Components/HeaderTab';
+import DeleteUnique from './DeleteUnique';
+import DeleteMultiple from './DeleteMultiple';
+import DataTable from '../../../Components/DataTable';
+import * as S from './styles';
 
 export default function DeleteMessage() {
   const [respAll, setRespAll] = useState([]);

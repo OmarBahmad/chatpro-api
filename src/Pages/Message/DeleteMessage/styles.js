@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
@@ -6,11 +6,10 @@ export const Container = styled.div`
   margin-left: 11.25rem;
   color: #fff;
 
-  h1{
+  h1 {
     margin-bottom: 10px;
     font-size: 30px;
   }
-
 `;
 
 export const Columns = styled.div`

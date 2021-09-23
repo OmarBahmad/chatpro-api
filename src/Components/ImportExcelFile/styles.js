@@ -1,9 +1,7 @@
-import styled from "styled-components";
-
+import styled from 'styled-components';
 
 export const InputFile = styled.input`
- display: none;
-
+  display: none;
 `;
 
 export const LabelFile = styled.label`

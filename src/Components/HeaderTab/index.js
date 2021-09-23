@@ -1,7 +1,7 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import * as S from "./styles";
+import * as S from './styles';
 
 export default function HeaderTab() {
   return (

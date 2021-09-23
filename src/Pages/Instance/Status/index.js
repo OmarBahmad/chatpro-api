@@ -1,5 +1,5 @@
-import React from "react";
-import { getStatusCellphone } from "../../../Actions/Instances";
+import React from 'react';
+import { getStatusCellphone } from '../../../Actions/Instances';
 
 export default function Status() {
   async function getStatus() {
@@ -7,7 +7,7 @@ export default function Status() {
       const resp = await getStatusCellphone();
       console.log(resp);
     } catch (err) {
-      console.log("erro");
+      console.log('erro');
     }
   }
 

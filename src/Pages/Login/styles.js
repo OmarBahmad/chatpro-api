@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ContainerUp = styled.div`
   width: 100%;
@@ -21,7 +21,7 @@ export const ContainerLogin = styled.div`
     font-size: 2rem;
     font-weight: 100;
     margin: 1rem 0.5rem 0.5rem 0.5rem;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 `;
 export const ContainerPadding = styled.div`
@@ -31,7 +31,7 @@ export const ContainerPadding = styled.div`
   margin: auto;
 `;
 export const Input = styled.input`
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   border: 0;
   padding: 1rem 1rem;
   margin: 0.5rem 0.5rem;
@@ -48,7 +48,7 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   box-shadow: 0 0 250px #000;
   width: 95%;
   padding: 1rem 1rem;

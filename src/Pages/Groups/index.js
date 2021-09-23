@@ -1,8 +1,8 @@
-import React from "react";
-import { Sidebar } from "../../Components/Sidebar";
-import CreateGroup from "./CreateGroup";
-import LeaveGroup from "./LeaveGroup";
-import * as S from "./styles";
+import React from 'react';
+import { Sidebar } from '../../Components/Sidebar';
+import CreateGroup from './CreateGroup';
+import LeaveGroup from './LeaveGroup';
+import * as S from './styles';
 
 export default function Chat() {
   return (

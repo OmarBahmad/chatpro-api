@@ -1,5 +1,5 @@
-import React from "react";
-import { useTable, usePagination } from "react-table";
+import React from 'react';
+import { useTable, usePagination } from 'react-table';
 
 export default function Table({ columns, data }) {
   // Use the state and functions returned from useTable to build your UI
@@ -38,7 +38,7 @@ export default function Table({ columns, data }) {
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
               ))}
             </tr>
           ))}
@@ -50,7 +50,7 @@ export default function Table({ columns, data }) {
               <tr {...row.getRowProps()}>
                 {row.cells.map((cell) => {
                   return (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                    <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                   );
                 })}
               </tr>
@@ -64,25 +64,25 @@ export default function Table({ columns, data }) {
       */}
       <div className="pagination">
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-          {"<<"}
-        </button>{" "}
+          {'<<'}
+        </button>{' '}
         <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          {"<"}
-        </button>{" "}
+          {'<'}
+        </button>{' '}
         <button onClick={() => nextPage()} disabled={!canNextPage}>
-          {">"}
-        </button>{" "}
+          {'>'}
+        </button>{' '}
         <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-          {">>"}
-        </button>{" "}
+          {'>>'}
+        </button>{' '}
         <span>
-          Página{" "}
+          Página{' '}
           <strong>
             {pageIndex + 1} de {pageOptions.length}
-          </strong>{" "}
+          </strong>{' '}
         </span>
         <span>
-          | Ir para a página:{" "}
+          | Ir para a página:{' '}
           <input
             type="number"
             defaultValue={pageIndex + 1}
@@ -90,9 +90,9 @@ export default function Table({ columns, data }) {
               const page = e.target.value ? Number(e.target.value) - 1 : 0;
               gotoPage(page);
             }}
-            style={{ width: "100px" }}
+            style={{ width: '100px' }}
           />
-        </span>{" "}
+        </span>{' '}
         <select
           value={pageSize}
           onChange={(e) => {

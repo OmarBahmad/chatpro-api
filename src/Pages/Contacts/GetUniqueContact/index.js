@@ -1,18 +1,18 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState } from "react";
-import { toast } from "react-hot-toast";
-import { getProfile } from "../../../Actions/Contacts";
-import * as S from "./styles";
-import { ValidNumber } from "../../../hooks/ValidNumber";
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { getProfile } from '../../../Actions/Contacts';
+import * as S from './styles';
+import { ValidNumber } from '../../../hooks/ValidNumber';
 
 export default function GetUniqueContact() {
-  const [number, setNumber] = useState("");
+  const [number, setNumber] = useState('');
   const [data, setData] = useState([]);
   const [respTrue, setRespTrue] = useState(false);
 
   async function sendCTT() {
     const isValid = ValidNumber(number);
-    if (!isValid) return toast.error("Número Invalido");
+    if (!isValid) return toast.error('Número Invalido');
     const obj = {
       number,
     };
@@ -21,16 +21,16 @@ export default function GetUniqueContact() {
 
       if (resp && resp?.code !== 400) {
         setData(resp);
-        toast.success("Contato obtido com sucesso.");
+        toast.success('Contato obtido com sucesso.');
         setData(resp);
         setRespTrue(true);
       } else {
-        toast.error("Não foi possível efetuar a busca!");
+        toast.error('Não foi possível efetuar a busca!');
       }
     } catch (err) {
-      console.log("erro");
+      console.log('erro');
     }
-    setNumber("");
+    setNumber('');
   }
   return (
     <S.Container>
@@ -47,7 +47,7 @@ export default function GetUniqueContact() {
             value={number}
             onChange={(e) => setNumber(e.target.value)}
           />
-          <S.ButtonSend onClick={sendCTT} disabled={number === ""}>
+          <S.ButtonSend onClick={sendCTT} disabled={number === ''}>
             Obter Contato
           </S.ButtonSend>
         </S.ContainerCard>

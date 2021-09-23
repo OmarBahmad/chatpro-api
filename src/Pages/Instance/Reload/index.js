@@ -1,5 +1,5 @@
-import React from "react";
-import { getReloadInstance } from "../../../Actions/Instances";
+import React from 'react';
+import { getReloadInstance } from '../../../Actions/Instances';
 
 export default function Reload() {
   async function getReload() {
@@ -7,7 +7,7 @@ export default function Reload() {
       const resp = await getReloadInstance();
       console.log(resp);
     } catch (err) {
-      console.log("erro");
+      console.log('erro');
     }
   }
 

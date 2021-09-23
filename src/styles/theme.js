@@ -1,6 +1,5 @@
-
 // eslint-disable-next-line import/no-anonymous-default-export
-export default  {
+export default {
   border: {
     small: "0.4rem",
     medium: "0.1rem",
@@ -28,7 +27,7 @@ export default  {
     primary: "0px 4px 28px rgba(0, 0, 0, 0.09)",
     secondary: "0px 10px 35px rgba(0, 0, 0, 0.08)",
   },
-  colors:{
+  colors: {
     background: "#15151c",
     white: "#FFFFFF",
     main: "#04AA6D",
@@ -41,4 +40,4 @@ export default  {
     menu: 20,
     overlay: 30,
   },
-} ;
+};

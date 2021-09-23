@@ -4,6 +4,8 @@ import { ReactComponent as LogoutIcon } from "../../Assets/svg/log-out.svg";
 import { ReactComponent as User } from "../../Assets/svg/user.svg";
 import { ReactComponent as Users } from "../../Assets/svg/users.svg";
 import { ReactComponent as StatusIcon } from "../../Assets/svg/message-square.svg";
+import { ReactComponent as Spreadsheet } from "../../Assets/svg/database.svg";
+
 
 import { NavLink } from "react-router-dom";
 
@@ -37,6 +39,11 @@ export const Sidebar = () => {
           <NavLink to="/status">
             <S.Item>
               <StatusIcon />
+            </S.Item>
+          </NavLink>
+          <NavLink to="/spreadsheet">
+            <S.Item>
+              <Spreadsheet />
             </S.Item>
           </NavLink>
           <NavLink to="/logout">

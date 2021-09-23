@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Sidebar } from "../../../Components/Sidebar";
-import HeaderTab from "../../../Components/HeaderTab";
-import DataTable from "../../../Components/DataTable";
-import * as S from "./Styles";
-import SendUniqueContact from "./SendUniqueContact";
-import SendMultipleContact from "./SendMultipleContact";
+import React, { useState } from 'react';
+import { Sidebar } from '../../../Components/Sidebar';
+import HeaderTab from '../../../Components/HeaderTab';
+import DataTable from '../../../Components/DataTable';
+import * as S from './Styles';
+import SendUniqueContact from './SendUniqueContact';
+import SendMultipleContact from './SendMultipleContact';
 
 export default function SendMessage() {
   const [items, setItems] = useState([]);

@@ -1,4 +1,4 @@
-import { api, keyAuthorization } from "../../Api/api";
+import { api, keyAuthorization } from '../../Api/api';
 
 // Enviar mensagem de texto de texto
 export const sendMessage = async (params) => {
@@ -9,7 +9,7 @@ export const sendMessage = async (params) => {
       JSON.stringify(params),
       {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           authorization: keyAuthorization,
         },
         timeout: 2500,
@@ -27,11 +27,11 @@ export const deleteMessage = async (params) => {
   let summary = [];
   try {
     const { data } = await api.post(
-      "/api/v1/delete_message",
+      '/api/v1/delete_message',
       JSON.stringify(params),
       {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           authorization: keyAuthorization,
         },
         timeout: 4000,
@@ -49,11 +49,11 @@ export const sendLocation = async (params) => {
   let summary = [];
   try {
     const { data } = await api.post(
-      "/api/v1/send_location",
+      '/api/v1/send_location',
       JSON.stringify(params),
       {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           authorization: keyAuthorization,
         },
         timeout: 3500,
@@ -71,14 +71,14 @@ export const sendFile = async (params) => {
   let summary = [];
   try {
     const { data } = await api.post(
-      "/api/v1/send_message_file_from_url",
+      '/api/v1/send_message_file_from_url',
       JSON.stringify(params),
       {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           authorization: keyAuthorization,
         },
-        timeout: 5000,
+        timeout: 2500,
       }
     );
     summary = data;
@@ -93,11 +93,11 @@ export const sendMessageTemplate = async (params) => {
   let summary = [];
   try {
     const { data } = await api.post(
-      "/api/v1/send_message_template",
+      '/api/v1/send_message_template',
       JSON.stringify(params),
       {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           authorization: keyAuthorization,
         },
       }
@@ -114,11 +114,11 @@ export const sendContact = async (params) => {
   let summary = [];
   try {
     const { data } = await api.post(
-      "/api/v1/send_vcard",
+      '/api/v1/send_vcard',
       JSON.stringify(params),
       {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           authorization: keyAuthorization,
         },
         timeout: 3000,

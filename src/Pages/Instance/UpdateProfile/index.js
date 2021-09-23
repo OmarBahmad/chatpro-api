@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { updatePhoto } from "../../../Actions/Instances";
+import React, { useState } from 'react';
+import { updatePhoto } from '../../../Actions/Instances';
 
 export default function UpdateProfile() {
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState('');
 
   async function updatePicture() {
     const obj = {
@@ -10,16 +10,16 @@ export default function UpdateProfile() {
     };
     try {
       await updatePhoto(obj);
-      alert("Foto Alterada com Sucesso");
+      alert('Foto Alterada com Sucesso');
     } catch (err) {
-      console.log("erro");
+      console.log('erro');
     }
-    setUrl("");
+    setUrl('');
   }
   return (
     <div>
       <h2>Alterar Foto de Perfil</h2>
-      <input 
+      <input
         placeholder="URL"
         className="input-msg"
         value={url}

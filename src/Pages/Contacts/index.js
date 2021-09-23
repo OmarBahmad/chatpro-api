@@ -1,8 +1,8 @@
-import React from "react";
-import { Sidebar } from "../../Components/Sidebar";
-import SearchContacts from "./SearchContacts";
-import GetUniqueContact from "./GetUniqueContact";
-import * as S from './styles'
+import React from 'react';
+import { Sidebar } from '../../Components/Sidebar';
+import SearchContacts from './SearchContacts';
+import GetUniqueContact from './GetUniqueContact';
+import * as S from './styles';
 
 export default function Contacts() {
   return (

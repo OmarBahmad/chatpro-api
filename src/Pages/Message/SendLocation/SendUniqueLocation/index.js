@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import { toast } from "react-hot-toast";
-import { sendLocation } from "../../../../Actions/Message";
-import { ValidNumber } from "../../../../hooks/ValidNumber";
-import * as S from "./styles";
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { sendLocation } from '../../../../Actions/Message';
+import { ValidNumber } from '../../../../hooks/ValidNumber';
+import * as S from './styles';
 
 export default function SendUniqueLocation() {
-  const [address, setAddress] = useState("");
-  const [lat, setLat] = useState("");
-  const [lng, setLng] = useState("");
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
+  const [address, setAddress] = useState('');
+  const [lat, setLat] = useState('');
+  const [lng, setLng] = useState('');
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
 
   async function sendLocal() {
     const isValid = ValidNumber(number);
-    if (!isValid) return toast.error("Número Invalido");
+    if (!isValid) return toast.error('Número Invalido');
 
     const obj = {
       address,
@@ -24,15 +24,15 @@ export default function SendUniqueLocation() {
     };
     try {
       await sendLocation(obj);
-        toast.success("Localização Enviada com sucesso!");
+      toast.success('Localização Enviada com sucesso!');
     } catch (err) {
-      toast.error("Localização não enviada!");
+      toast.error('Localização não enviada!');
     }
-    setAddress("");
-    setLat("");
-    setLng("");
-    setName("");
-    setNumber("");
+    setAddress('');
+    setLat('');
+    setLng('');
+    setName('');
+    setNumber('');
   }
   return (
     <S.Container>
@@ -69,7 +69,7 @@ export default function SendUniqueLocation() {
         />
         <S.ButtonSend
           onClick={sendLocal}
-          disabled={address === "" || name === "" || number === ""}
+          disabled={address === '' || name === '' || number === ''}
         >
           Enviar Localização
         </S.ButtonSend>

@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { toast } from "react-hot-toast";
-import { leaveGroup } from "../../../Actions/Groups";
-import { getChat } from "../../../Actions/Chat";
-import DataTable from "../../../Components/DataTable";
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { leaveGroup } from '../../../Actions/Groups';
+import { getChat } from '../../../Actions/Chat';
+import DataTable from '../../../Components/DataTable';
 
-import * as S from "./styles";
+import * as S from './styles';
 
 export default function LeaveGroup() {
-  const [jid, setJid] = useState("");
+  const [jid, setJid] = useState('');
 
   const [group, setGroup] = useState([]);
 
   async function postB() {
     try {
       const resp = await getChat();
-      const json = await resp?.filter((group) => group.Jid.includes("@g.us"));
+      const json = await resp?.filter((group) => group.Jid.includes('@g.us'));
 
       setGroup(json);
       console.log(resp);
@@ -31,14 +31,12 @@ export default function LeaveGroup() {
     try {
       const resp = await leaveGroup(obj);
       if (resp.status === 200 && resp?.code !== 400) {
-        toast.success("Você saiu do Grupo!");
-        setJid("");
+        toast.success('Você saiu do Grupo!');
+        setJid('');
       } else {
-        toast.error("Não foi possível criar o grupo!");
+        toast.error('Não foi possível criar o grupo!');
       }
-    } catch (err) {
-      console.log("Erro ao criar grupo.");
-    }
+    } catch (err) {}
   }
 
   return (
@@ -71,9 +69,9 @@ export default function LeaveGroup() {
             value={jid}
             onChange={(e) => setJid(e.target.value)}
           />
-          <S.ButtonSend onClick={leaveG} disabled={jid === ""}>
-            {" "}
-            Sair do Grupo{" "}
+          <S.ButtonSend onClick={leaveG} disabled={jid === ''}>
+            {' '}
+            Sair do Grupo{' '}
           </S.ButtonSend>
         </S.ContainerCard>
       </S.ContainerLeave>

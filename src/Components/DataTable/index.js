@@ -1,6 +1,6 @@
-import React from "react";
-import * as S from "./styles";
-import Table from "../Table";
+import React from 'react';
+import * as S from './styles';
+import Table from '../Table';
 import {
   ColumnsContact,
   ColumnsMessage,
@@ -9,7 +9,7 @@ import {
   ColumnsLocation,
   ColumnsChat,
   ColumnsGroups,
-} from "./columns";
+} from './columns';
 
 const typeColumns = {
   contact: ColumnsContact,

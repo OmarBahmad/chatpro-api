@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Prompt } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { sendFile } from "../../../../Actions/Message";
 import ImportExcel from "../../../../Components/ImportExcel";
@@ -14,20 +15,23 @@ export function SendMultipleFiles({ setRespAll }) {
   const [count, setCount] = useState(-1);
   const [amountMessage, setAmountMessage] = useState(0);
   const [showExcel, setShowExcel] = useState(false);
+  const [dirty, setDirty] = useState(false);
 
   async function sendUrlFile() {
     let verify = "";
-    let isValid = ValidNumber(items[count].number.toString());
+    let isValid = ValidNumber(items[count]?.number?.toString());
+    let isValidUrl = items[count]?.url;
 
     const obj = {
-      caption: items[count].caption.toString(),
-      number: items[count].number.toString(),
-      url: items[count].url.toString(),
+      caption: items[count]?.caption?.toString(),
+      number: items[count]?.number?.toString(),
+      url: items[count]?.url?.toString(),
     };
 
-    if (isValid) {
+    if (isValid && isValidUrl) {
       try {
         const resp = await sendFile(obj);
+        setDirty(true);
         if (resp.status) {
           verify = "✅";
           setRespTrue((index) => [
@@ -46,9 +50,9 @@ export function SendMultipleFiles({ setRespAll }) {
           setRespFalse((index) => [
             ...index,
             {
-              caption: items[count].caption.toString(),
-              number: items[count].number.toString(),
-              url: items[count].url.toString(),
+              caption: items[count]?.caption?.toString(),
+              number: items[count]?.number?.toString(),
+              url: items[count]?.url?.toString(),
             },
           ]);
           toast.error("Arquivo Não Enviado");
@@ -61,9 +65,9 @@ export function SendMultipleFiles({ setRespAll }) {
       setRespFalse((index) => [
         ...index,
         {
-          caption: items[count].caption.toString(),
-          number: items[count].number.toString(),
-          url: items[count].url.toString(),
+          caption: items[count]?.caption?.toString(),
+          number: items[count]?.number?.toString(),
+          url: items[count]?.url?.toString(),
         },
       ]);
       toast.error("Arquivo Não Enviado");
@@ -72,8 +76,8 @@ export function SendMultipleFiles({ setRespAll }) {
       ...index,
       {
         index: count + 1,
-        caption: items[count].caption.toString(),
-        number: items[count].number.toString(),
+        caption: items[count]?.caption?.toString(),
+        number: items[count]?.number?.toString(),
         checkMsg: verify,
       },
     ]);
@@ -82,23 +86,16 @@ export function SendMultipleFiles({ setRespAll }) {
     setAmountMessage((index) => index - 1);
   }
 
+  //VERIFICAR COMO AJUSTAR ESSA PARTE DE ENVIAR UM CAPTION VAZIO
+
   useEffect(() => {
     if (count < 0 || count === items.length) return;
 
-    if (
-      items[count].number !== undefined &&
-      items[count].caption !== undefined &&
-      items[count].url !== undefined
-    ) {
-      const handler = setInterval(() => {
-        sendUrlFile();
-      }, getRandomArbitrary());
-      return () => clearInterval(handler);
-    } else {
-      alert(
-        "Algum campo da linha 1 da planilha importada está com o nome incorreto"
-      );
-    }
+    const handler = setInterval(() => {
+      sendUrlFile();
+    }, getRandomArbitrary());
+    return () => clearInterval(handler);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
@@ -107,7 +104,7 @@ export function SendMultipleFiles({ setRespAll }) {
   }, [items]);
 
   function getRandomArbitrary() {
-    return (Math.random() * (6000 - 5100) + 5100).toFixed();
+    return (Math.random() * (3500 - 2600) + 2600).toFixed();
   }
 
   useEffect(() => {
@@ -116,6 +113,7 @@ export function SendMultipleFiles({ setRespAll }) {
       setShowExcel(true);
       setCount(-1);
       setAmountMessage(0);
+      setDirty(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amountMessage]);
@@ -173,6 +171,10 @@ export function SendMultipleFiles({ setRespAll }) {
           </>
         )}
       </S.ContainerResp>
+      <Prompt
+        when={dirty}
+        message={`Se você sair da página, os disparos não serão efetuados e todas as informações serão perdidas.`}
+      />
     </S.Container>
   );
 }

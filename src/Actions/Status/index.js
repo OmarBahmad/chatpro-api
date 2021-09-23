@@ -1,15 +1,15 @@
-import { api, keyAuthorization } from "../../Api/api";
+import { api, keyAuthorization } from '../../Api/api';
 
 // Enviar imagem para o stories (status)
 export const sendImageStatus = async (params) => {
   let summary = [];
   try {
     const { data } = await api.post(
-      "/api/v1/send-image-status",
+      '/api/v1/send-image-status',
       JSON.stringify(params),
       {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           authorization: keyAuthorization,
         },
       }
@@ -26,11 +26,11 @@ export const sendTextStatus = async (params) => {
   let summary = [];
   try {
     const { data } = await api.post(
-      "/api/v1/send-text-status",
+      '/api/v1/send-text-status',
       JSON.stringify(params),
       {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           authorization: keyAuthorization,
         },
       }

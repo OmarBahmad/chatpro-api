@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
@@ -27,7 +27,7 @@ export const ContainerHeaderCard = styled.div`
     font-weight: 500;
     @media (max-width: 568px) {
       font-size: 14px;
-  }
+    }
   }
   margin-bottom: 15px;
 `;

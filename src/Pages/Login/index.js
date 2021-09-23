@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import * as S from "./styles";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import * as S from './styles';
 
 export default function Login() {
-  const [chatId, setChatId] = useState("");
-  const [tokenID, setToken] = useState("");
+  const [chatId, setChatId] = useState('');
+  const [tokenID, setToken] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (localStorage.getItem("@chatID") && localStorage.getItem("@tokenID")) {
-      navigate("/messages/text");
+    if (localStorage.getItem('@chatID') && localStorage.getItem('@tokenID')) {
+      navigate('/messages/text');
     } else {
       return;
     }
@@ -17,19 +17,19 @@ export default function Login() {
   }, []);
 
   function handleLogin() {
-    setChatId("");
-    setToken("");
+    setChatId('');
+    setToken('');
     if (
       !(
-        chatId.includes("chatpro") &&
+        chatId.includes('chatpro') &&
         chatId.length >= 18 &&
         tokenID.length >= 29
       )
     )
-      return alert("ChatID ou token invalido");
-    localStorage.setItem("@chatID", JSON.stringify(chatId));
-    localStorage.setItem("@tokenID", JSON.stringify(tokenID));
-    navigate("/messages/text");
+      return alert('ChatID ou token invalido');
+    localStorage.setItem('@chatID', JSON.stringify(chatId));
+    localStorage.setItem('@tokenID', JSON.stringify(tokenID));
+    navigate('/messages/text');
   }
   return (
     <S.ContainerUp>

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 75%;
@@ -81,7 +81,6 @@ export const ButtonFile = styled.button`
     padding: 0;
   }
 
-
   :disabled {
     opacity: 0.7;
     cursor: not-allowed;
@@ -90,7 +89,7 @@ export const ButtonFile = styled.button`
 
 export const CardQuant = styled.div`
   margin-top: 1rem;
-  font-size: 20px;
+  font-size: 18px;
 
   @media (max-width: 768px) {
     font-size: 14px;

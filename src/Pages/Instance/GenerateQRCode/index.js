@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { getQRCode } from "../../../Actions/Instances";
+import React, { useState } from 'react';
+import { getQRCode } from '../../../Actions/Instances';
 
 export default function QRCode() {
-  const [webhook, setWebhook] = useState("");
+  const [webhook, setWebhook] = useState('');
 
   async function getQR() {
     const obj = {
@@ -10,11 +10,11 @@ export default function QRCode() {
     };
     try {
       await getQRCode(obj);
-      alert("Webhook Enviado");
+      alert('Webhook Enviado');
       const resp = await getQRCode();
       console.log(resp);
     } catch (err) {
-      console.log("erro");
+      console.log('erro');
     }
   }
 

@@ -1,12 +1,12 @@
-import React from "react";
-import { Sidebar } from "../../Components/Sidebar";
-import { Container } from "../../Components/Container";
-import RefreshWebhook from "./RefreshWebhook";
-import Status from "./Status";
-import UpdateProfile from "./UpdateProfile";
-import QRCode from "./GenerateQRCode";
-import Reload from "./Reload";
-import RemoveSession from "./RemoveSession";
+import React from 'react';
+import { Sidebar } from '../../Components/Sidebar';
+import { Container } from '../../Components/Container';
+import RefreshWebhook from './RefreshWebhook';
+import Status from './Status';
+import UpdateProfile from './UpdateProfile';
+import QRCode from './GenerateQRCode';
+import Reload from './Reload';
+import RemoveSession from './RemoveSession';
 
 export default function Instance() {
   return (

@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import { toast } from "react-hot-toast";
-import { sendContact } from "../../../../Actions/Message";
-import { ValidNumber } from "../../../../hooks/ValidNumber";
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { sendContact } from '../../../../Actions/Message';
+import { ValidNumber } from '../../../../hooks/ValidNumber';
 
-import * as S from "./styles";
+import * as S from './styles';
 
 export default function SendUniqueContact() {
-  const [contact_name, setContactName] = useState("");
-  const [contact_number, setContactNumber] = useState("");
-  const [number, setNumber] = useState("");
+  const [contact_name, setContactName] = useState('');
+  const [contact_number, setContactNumber] = useState('');
+  const [number, setNumber] = useState('');
 
   async function sendCTT() {
     const isValid = ValidNumber(number);
-    if (!isValid) return toast.error("Número Invalido");
-    
+    if (!isValid) return toast.error('Número Invalido');
+
     const obj = {
       contact_name,
       contact_number,
@@ -22,12 +22,12 @@ export default function SendUniqueContact() {
     try {
       const resp = await sendContact(obj);
       if (resp?.Status === 0) {
-        toast.success("Contato enviado com Sucesso");
-        setContactName("");
-        setContactNumber("");
-        setNumber("");
+        toast.success('Contato enviado com Sucesso');
+        setContactName('');
+        setContactNumber('');
+        setNumber('');
       } else {
-        toast.error("Contato não enviado");
+        toast.error('Contato não enviado');
       }
     } catch (err) {}
   }
@@ -53,7 +53,14 @@ export default function SendUniqueContact() {
           value={number}
           onChange={(e) => setNumber(e.target.value)}
         />
-        <S.ButtonSend onClick={sendCTT}>Enviar Contato</S.ButtonSend>
+        <S.ButtonSend
+          onClick={sendCTT}
+          disabled={
+            contact_name === '' || number === '' || contact_number === ''
+          }
+        >
+          Enviar Contato
+        </S.ButtonSend>
       </S.ContainerCard>
     </S.Container>
   );

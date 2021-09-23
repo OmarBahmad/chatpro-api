@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 25%;
   margin-top: 20px;
   margin-bottom: 30px;
-  
+
   @media (max-width: 1280px) {
     width: 35%;
   }
@@ -33,14 +33,12 @@ export const ContainerHeaderCard = styled.div`
   margin-bottom: 15px;
 `;
 
-
 export const ContainerForm = styled.div`
   width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
-
 
 export const InputContact = styled.input`
   width: 100%;

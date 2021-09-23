@@ -1,5 +1,3 @@
-import * as S from "./styles";
+import * as S from './styles';
 
-export const Container = ({ children }) => (
-  <S.Wrapper>{children}</S.Wrapper>
-);
+export const Container = ({ children }) => <S.Wrapper>{children}</S.Wrapper>;

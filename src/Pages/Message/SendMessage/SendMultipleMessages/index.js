@@ -24,14 +24,15 @@ export default function SendMultipleMessages({
 
   async function triggerMessages() {
     let verify = "";
-    let isValid = ValidNumber(items[count].number.toString());
+    let isValid = ValidNumber(items[count]?.number?.toString());
+    let isValidMessage = items[count]?.message;
 
     const obj = {
-      number: items[count].number.toString(),
-      message: items[count].message.toString(),
+      number: items[count]?.number?.toString(),
+      message: items[count]?.message?.toString(),
     };
 
-    if (isValid) {
+    if (isValid && isValidMessage) {
       try {
         const resp = await sendMessage(obj);
         setDirty(true);
@@ -52,8 +53,8 @@ export default function SendMultipleMessages({
           setRespFalse((index) => [
             ...index,
             {
-              number: items[count].number.toString(),
-              message: items[count].message.toString(),
+              number: items[count]?.number?.toString(),
+              message: items[count]?.message?.toString(),
             },
           ]);
           toast.error("Mensagem não enviada");
@@ -66,8 +67,8 @@ export default function SendMultipleMessages({
       setRespFalse((index) => [
         ...index,
         {
-          number: items[count].number.toString(),
-          message: items[count].message.toString(),
+          number: items[count]?.number?.toString(),
+          message: items[count]?.message?.toString(),
         },
       ]);
       toast.error("Mensagem não enviada");
@@ -77,8 +78,8 @@ export default function SendMultipleMessages({
       ...index,
       {
         index: count + 1,
-        number: items[count].number.toString(),
-        message: items[count].message.toString(),
+        number: items[count]?.number?.toString(),
+        message: items[count]?.message?.toString(),
         checkMsg: verify,
       },
     ]);
@@ -90,19 +91,11 @@ export default function SendMultipleMessages({
   useEffect(() => {
     if (count < 0 || count === items.length) return;
 
-    if (
-      items[count].number !== undefined &&
-      items[count].message !== undefined
-    ) {
-      const handler = setInterval(() => {
-        triggerMessages();
-      }, getRandomArbitrary());
-      return () => clearInterval(handler);
-    } else {
-      alert(
-        "Algum campo da linha 1 da planilha importada está com o nome incorreto"
-      );
-    }
+    const handler = setInterval(() => {
+      triggerMessages();
+    }, getRandomArbitrary());
+    return () => clearInterval(handler);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 

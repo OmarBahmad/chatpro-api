@@ -1,34 +1,34 @@
-import React, { useState } from "react";
-import { toast } from "react-hot-toast";
-import { deleteMessage } from "../../../../Actions/Message";
-import * as S from "./styles";
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { deleteMessage } from '../../../../Actions/Message';
+import * as S from './styles';
 
-import { ValidNumberDelete } from "../../../../hooks/ValidNumberDelete";
+import { ValidNumberDelete } from '../../../../hooks/ValidNumberDelete';
 
 export default function DeleteUnique() {
-  const [chatJid, setChatJid] = useState("");
-  const [messageID, setMessageID] = useState("");
+  const [chatJid, setChatJid] = useState('');
+  const [messageID, setMessageID] = useState('');
 
   async function deleteMsg() {
     const isValid = ValidNumberDelete(chatJid);
     if (!isValid)
-      return toast.error("Número inválido. Se for celular digitar sem o 9.");
+      return toast.error('Número inválido. Se for celular digitar sem o 9.');
 
     const obj = {
-      chatJid: "55" + chatJid.concat("@s.whatsapp.net"),
+      chatJid: '55' + chatJid.concat('@s.whatsapp.net'),
       messageID,
     };
     try {
       const resp = await deleteMessage(obj);
       if (resp?.status === 200) {
-        toast.success("Mensagem Apagada com Sucesso!");
-        setChatJid("");
-        setMessageID("");
+        toast.success('Mensagem Apagada com Sucesso!');
+        setChatJid('');
+        setMessageID('');
       } else {
-        toast.error("Mensagem Não Apagada!");
+        toast.error('Mensagem Não Apagada!');
       }
     } catch (err) {
-      console.log("erro");
+      console.log('erro');
     }
   }
   return (
@@ -51,9 +51,9 @@ export default function DeleteUnique() {
         />
         <S.ButtonSend
           onClick={deleteMsg}
-          disabled={chatJid === "" || messageID === ""}
+          disabled={chatJid === '' || messageID === ''}
         >
-          Excluir Mensagem{" "}
+          Excluir Mensagem{' '}
         </S.ButtonSend>
       </S.ContainerCard>
     </S.Container>

@@ -1,6 +1,6 @@
 export function ValidNumber(index) {
   if (
-    index !== "" &&
+    index !== '' &&
     !isNaN(parseFloat(index)) &&
     isFinite(index) &&
     index.length >= 10 &&

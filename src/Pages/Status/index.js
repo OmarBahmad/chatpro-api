@@ -1,8 +1,8 @@
-import React from "react";
-import { Sidebar } from "../../Components/Sidebar";
-import SendText from "./SendText";
-import SendImg from "./SendImg";
-import * as S from "./styles";
+import React from 'react';
+import { Sidebar } from '../../Components/Sidebar';
+import SendText from './SendText';
+import SendImg from './SendImg';
+import * as S from './styles';
 
 export default function Status() {
   return (
@@ -15,8 +15,8 @@ export default function Status() {
           <S.ContainerBodyHeader>
             <h3>Status</h3>
           </S.ContainerBodyHeader>
-            <SendText />
-            <SendImg />
+          <SendText />
+          <SendImg />
         </S.ContainerBody>
       </S.Container>
     </>

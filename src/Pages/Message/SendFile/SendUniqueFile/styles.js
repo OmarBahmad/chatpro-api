@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 25%;
@@ -33,7 +33,6 @@ export const ContainerHeaderCard = styled.div`
   }
   margin-bottom: 15px;
 `;
-
 
 export const InputName = styled.input`
   width: 100%;

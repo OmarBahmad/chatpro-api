@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { toast } from "react-hot-toast";
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 
-import { sendTextStatus } from "../../../Actions/Status";
-import * as S from "./styles";
+import { sendTextStatus } from '../../../Actions/Status';
+import * as S from './styles';
 
 export default function SendText() {
-  const [textStatus, setTextStatus] = useState("");
+  const [textStatus, setTextStatus] = useState('');
 
   async function sendStatus() {
     const obj = {
@@ -14,14 +14,14 @@ export default function SendText() {
     try {
       const resp = await sendTextStatus(obj);
 
-      if (resp?.length && resp?.code !== 400) {
-        alert("Status de texto postado com sucesso");
-        setTextStatus("");
+      if (resp?.status === 200) {
+        toast.success('Status adicionado com sucesso.');
+        setTextStatus('');
       } else {
-        toast.error("Não foi possível adicionar o Status");
+        toast.error('Não foi possível adicionar o Status');
       }
     } catch (err) {
-      console.log("erro");
+      console.log('erro');
     }
   }
 
@@ -36,7 +36,7 @@ export default function SendText() {
           value={textStatus}
           onChange={(e) => setTextStatus(e.target.value)}
         />
-        <S.ButtonSend onClick={sendStatus} disabled={textStatus === ""}>
+        <S.ButtonSend onClick={sendStatus} disabled={textStatus === ''}>
           Adicionar Status de Texto
         </S.ButtonSend>
       </S.ContainerCard>

@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { Sidebar } from "../../../Components/Sidebar";
-import DataTable from "../../../Components/DataTable";
-import HeaderTab from "../../../Components/HeaderTab";
+import React, { useState } from 'react';
+import { Sidebar } from '../../../Components/Sidebar';
+import DataTable from '../../../Components/DataTable';
+import HeaderTab from '../../../Components/HeaderTab';
 
-import * as S from "./Styles";
+import * as S from './Styles';
 
-import { SendMultipleFiles } from "./SendMultipleFiles";
-import { SendUniqueFile } from "./SendUniqueFile";
+import { SendMultipleFiles } from './SendMultipleFiles';
+import { SendUniqueFile } from './SendUniqueFile';
 
 export default function SendFile() {
   const [respAll, setRespAll] = useState([]);

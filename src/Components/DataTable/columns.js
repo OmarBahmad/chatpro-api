@@ -1,26 +1,26 @@
 export const ColumnsContact = [
   {
-    Header: "Disparo de Contatos",
+    Header: 'Disparo de Contatos',
     columns: [
       {
         Header: `Índice`,
         accessor: `index`,
       },
       {
-        Header: "Número",
+        Header: 'Número',
         accessor: `number`,
       },
       {
-        Header: "Nome",
-        accessor: "contact_name",
+        Header: 'Nome',
+        accessor: 'contact_name',
       },
       {
-        Header: "Número do Contato",
-        accessor: "contact_number",
+        Header: 'Número do Contato',
+        accessor: 'contact_number',
       },
       {
-        Header: "Status de Envio",
-        accessor: "checkMsg",
+        Header: 'Status de Envio',
+        accessor: 'checkMsg',
       },
     ],
   },
@@ -28,130 +28,130 @@ export const ColumnsContact = [
 
 export const ColumnsMessage = [
   {
-    Header: "Disparo de Mensagens",
+    Header: 'Disparo de Mensagens',
     columns: [
       {
-        Header: "Índice",
+        Header: 'Índice',
         accessor: `index`,
       },
       {
-        Header: "Número",
+        Header: 'Número',
         accessor: `number`,
       },
       {
-        Header: "Mensagem",
-        accessor: "message",
+        Header: 'Mensagem',
+        accessor: 'message',
       },
       {
-        Header: "Status de Envio",
-        accessor: "checkMsg",
+        Header: 'Status de Envio',
+        accessor: 'checkMsg',
       },
     ],
   },
 ];
 export const ColumnsFile = [
   {
-    Header: "Disparo de Arquivos",
+    Header: 'Disparo de Arquivos',
     columns: [
       {
-        Header: "Índice",
+        Header: 'Índice',
         accessor: `index`,
       },
       {
-        Header: "Número",
+        Header: 'Número',
         accessor: `number`,
       },
       {
-        Header: "Nome do Arquivo",
-        accessor: "caption",
+        Header: 'Nome do Arquivo',
+        accessor: 'caption',
       },
       {
-        Header: "Status de Envio",
-        accessor: "checkMsg",
+        Header: 'Status de Envio',
+        accessor: 'checkMsg',
       },
     ],
   },
 ];
 export const ColumnsLocation = [
   {
-    Header: "Disparo de Localizações",
+    Header: 'Disparo de Localizações',
     columns: [
       {
-        Header: "Índice",
+        Header: 'Índice',
         accessor: `index`,
       },
       {
-        Header: "Número",
+        Header: 'Número',
         accessor: `address`,
       },
       {
-        Header: "Nome do Local",
-        accessor: "name",
+        Header: 'Nome do Local',
+        accessor: 'name',
       },
       {
-        Header: "Número do Contato",
-        accessor: "number",
+        Header: 'Número do Contato',
+        accessor: 'number',
       },
       {
-        Header: "Status de Envio",
-        accessor: "checkMsg",
+        Header: 'Status de Envio',
+        accessor: 'checkMsg',
       },
     ],
   },
 ];
 export const ColumnsDelete = [
   {
-    Header: "Disparo de Mensagens",
+    Header: 'Disparo de Mensagens',
     columns: [
       {
-        Header: "Índice",
+        Header: 'Índice',
         accessor: `index`,
       },
       {
-        Header: "chatJid",
+        Header: 'chatJid',
         accessor: `chatJid`,
       },
       {
-        Header: "MessageID",
-        accessor: "messageID",
+        Header: 'MessageID',
+        accessor: 'messageID',
       },
       {
-        Header: "Status de Envio",
-        accessor: "checkMsg",
+        Header: 'Status de Envio',
+        accessor: 'checkMsg',
       },
     ],
   },
 ];
-export const ColumnsChat= [
+export const ColumnsChat = [
   {
-    Header: "Disparo de Mensagens",
+    Header: 'Disparo de Mensagens',
     columns: [
       {
-        Header: "Índice",
+        Header: 'Índice',
         accessor: `index`,
       },
       {
-        Header: "Jid",
+        Header: 'Jid',
         accessor: `Jid`,
       },
       {
-        Header: "LastMessageTime",
+        Header: 'LastMessageTime',
         accessor: `LastMessageTime`,
       },
     ],
   },
 ];
 
-export const ColumnsGroups= [
+export const ColumnsGroups = [
   {
-    Header: "Grupos",
+    Header: 'Grupos',
     columns: [
       {
-        Header: "Nome do Grupo",
+        Header: 'Nome do Grupo',
         accessor: `Name`,
       },
       {
-        Header: "Jid",
+        Header: 'Jid',
         accessor: `Jid`,
       },
     ],

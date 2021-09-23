@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { toast } from "react-hot-toast";
-import { getContacts } from "../../../Actions/Contacts";
-import ExportExcelMessageSucess from "../../../Components/ExportExcel/ExportExcelMessageSucess";
-import * as S from "./styles";
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { getContacts } from '../../../Actions/Contacts';
+import ExportExcelMessageSucess from '../../../Components/ExportExcel/ExportExcelMessageSucess';
+import * as S from './styles';
 
 export default function SearchContacts() {
   const [data, setData] = useState([]);
@@ -12,12 +12,12 @@ export default function SearchContacts() {
       const resp = await getContacts();
       if (resp.length && resp?.code !== 400) {
         setData(resp);
-        toast.success("Lista de contatos retornados com sucesso!");
+        toast.success('Lista de contatos retornados com sucesso!');
       } else {
-        toast.error("Não foi possível efetuar a busca!");
+        toast.error('Não foi possível efetuar a busca!');
       }
     } catch (err) {
-      console.log("erro");
+      console.log('erro');
     }
   }
   return (
@@ -37,7 +37,7 @@ export default function SearchContacts() {
               collum2="Name"
               collum3="Short"
               nameButton="Download da lista de contatos"
-              nameFile={"Lista de Contatos"}
+              nameFile={'Lista de Contatos'}
             />
           </>
         )}

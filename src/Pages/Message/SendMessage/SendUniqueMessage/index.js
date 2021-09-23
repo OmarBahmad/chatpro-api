@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { toast } from "react-hot-toast";
-import { sendMessage } from "../../../../Actions/Message";
-import { ValidNumber } from "../../../../hooks/ValidNumber";
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { sendMessage } from '../../../../Actions/Message';
+import { ValidNumber } from '../../../../hooks/ValidNumber';
 
-import * as S from "./styles";
+import * as S from './styles';
 
 export default function SendUniqueMessage() {
-  const [message, setMessage] = useState("");
-  const [number, setNumber] = useState("");
+  const [message, setMessage] = useState('');
+  const [number, setNumber] = useState('');
 
   async function sendM() {
     const isValid = ValidNumber(number);
-    if (!isValid) return toast.error("Número Invalido");
+    if (!isValid) return toast.error('Número Invalido');
 
     const obj = {
       number: number.toString(),
@@ -20,14 +20,14 @@ export default function SendUniqueMessage() {
     try {
       const resp = await sendMessage(obj);
       if (resp.status) {
-        toast.success("Mensagem Enviada com sucesso!");
-        setMessage("");
-        setNumber("");
+        toast.success('Mensagem Enviada com sucesso!');
+        setMessage('');
+        setNumber('');
       } else {
-        toast.error("Mensagem Não Enviada!");
+        toast.error('Mensagem Não Enviada!');
       }
     } catch (err) {
-      console.log("erro");
+      console.log('erro');
     }
   }
 
@@ -51,7 +51,7 @@ export default function SendUniqueMessage() {
         />
         <S.ButtonSend
           onClick={sendM}
-          disabled={message === "" || number === ""}
+          disabled={message === '' || number === ''}
         >
           Enviar Mensagem
         </S.ButtonSend>

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 75%;
@@ -59,7 +59,7 @@ export const ButtonFile = styled.button`
 
 export const CardQuant = styled.div`
   margin-top: 1rem;
-  font-size: 20px;
+  font-size: 18px;
 
   @media (max-width: 768px) {
     font-size: 14px;
@@ -83,7 +83,7 @@ export const ContainerCard = styled.div`
   display: flex;
   flex-direction: column;
   width: 80%;
-  height: 85%;
+  height: 96%;
   background-color: #1d1d26;
   color: #e2e2e2;
   padding: 20px 30px;

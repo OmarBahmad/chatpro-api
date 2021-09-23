@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { updateWebhook } from "../../../Actions/Instances";
+import React, { useState } from 'react';
+import { updateWebhook } from '../../../Actions/Instances';
 
 export default function RefreshWebhook() {
-  const [webhook, setWebhook] = useState("");
+  const [webhook, setWebhook] = useState('');
 
   async function updatePicture() {
     const obj = {
@@ -10,18 +10,18 @@ export default function RefreshWebhook() {
     };
     try {
       await updateWebhook(obj);
-      alert("Foto Alterada com Sucesso");
+      alert('Foto Alterada com Sucesso');
     } catch (err) {
-      console.log("erro");
+      console.log('erro');
     }
-    setWebhook("");
+    setWebhook('');
   }
   return (
     <div>
       <h2>Atualizar Webhook</h2>
       <p>Atualiza o servidor Webhook</p>
-      <br/>
-      <input 
+      <br />
+      <input
         placeholder="URL"
         className="input-msg"
         value={webhook}

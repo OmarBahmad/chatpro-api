@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { toast } from "react-hot-toast";
-import * as S from "./styles";
-import { getChat } from "../../../Actions/Chat";
-import ExportExcelMessageSucess from "../../../Components/ExportExcel/ExportExcelMessageSucess";
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
+import * as S from './styles';
+import { getChat } from '../../../Actions/Chat';
+import ExportExcelMessageSucess from '../../../Components/ExportExcel/ExportExcelMessageSucess';
 
 export default function GetChat() {
   const [chatUnique, SetChatUnique] = useState([]);
@@ -16,15 +16,15 @@ export default function GetChat() {
       //verificar quando esta certo resp.code === 400 celular nao conectado
       if (resp.length && resp?.code !== 400) {
         const group = await resp?.filter((group) =>
-          group.Jid.includes("@g.us")
+          group.Jid.includes('@g.us')
         );
 
         const unique = await resp?.filter((chat) =>
-          chat.Jid.includes("@s.whatsapp.net")
+          chat.Jid.includes('@s.whatsapp.net')
         );
 
         const broadcast = await resp?.filter((index) =>
-          index.Jid.includes("@broadcast")
+          index.Jid.includes('@broadcast')
         );
 
         setChatGroup(group);
@@ -42,9 +42,9 @@ export default function GetChat() {
       }
 */
 
-        toast.success("Lista de chats retornadas com sucesso!");
+        toast.success('Lista de chats retornadas com sucesso!');
       } else {
-        toast.error("Não foi possível efetuar a busca!");
+        toast.error('Não foi possível efetuar a busca!');
       }
     } catch (err) {
       console.log(err);
@@ -68,7 +68,7 @@ export default function GetChat() {
               collum2="Name"
               collum3="message"
               nameButton="Download das conversas individuais"
-              nameFile={"Conversas Individuais"}
+              nameFile={'Conversas Individuais'}
             />
           </>
         )}
@@ -81,7 +81,7 @@ export default function GetChat() {
               collum2="Name"
               collum3="message"
               nameButton="Download dos grupos"
-              nameFile={"Grupos"}
+              nameFile={'Grupos'}
             />
           </>
         )}
@@ -94,7 +94,7 @@ export default function GetChat() {
               collum2="Name"
               collum3="message"
               nameButton="Download da Lista de transmissão"
-              nameFile={"Lista de transmissao"}
+              nameFile={'Lista de transmissao'}
             />
           </>
         )}

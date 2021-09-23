@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { toast } from "react-hot-toast";
-import { sendFile } from "../../../../Actions/Message";
-import { ValidNumber } from "../../../../hooks/ValidNumber";
-import * as S from "./styles";
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { sendFile } from '../../../../Actions/Message';
+import { ValidNumber } from '../../../../hooks/ValidNumber';
+import * as S from './styles';
 
 export function SendUniqueFile() {
-  const [caption, setCaption] = useState("");
-  const [number, setNumber] = useState("");
-  const [url, setURL] = useState("");
+  const [caption, setCaption] = useState('');
+  const [number, setNumber] = useState('');
+  const [url, setURL] = useState('');
 
   async function sendUrlFile() {
     const isValid = ValidNumber(number);
-    if (!isValid) return toast.error("Número Invalido");
-    
+    if (!isValid) return toast.error('Número Invalido');
+
     const obj = {
       caption,
       number,
@@ -21,12 +21,12 @@ export function SendUniqueFile() {
     try {
       const resp = await sendFile(obj);
       if (resp.status === true) {
-        toast.success("Arquivo Enviado com Sucesso");
-        setCaption("");
-        setNumber("");
-        setURL("");
+        toast.success('Arquivo Enviado com Sucesso');
+        setCaption('');
+        setNumber('');
+        setURL('');
       } else {
-        toast.error("Arquivo Não Enviado");
+        toast.error('Arquivo Não Enviado');
       }
     } catch (err) {}
   }
@@ -54,7 +54,7 @@ export function SendUniqueFile() {
         />
         <S.ButtonSend
           onClick={sendUrlFile}
-          disabled={caption === "" || number === "" || url === ""}
+          disabled={caption === '' || number === '' || url === ''}
         >
           Enviar Arquivo
         </S.ButtonSend>

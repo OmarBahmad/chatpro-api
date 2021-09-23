@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { toast } from "react-hot-toast";
-import { createGroup } from "../../../Actions/Groups";
-import * as S from "./styles";
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { createGroup } from '../../../Actions/Groups';
+import * as S from './styles';
 
-import { ValidNumber } from "../../../hooks/ValidNumber";
+import { ValidNumber } from '../../../hooks/ValidNumber';
 
 export default function CreateGroup() {
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
   const [count, setCount] = useState(0);
   const [phones, setPhones] = useState([]);
 
@@ -19,26 +19,26 @@ export default function CreateGroup() {
     try {
       const resp = await createGroup(obj);
       if (resp && resp?.code !== 400) {
-        toast.success("Grupo criado!");
-        setName("");
+        toast.success('Grupo criado!');
+        setName('');
         setPhones([]);
         setCount(0);
       } else {
-        toast.error("Não foi possível criar o grupo!");
+        toast.error('Não foi possível criar o grupo!');
       }
     } catch (err) {
-      console.log("Erro ao criar grupo.");
+      console.log('Erro ao criar grupo.');
     }
   }
 
   function pushNumber() {
     const isValid = ValidNumber(number);
-    if (!isValid) return toast.error("Número Invalido");
+    if (!isValid) return toast.error('Número Invalido');
 
     setPhones([...phones, number]);
     setCount(count + 1);
-    setNumber("");
-    toast.success("Número Adicionado");
+    setNumber('');
+    toast.success('Número Adicionado');
   }
 
   return (
@@ -67,7 +67,7 @@ export default function CreateGroup() {
           <S.ButtonSend onClick={pushNumber}>Adicionar Números</S.ButtonSend>
           <S.ButtonCreate
             onClick={createG}
-            disabled={name === "" || phones.length < 2}
+            disabled={name === '' || phones.length < 2}
           >
             Criar Grupo
           </S.ButtonCreate>

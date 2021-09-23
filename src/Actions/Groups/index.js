@@ -1,15 +1,15 @@
-import { api, keyAuthorization } from "../../Api/api";
+import { api, keyAuthorization } from '../../Api/api';
 
 // Criar um novo grupo
 export const createGroup = async (params) => {
   let summary = [];
   try {
     const { data } = await api.post(
-      "/api/v1/create_group",
+      '/api/v1/create_group',
       JSON.stringify(params),
       {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           authorization: keyAuthorization,
         },
       }
@@ -26,11 +26,11 @@ export const leaveGroup = async (params) => {
   let summary = [];
   try {
     const { data } = await api.post(
-      "/api/v1/leave_group",
+      '/api/v1/leave_group',
       JSON.stringify(params),
       {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           authorization: keyAuthorization,
         },
       }

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Sidebar } from "../../../Components/Sidebar";
-import HeaderTab from "../../../Components/HeaderTab";
-import SendUniqueLocation from "./SendUniqueLocation";
-import SendMultipleLocation from "./SenMultipleLocation";
-import DataTable from "../../../Components/DataTable";
-import * as S from "./styles";
+import React, { useState } from 'react';
+import { Sidebar } from '../../../Components/Sidebar';
+import HeaderTab from '../../../Components/HeaderTab';
+import SendUniqueLocation from './SendUniqueLocation';
+import SendMultipleLocation from './SendMultipleLocation';
+import DataTable from '../../../Components/DataTable';
+import * as S from './styles';
 
 export default function SendLocation() {
   const [items, setItems] = useState([]);

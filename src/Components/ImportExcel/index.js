@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from "react";
-import * as XLSX from "xlsx";
-import * as S from "./styles";
+import React from 'react';
+import * as XLSX from 'xlsx';
+import * as S from './styles';
 
 export default function ImportExcel({ setItems }) {
   const readExcel = (file) => {
@@ -12,7 +12,7 @@ export default function ImportExcel({ setItems }) {
       fileReader.onload = (e) => {
         const bufferArray = e.target.result;
 
-        const wb = XLSX.read(bufferArray, { type: "buffer" });
+        const wb = XLSX.read(bufferArray, { type: 'buffer' });
 
         const wsname = wb.SheetNames[0];
 
@@ -47,4 +47,3 @@ export default function ImportExcel({ setItems }) {
     </>
   );
 }
-

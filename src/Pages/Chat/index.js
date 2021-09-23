@@ -1,7 +1,7 @@
-import React from "react";
-import { Sidebar } from "../../Components/Sidebar";
-import GetChat from "./GetChat";
-import * as S from "./styles";
+import React from 'react';
+import { Sidebar } from '../../Components/Sidebar';
+import GetChat from './GetChat';
+import * as S from './styles';
 
 export default function Chat() {
   return (

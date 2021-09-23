@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { sendContact } from "../../../Actions/Message";
+import React, { useState } from 'react';
+import { sendContact } from '../../../Actions/Message';
 
 export default function SendMessageTemplate() {
-  const [contact_name, setContactName] = useState("");
-  const [contact_number, setContactNumber] = useState("");
-  const [number, setNumber] = useState("");
+  const [contact_name, setContactName] = useState('');
+  const [contact_number, setContactNumber] = useState('');
+  const [number, setNumber] = useState('');
 
   async function sendMessageTpt() {
     const obj = {
@@ -14,12 +14,12 @@ export default function SendMessageTemplate() {
     };
     try {
       await sendContact(obj);
-      alert("Contato enviado com sucesso.");
+      alert('Contato enviado com sucesso.');
     } catch (err) {
-      console.log("erro");
+      console.log('erro');
     }
-    setContactNumber("");
-    setNumber("");
+    setContactNumber('');
+    setNumber('');
   }
   return (
     <div>
